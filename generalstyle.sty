@@ -26,6 +26,10 @@
 \automark{section}
 
 
+% table of contents
+\setcounter{tocdepth}{1}        % no subsections in the toc
+
+
 % colours for hyperref
 \hypersetup{
     colorlinks,
@@ -48,6 +52,7 @@
 \newtheorem{conventions}[everything]{Conventions}
 \newtheorem{corollary}[everything]{Corollary}
 \newtheorem{definition}[everything]{Definition}
+\newtheorem{fact}[everything]{Fact}
 \newtheorem{fluff}[everything]{}      % to be replaced with something better
 \newtheorem{lemma}[everything]{Lemma}
 \newtheorem{notation}[everything]{Notation}
@@ -74,8 +79,8 @@
 
 
 % settings for list like environments
-\setlist[enumerate, 1]{leftmargin=*, align=left, label=\alph*)}
-\setlist[enumerate, 2]{leftmargin=*, align=left, label=\arabic*)}
+\setlist[enumerate, 1]{leftmargin=*, align=left, label=\arabic*)}
+\setlist[enumerate, 2]{leftmargin=*, align=left, label=\alph*)}
 \setlist[description, 1]{leftmargin=\labelwidth, font=\normalfont}
 \setlist[description, 2]{leftmargin=\labelwidth, font=\normalfont}
 \setlist[itemize, 1]{leftmargin=*}
@@ -91,10 +96,17 @@
 \newcommand{\ngroupleq}{\trianglelefteq}
 \newcommand{\ngrouplneq}{\mathrel{\ooalign{$\lneq$\cr\raise.22ex\hbox{$\lhd$}\cr}}}
 \newcommand{\idealleq}{\trianglelefteq}
+\newcommand{\idealgeq}{\trianglerighteq}
 \newcommand{\ideallneq}{\mathrel{\ooalign{$\lneq$\cr\raise.22ex\hbox{$\lhd$}\cr}}}
 \newcommand{\idealgneq}{\mathrel{\ooalign{$\gneq$\cr\raise.22ex\hbox{$\rhd$}\cr}}}
 \newcommand{\idealnleq}{\ntrianglelefteq}
 \newcommand{\tensor}{\mathbin{\otimes}}
+
+
+% small dots for small matrices
+\newcommand{\scdots}{\cdots}
+\newcommand{\svdots}{\raisebox{3pt}{$\scalebox{.75}{\vdots}$}} % <- Works
+\newcommand{\sddots}{\raisebox{3pt}{$\scalebox{.75}{$\ddots$}$}} % <- Do not work
 
 
 % numbers and fields
@@ -112,12 +124,21 @@
 
 
 % spaces
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\Orth}{O}
+\DeclareMathOperator{\SOrth}{SO}
+\DeclareMathOperator{\Symp}{Sp}
+\DeclareMathOperator{\Diag}{D}
+\DeclareMathOperator{\Triag}{T}
+\DeclareMathOperator{\Uni}{U}
+\newcommand{\Gadd}{\mathbb{G}_{\text{a}}}
+\newcommand{\Gmult}{\mathbb{G}_{\text{m}}}
+\DeclareMathOperator{\Aff}{\mathbb{A}}
+\DeclareMathOperator{\coord}{A}
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\End}{End}
 \DeclareMathOperator{\Mat}{M}
-\DeclareMathOperator{\D}{D}
-\DeclareMathOperator{\GL}{GL}
-\DeclareMathOperator{\SL}{SL}
 \DeclareMathOperator{\centralizer}{Z}
 \DeclareMathOperator{\ringcenter}{Z}
 \DeclareMathOperator{\groupcenter}{Z}
@@ -125,6 +146,8 @@
 
 
 % functions
+\DeclareMathOperator{\Vset}{V}
+\DeclareMathOperator{\Ideal}{I}
 \DeclareMathOperator{\rank}{rank}
 \DeclareMathOperator{\id}{id}
 \DeclareMathOperator{\tr}{tr}
@@ -133,11 +156,6 @@
 
 
 % misc. shortcuts
-\NewDocumentCommand{\suchthat}{s}{
-  \IfBooleanTF{#1}
-    {\,\middle|\,}
-    {\,|\,}       
-}
 \newcommand{\del}{\partial}
 \newcommand{\longto}{\longrightarrow}
 \newcommand{\inclusion}{\hookrightarrow}
@@ -149,6 +167,15 @@
 \newcommand{\closure}[1]{\overline{#1}}
 \newcommand{\dblbrack}[1]{\left[\!\left[#1\right]\!\right]}
 \newcommand{\gen}[1]{\left\langle #1 \right\rangle}
+\newcommand{\rad}[1]{\sqrt{#1}}
+
+
+% restrict and suchthat
+\NewDocumentCommand{\suchthat}{s}{
+  \IfBooleanTF{#1}
+    {\,\middle|\,}
+    {\,|\,}       
+}
 \NewDocumentCommand{\restrict}{smmO{}}{
   \IfBooleanTF{#1}
     {\left. {#2} \middle|_{#3}^{#4} \right.}
