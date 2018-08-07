@@ -8,7 +8,6 @@ before_install:
 - sudo ./install-tl-ubuntu
 - eval "$(sed 's/^/export /' /etc/environment)"
 - cd ..
-- sudo apt-get -qq install biber
 script:
 - wget "https://raw.githubusercontent.com/Hightor/gitinfo2/CTAN/post-xxx-sample.txt" -O generate_gitinfo2
 - chmod +x generate_gitinfo2
