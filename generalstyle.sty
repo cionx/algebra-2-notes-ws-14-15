@@ -1,0 +1,176 @@
+% all the packages
+\usepackage{gitinfo2}
+\usepackage{amsmath, amssymb, amsthm, mathtools}      % general math stuff
+\usepackage{stmaryrd}   % \mapsfrom
+\usepackage{extarrows}  % \xlongequal
+\usepackage{fontspec}   % for xelatex stuff
+\usepackage{hyperref}   % for internal (and external) links
+\usepackage{tikz-cd}    % commutative diagrams
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+\usepackage{enumitem}   % more control over enumerates
+\usepackage[automark, headsepline]{scrlayer-scrpage}  %for headers
+\usepackage{csquotes}   % for proper quotation marks
+\usepackage{microtype}  % for typography
+
+
+
+
+
+% fonts for titlepage
+\setkomafont{publishers}{\normalsize}
+
+
+% settings for scrlayer-scrpage
+\pagestyle{scrheadings}
+\automark{section}
+
+
+% colours for hyperref
+\hypersetup{
+    colorlinks,
+    linkcolor={green!40!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+
+
+% prevents breaking inline math around binary or relationship symbols
+\binoppenalty=\maxdimen
+\relpenalty=\maxdimen
+
+
+% theorem like environments
+\theoremstyle{definition}
+\newcounter{everything}[section]
+\newtheorem{example}[everything]{Example}
+\newtheorem*{claim}{Claim}
+\newtheorem{conventions}[everything]{Conventions}
+\newtheorem{corollary}[everything]{Corollary}
+\newtheorem{definition}[everything]{Definition}
+\newtheorem{fluff}[everything]{}      % to be replaced with something better
+\newtheorem{lemma}[everything]{Lemma}
+\newtheorem{notation}[everything]{Notation}
+\newtheorem{proposition}[everything]{Proposition}
+\newtheorem{recall}[everything]{Recall}
+\newtheorem{remark}[everything]{Remark}
+\newtheorem{theorem}[everything]{Theorem}
+\newtheorem{warning}[everything]{Warning}
+
+
+% don't reset section counter
+\counterwithout{section}{chapter}
+% reset equation counters between sections
+\counterwithin*{equation}{section}
+
+
+% how counters are printed
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
+\renewcommand{\theeverything}{\thesection.\arabic{everything}}
+\renewcommand{\thefigure}{\thesection.\arabic{figure}}
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+
+
+% settings for list like environments
+\setlist[enumerate, 1]{leftmargin=*, align=left, label=\alph*)}
+\setlist[enumerate, 2]{leftmargin=*, align=left, label=\arabic*)}
+\setlist[description, 1]{leftmargin=\labelwidth, font=\normalfont}
+\setlist[description, 2]{leftmargin=\labelwidth, font=\normalfont}
+\setlist[itemize, 1]{leftmargin=*}
+\setlist[itemize, 2]{leftmargin=*, label={\textopenbullet}}
+\setlist[itemize, 3]{leftmargin=*}
+
+
+% relations and binary operations
+\newcommand{\defined}{\coloneqq}
+\newcommand{\defines}{\eqqcolon}
+\newcommand{\groupleq}{\leq}
+\newcommand{\grouplneq}{\lneq}
+\newcommand{\ngroupleq}{\trianglelefteq}
+\newcommand{\ngrouplneq}{\mathrel{\ooalign{$\lneq$\cr\raise.22ex\hbox{$\lhd$}\cr}}}
+\newcommand{\idealleq}{\trianglelefteq}
+\newcommand{\ideallneq}{\mathrel{\ooalign{$\lneq$\cr\raise.22ex\hbox{$\lhd$}\cr}}}
+\newcommand{\idealgneq}{\mathrel{\ooalign{$\gneq$\cr\raise.22ex\hbox{$\rhd$}\cr}}}
+\newcommand{\idealnleq}{\ntrianglelefteq}
+\newcommand{\tensor}{\mathbin{\otimes}}
+
+
+% numbers and fields
+\newcommand{\Natural}{\mathbb{N}}
+\newcommand{\Integer}{\mathbb{Z}}
+\newcommand{\Rational}{\mathbb{Q}}
+\newcommand{\Real}{\mathbb{R}}
+\newcommand{\Complex}{\mathbb{C}}
+\newcommand{\Finite}{\mathbb{F}}
+
+
+% often used commands
+\newcommand{\mc}{\mathcal}
+\newcommand{\mf}{\mathfrak}
+
+
+% spaces
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Mat}{M}
+\DeclareMathOperator{\D}{D}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\centralizer}{Z}
+\DeclareMathOperator{\ringcenter}{Z}
+\DeclareMathOperator{\groupcenter}{Z}
+\DeclareMathOperator{\im}{im}
+
+
+% functions
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\ringchar}{char}
+\DeclareMathOperator{\diag}{diag}
+
+
+% misc. shortcuts
+\NewDocumentCommand{\suchthat}{s}{
+  \IfBooleanTF{#1}
+    {\,\middle|\,}
+    {\,|\,}       
+}
+\newcommand{\del}{\partial}
+\newcommand{\longto}{\longrightarrow}
+\newcommand{\inclusion}{\hookrightarrow}
+\newcommand{\projection}{\twoheadrightarrow}
+
+
+% constructors
+\newcommand{\class}[1]{\overline{#1}}
+\newcommand{\closure}[1]{\overline{#1}}
+\newcommand{\dblbrack}[1]{\left[\!\left[#1\right]\!\right]}
+\newcommand{\gen}[1]{\left\langle #1 \right\rangle}
+\NewDocumentCommand{\restrict}{smmO{}}{
+  \IfBooleanTF{#1}
+    {\left. {#2} \middle|_{#3}^{#4} \right.}
+    {{#2}|_{#3}^{#4}}
+}
+
+
+% copied from https://tex.stackexchange.com/questions/198771/align-in-substack
+\makeatletter
+\newcommand{\subalign}[1]{%
+  \vcenter{%
+    \Let@ \restore@math@cr \default@tag
+    \baselineskip\fontdimen10 \scriptfont\tw@
+    \advance\baselineskip\fontdimen12 \scriptfont\tw@
+    \lineskip\thr@@\fontdimen8 \scriptfont\thr@@
+    \lineskiplimit\lineskip
+    \ialign{\hfil$\m@th\scriptstyle##$&$\m@th\scriptstyle{}##$\crcr
+      #1\crcr
+    }%
+  }
+}
+\makeatother
+
+
+
