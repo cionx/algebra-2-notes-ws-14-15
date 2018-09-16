@@ -1,10 +1,11 @@
 % all the packages
-\usepackage{gitinfo2}
+\usepackage{gitinfo2}   % git information on the title page
 \usepackage{amsmath, amssymb, amsthm, mathtools}      % general math stuff
 \usepackage{stmaryrd}   % \mapsfrom
 \usepackage{extarrows}  % \xlongequal
 \usepackage{fontspec}   % for xelatex stuff
 \usepackage{hyperref}   % for internal (and external) links
+\usepackage[capitalise,noabbrev]{cleveref}            % for smarter referencing
 \usepackage{tikz-cd}    % commutative diagrams
 \usetikzlibrary{positioning}
 \usetikzlibrary{arrows}
@@ -12,9 +13,12 @@
 \usepackage[automark, headsepline]{scrlayer-scrpage}  %for headers
 \usepackage{csquotes}   % for proper quotation marks
 \usepackage{microtype}  % for typography
+\usepackage{mathdots}
 
 
-
+% prevents breaking inline math around binary or relationship symbols
+\binoppenalty=\maxdimen
+\relpenalty=\maxdimen
 
 
 % fonts for titlepage
@@ -39,9 +43,14 @@
 }
 
 
-% prevents breaking inline math around binary or relationship symbols
-\binoppenalty=\maxdimen
-\relpenalty=\maxdimen
+% settings for list like environments
+\setlist[enumerate, 1]{leftmargin=*, align=left, label=\arabic*)}
+\setlist[enumerate, 2]{leftmargin=*, align=left, label=\alph*)}
+\setlist[description, 1]{leftmargin=\labelwidth, font=\normalfont}
+\setlist[description, 2]{leftmargin=\labelwidth, font=\normalfont}
+\setlist[itemize, 1]{leftmargin=*}
+\setlist[itemize, 2]{leftmargin=*, label={\textopenbullet}}
+\setlist[itemize, 3]{leftmargin=*}
 
 
 % theorem like environments
@@ -63,32 +72,24 @@
 \newtheorem{warning}[everything]{Warning}
 
 
-% don't reset section counter
-\counterwithout{section}{chapter}
 % reset equation counters between sections
 \counterwithin*{equation}{section}
 
 
 % how counters are printed
+\renewcommand{\thechapter}{\Roman{chapter}}
 \renewcommand{\thesection}{\arabic{section}}
 \renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
-\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
 \renewcommand{\theeverything}{\thesection.\arabic{everything}}
 \renewcommand{\thefigure}{\thesection.\arabic{figure}}
 \renewcommand{\theequation}{\thesection.\arabic{equation}}
 
 
-% settings for list like environments
-\setlist[enumerate, 1]{leftmargin=*, align=left, label=\arabic*)}
-\setlist[enumerate, 2]{leftmargin=*, align=left, label=\alph*)}
-\setlist[description, 1]{leftmargin=\labelwidth, font=\normalfont}
-\setlist[description, 2]{leftmargin=\labelwidth, font=\normalfont}
-\setlist[itemize, 1]{leftmargin=*}
-\setlist[itemize, 2]{leftmargin=*, label={\textopenbullet}}
-\setlist[itemize, 3]{leftmargin=*}
+% tyopograhy shortcuts
+\newcommand{\dash}[2]{#1\nobreakdash-#2}
 
 
-% relations and binary operations
+% relations
 \newcommand{\defined}{\coloneqq}
 \newcommand{\defines}{\eqqcolon}
 \newcommand{\groupleq}{\leq}
@@ -100,13 +101,23 @@
 \newcommand{\ideallneq}{\mathrel{\ooalign{$\lneq$\cr\raise.22ex\hbox{$\lhd$}\cr}}}
 \newcommand{\idealgneq}{\mathrel{\ooalign{$\gneq$\cr\raise.22ex\hbox{$\rhd$}\cr}}}
 \newcommand{\idealnleq}{\ntrianglelefteq}
+
+
+% binary operators
 \newcommand{\tensor}{\mathbin{\otimes}}
 
 
-% small dots for small matrices
-\newcommand{\scdots}{\cdots}
-\newcommand{\svdots}{\raisebox{3pt}{$\scalebox{.75}{\vdots}$}} % <- Works
-\newcommand{\sddots}{\raisebox{3pt}{$\scalebox{.75}{$\ddots$}$}} % <- Do not work
+% misc. shortcuts
+\newcommand{\del}{\partial}
+\newcommand{\longequal}{=\joinrel=}
+\newcommand{\longto}{\longrightarrow}
+\newcommand{\inclusion}{\hookrightarrow}
+\newcommand{\projection}{\twoheadrightarrow}
+
+
+% often used commands
+\newcommand{\mc}{\mathcal}
+\newcommand{\mf}{\mathfrak}
 
 
 % numbers and fields
@@ -118,12 +129,12 @@
 \newcommand{\Finite}{\mathbb{F}}
 
 
-% often used commands
-\newcommand{\mc}{\mathcal}
-\newcommand{\mf}{\mathfrak}
+% categories
+\newcommand{\catname}[1]{\mathbf{#1}}
+\newcommand{\cAlg}[1]{#1\text{-}\catname{Alg}}
 
 
-% spaces
+% groups
 \DeclareMathOperator{\GL}{GL}
 \DeclareMathOperator{\SL}{SL}
 \DeclareMathOperator{\Orth}{O}
@@ -134,47 +145,34 @@
 \DeclareMathOperator{\Uni}{U}
 \newcommand{\Gadd}{\mathbb{G}_{\text{a}}}
 \newcommand{\Gmult}{\mathbb{G}_{\text{m}}}
+
+
+% spaces and sets
+\DeclareMathOperator{\gl}{\mathfrak{gl}}
 \DeclareMathOperator{\Aff}{\mathbb{A}}
+\DeclareMathOperator{\vset}{V}
+\DeclareMathOperator{\videal}{I}
 \DeclareMathOperator{\coord}{A}
+\DeclareMathOperator{\Dopen}{D}
+\DeclareMathOperator{\Mor}{Mor}
 \DeclareMathOperator{\Hom}{Hom}
-\DeclareMathOperator{\End}{End}
-\DeclareMathOperator{\Mat}{M}
-\DeclareMathOperator{\centralizer}{Z}
-\DeclareMathOperator{\ringcenter}{Z}
-\DeclareMathOperator{\groupcenter}{Z}
-\DeclareMathOperator{\im}{im}
 
 
 % functions
-\DeclareMathOperator{\Vset}{V}
-\DeclareMathOperator{\Ideal}{I}
-\DeclareMathOperator{\rank}{rank}
 \DeclareMathOperator{\id}{id}
-\DeclareMathOperator{\tr}{tr}
-\DeclareMathOperator{\ringchar}{char}
-\DeclareMathOperator{\diag}{diag}
 
 
-% misc. shortcuts
-\newcommand{\del}{\partial}
-\newcommand{\longto}{\longrightarrow}
-\newcommand{\inclusion}{\hookrightarrow}
-\newcommand{\projection}{\twoheadrightarrow}
-
-
-% constructors
+% decorations
 \newcommand{\class}[1]{\overline{#1}}
-\newcommand{\closure}[1]{\overline{#1}}
-\newcommand{\dblbrack}[1]{\left[\!\left[#1\right]\!\right]}
-\newcommand{\gen}[1]{\left\langle #1 \right\rangle}
+\newcommand{\induced}[1]{\overline{#1}}
 \newcommand{\rad}[1]{\sqrt{#1}}
 
 
-% restrict and suchthat
+% custom macros with case distinctions
 \NewDocumentCommand{\suchthat}{s}{
   \IfBooleanTF{#1}
     {\,\middle|\,}
-    {\,|\,}       
+    {\mathrel{|}}       
 }
 \NewDocumentCommand{\restrict}{smmO{}}{
   \IfBooleanTF{#1}
@@ -184,7 +182,6 @@
 
 
 % copied from https://tex.stackexchange.com/questions/198771/align-in-substack
-\makeatletter
 \newcommand{\subalign}[1]{%
   \vcenter{%
     \Let@ \restore@math@cr \default@tag
@@ -197,7 +194,7 @@
     }%
   }
 }
-\makeatother
+
 
 
 

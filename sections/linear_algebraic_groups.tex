@@ -1,4 +1,11 @@
-\section{Linear Algebraic Groups}
+\chapter{Linear Algebraic Groups}
+
+
+
+
+
+\addtocounter{section}{-1}
+\section{Basic Definition}
 
 
 \begin{conventions}
@@ -7,7 +14,7 @@
 
 
 \begin{definition}
-  A \emph{linear algebraic group} is a subgroup $G \groupleq \GL_n(k)$ (for some $n$) which is cut out by polynomials, i.e.\ there exist $f_1, \dotsc, f_r \in k[x_{11}, \dotsc, x_{nn}]$ such that
+  A \emph{linear algebraic group} is a subgroup~$G \groupleq \GL_n(k)$ (for some~$n$) which is cut out by polynomials, i.e.\ there exist~$f_1, \dotsc, f_r \in k[x_{11}, \dotsc, x_{nn}]$ such that
   \[
       G
     = \{
@@ -23,11 +30,11 @@
   \leavevmode
   \begin{enumerate}
     \item
-      The \emph{general linear group}.
+      The \emph{general linear group} $\GL_n(k)$.
     \item
-      The \emph{multiplicative group} $\Gmult \defined \GL_1(k) = k^\times$.
+      The \emph{multiplicative group}~$\Gmult \defined \GL_1(k) = k^\times$.
     \item
-      The \emph{additive group} $\Gadd \defined (K,+)$ can be regarded as a linear algebraic group by identifying it with
+      The \emph{additive group}~$\Gadd \defined (K,+)$ can be regarded as a linear algebraic group by identifying it with
       \[
                   \Gadd
         \cong     \left\{
@@ -38,17 +45,16 @@
                   \suchthat*
                     x \in k
                   \right\}
-        \groupleq \GL_2(k)
+        \groupleq \GL_2(k) \,.
       \]
     \item
-      The \emph{special linear group} $\SL_n(k) = \{ A \in \GL_n(k) \suchthat \det A = 1 \}$.
+      The \emph{special linear group}~$\SL_n(k) = \{ A \in \GL_n(k) \suchthat \det A = 1 \}$.
     \item
-      The \emph{orthogonal groups} $\Orth_n(k) = \{ A \in \GL_n(k) \suchthat A^T A = I \}$.
+      The \emph{orthogonal groups}~$\Orth_n(k) = \{ A \in \GL_n(k) \suchthat A^T A = I \}$.
     \item
-      The \emph{special orthogonal group} $\SOrth_n(k) = \SL_n(k) \cap \Orth_n(k)$.
+      The \emph{special orthogonal group}~$\SOrth_n(k) = \SL_n(k) \cap \Orth_n(k)$.
     \item
-      The \emph{symplectic group} $\Symp_{2n}(k) = \{ A \in \GL_n(k) \suchthat A^T J A = J \}$ where
-      $
+      The \emph{symplectic group}~$\Symp_{2n}(k) = \{ A \in \GL_n(k) \suchthat A^T J A = J \}$~$
           J
         = \begin{psmallmatrix}
              0    & I_n \\
@@ -58,40 +64,37 @@
     \item
       Every finite subgroup of $\GL_n(k)$ is a linear algebraic group.
     \item
-      The \emph{group of diagonal matrices}
-      $
+      The \emph{group of diagonal matrices}~$
           \Diag_n(k)
         = \left\{
             \begin{psmallmatrix}
-              * &         &   \\
-                & \sddots &   \\
-                &         & *
+              * &        &    \\
+                & \ddots &    \\
+                &        & *
             \end{psmallmatrix}
             \in \GL_n(k)
           \right\}
       $.
     \item
-      The \emph{group of upper triangular matrices}
-      $
+      The \emph{group of upper triangular matrices}~$
           \Triag_n(k)
         = \left\{
             \begin{psmallmatrix}
-              * & \scdots & *       \\
-                & \sddots & \svdots \\
-                &         & *
+              * & \cdots & *      \\
+                & \ddots & \vdots \\
+                &        & *
             \end{psmallmatrix}
             \in \GL_n(k)
           \right\} \,.
       $
     \item
-      The \emph{group of unipotent matrices}
-      $
+      The \emph{group of unipotent matrices}~$
           \Uni_n(k)
         = \left\{
             \begin{psmallmatrix}
-              1 & \scdots & *       \\
-                & \sddots & \svdots \\
-                &         & 1
+              1 & \cdots & *      \\
+                & \ddots & \vdots \\
+                &        & 1
             \end{psmallmatrix}
             \in \GL_n(k)
           \right\} \,.
@@ -103,390 +106,8 @@
 
 
 
-\subsection{Affine Algebraic Geometry}
-
-
-\begin{definition}
-  The \emph{affine $n$-space over $k$} is $\Aff^n \defined \Aff^n_k \defined k^n$.
-\end{definition}
-
-
-\begin{definition}
-  For every subset $S \subseteq k[x_1, \dotsc, x_n]$ the set
-  \[
-              \Vset(S)
-    \defined  \{
-                x \in \Aff^n
-              \suchthat
-                \text{$f(x) = 0$ for every $f \in S$}
-              \}
-  \]
-  is the \emph{vanishing locus} of $S$ or \emph{algebraic set} given by $S$ or \emph{affine variety} given by $S$.
-\end{definition}
-
-
-\begin{lemma}
-  \leavevmode
-  \begin{enumerate}
-    \item
-      It holds for every subset $S \subseteq k[x_1, \dotsc, x_n]$ that $\Vset(S) = \Vset( (S) )$.
-    \item
-      It holds for all ideals $I_1 \idealleq I_2 \idealleq k[x_1, \dotsc, x_n]$ that $\Vset(I_1) \supseteq \Vset(I_2)$.
-    \item
-      It holds for all ideals $I_1, I_2 \idealleq k[x_1, \dotsc, x_n]$ that
-      \[
-          \Vset(I_1) \cup \Vset(I_2)
-        = \Vset(I_1 \cap I_2)
-        = \Vset(I_1 \cdot I_2) \,.
-      \]
-    \item
-      It holds for every family $I_\lambda$, $\lambda \in \Lambda$ of ideals $I_\lambda \idealleq k[x_1, \dotsc, x_n]$ that
-      \[
-          \bigcap_{\lambda \in \Lambda} \Vset(I_\lambda)
-        = \Vset\left( \bigcup_{\lambda \in \Lambda} I_\lambda \right)
-        = \Vset\left( \sum_{\lambda \in \Lambda} I_\lambda \right) \,.
-      \]
-    \item
-      It holds that $\Vset(1) = \emptyset$.
-    \item
-      It holds that $\Vset(0) = \Aff^n$.
-    \qed
-  \end{enumerate}
-\end{lemma}
-
-
-\begin{corollary}
-  \label{corollary: existence of zariski topology}
-  There exists a unique topology on $\Aff^n$ whose closed subsets are the subsets of the form $\Vset(S)$ for subsets $S \subseteq k[x_1, \dotsc, x_n]$.
-  \qed
-\end{corollary}
-
-
-\begin{definition}
-  The topology from Corollary~\ref{corollary: existence of zariski topology} is the \emph{Zariski topology} on $\Aff^n$.
-\end{definition}
-
-
-\begin{remark}
-  Linear algebra groups are precisely those subgroups of $\GL_n(k)$ for some $n$ which are closed with respect to (the subspace topology of $\GL_n(k)$ induced by) the Zariski topology.
-\end{remark}
-
-
-\begin{theorem}[Hilbert]
-  Every ideal $I \idealleq k[x_1, \dotsc, x_n]$ is finitely generated.
-  \qed
-\end{theorem}
-
-
-\begin{corollary}
-  It holds for every subset $S \subseteq k[x_1, \dotsc, x_n]$ that
-  \[
-      \Vset(S)
-    = \Vset(f_1, \dotsc, f_m)
-    = \Vset(f_1) \cap \dotsb \cap \Vset(f_m) \,.
-  \]
-  for some finitely many $f_1, \dotsc, f_m \in S$.
-  \qed
-\end{corollary}
-
-
-\begin{theorem}[Hilbert’s~Nullstellensatz, version~1]
-  It holds for every proper ideal $I \ideallneq k[x_1, \dotsc, x_n]$ that $\Vset(I) \neq \emptyset$.
-  \qed
-\end{theorem}
-
-
-\begin{definition}
-  For every subset $X \subseteq \Aff^n$ the set
-  \[
-              \Ideal(X)
-    \defined  \{
-                f \in k[x_1, \dotsc, x_n]
-              \suchthat
-                \text{$f(x) = 0$ for every $x \in X$}
-              \}
-  \]
-  is the \emph{vanishing ideal of $X$}.
-\end{definition}
-
-
-\begin{lemma}
-  \leavevmode
-  \begin{enumerate}
-    \item
-      For every subset $X \subseteq \Aff^n$ the vanishing ideal $\Ideal(X)$ is an ideal in $k[x_1, \dotsc, x_n]$.
-    \item
-      It holds for all subsets $X_1 \subseteq X_2 \subseteq \Aff^n$ that $\Ideal(X_1) \idealgeq \Ideal(X_2)$.
-    \item
-      It holds for every family $(X_\lambda)_{\lambda \in \Lambda}$ of subsets $X_\lambda \subseteq \Aff^n$ that
-      \[
-          \Ideal\left( \bigcup_{\lambda \in \Lambda} X_\lambda \right)
-        = \bigcap_{\lambda \in \Lambda} \Ideal(X_\lambda) \,.
-      \]
-    \item
-      It holds that $\Ideal(\emptyset) = (1) = k[x_1, \dotsc, x_n]$.
-    \item
-      It holds that $\Ideal(\Aff^n) = 0$ (because $k$ is infinite).
-    \qed
-  \end{enumerate}
-\end{lemma}
-
-
-\begin{definition}
-  The \emph{coordinate ring} of an affine variety $X \subseteq \Aff^n$ is the $k$-algebra
-  \[
-              \coord(X)
-    \defined  k[x_1, \dotsc, x_n]/{\Ideal(X)} \,.
-  \]
-\end{definition}
-
-
-\begin{definition}
-  Let $R$ be a commutative ring.
-  \begin{enumerate}
-    \item
-      The ring $R$ is \emph{reduced} if $0 \in R$ is the only nilpotent element of $R$.
-    \item
-      The \emph{radical} of an ideal $I \idealleq R$ is
-      \[
-                  \rad{I}
-        \defined  \{
-                    f \in R
-                  \suchthat
-                    \text{$f^n \in I$ for some $n \geq 0$}
-                  \} \,.
-      \]
-    \item
-      An ideal $I \idealleq R$ is \emph{radical} if $I = \rad{I}$.
-  \end{enumerate}
-\end{definition}
-
-
-\begin{lemma}
-  Let $R$ be a commutative ring.
-  \begin{enumerate}
-    \item
-      For every ideal $I \idealleq R$ its radical $\rad{I}$ is again an ideal in $R$.
-    \item
-      An ideal $I \idealleq R$ is radical if and only if the quotient $R/I$ is reduced.
-    \qed
-  \end{enumerate}
-\end{lemma}
-
-
-\begin{lemma}
-  For every subset $X \subseteq \Aff^n$ its vanishing ideal $\Ideal(X) \idealleq k[x_1, \dotsc, x_n]$ is radical.
-  \qed
-\end{lemma}
-
-
-\begin{corollary}
-  For every affine variety $X$ its coordinate ring $\coord(X)$ is reduced.
-\end{corollary}
-
-
-\begin{definition}
-  Let $X$ be a topological space.
-  \begin{enumerate}
-    \item
-      The space $X$ is \emph{reducible} if $X = C_1 \cup C_2$ for some closed subsets $C_1, C_2 \subsetneq X$.
-    \item
-      The space $X$ is \emph{irreducible} if it is nonempty and not reducible.
-  \end{enumerate}
-\end{definition}
-
-
-\begin{lemma}
-  For a nonempty topological space $X$ the following conditions are equivalent:
-  \begin{enumerate}
-    \item
-      The space $X$ is irreducible.
-    \item
-      Every two nonempty open subsets of $X$ intersect nontrivially.
-    \item
-      Every nonemtpy open subset of $X$ is dense.
-    \qed
-  \end{enumerate}
-\end{lemma}
-
-
-\begin{lemma}
-  \label{lemma: irreducible is connected}
-  Every irreducible space is connected.
-  \qed
-\end{lemma}
-
-
-\begin{example}
-  The converse to Lemma~\ref{lemma: irreducible is connected} does not hold:
-  The vanishing set $\Vset(xy) \subseteq \Aff^2$ is connected but reducible.
-\end{example}
-
-
-\begin{proposition}
-  \label{proposition: existence of irreducible components}
-  If $X$ is a topological space then there exist closed irreducible subsets $C_\lambda \subseteq X$, $\lambda \in \Lambda$ with $X = \bigcup_{\lambda \in \Lambda} C_\lambda$ and $C_\lambda \nsubseteq C_\mu$ for $\lambda \neq \mu$, and the sets $C_\lambda$, $\lambda \in \Lambda$ are unique up to permutation.
-  \qed
-\end{proposition}
-
-
-\begin{definition}
-  The sets $C_\lambda$, $\lambda \in \Lambda$ from Proposition~\ref{proposition: existence of irreducible components} are the irreducible components of $X$.
-\end{definition}
-
-
-\begin{definition}
-  A topological space $X$ is \emph{noetherian} if every descending sequence
-  \[
-              C_1
-    \supseteq C_2
-    \supseteq C_3
-    \supseteq \dotsb
-  \]
-  of closed subsets $C_i \subseteq X$ stabilizes, or equivalently if every ascending sequence
-  \[
-              U_1
-    \subseteq U_2
-    \subseteq U_3
-    \subseteq \dotsb
-  \]
-  of open subsets $U_i \subseteq X$ stabilizes.
-\end{definition}
-
-
-\begin{lemma}
-  If a topological space $X$ is noetherian then $X$ has only finitely many irreducible components.
-  \qed
-\end{lemma}
-
-
-\begin{lemma}
-  Any affine variety is noetherian.
-  \qed
-\end{lemma}
-
-
-\begin{corollary}
-  Any affine variety has only finitely many irreducible components.
-  \qed
-\end{corollary}
-
-
-\begin{theorem}[Hilbert’s~Nullstellensatz, version~2]
-  The maps $\Vset, \Ideal$ restrict to the following bijections:
-  \[
-    \begin{matrix}
-        \left\{
-          \begin{tabular}{c}
-              affine varieties \\
-              $X \subseteq \Aff^n$
-          \end{tabular}
-        \right\}
-      & \begin{tikzcd}[column sep = large]
-            {}
-            \arrow[shift left]{r}{\Ideal}
-          & {}
-            \arrow[shift left]{l}{\Vset}
-        \end{tikzcd}
-      & \left\{
-          \begin{tabular}{c}
-            radical ideals \\
-            $I \idealleq k[x_1, \dotsc, x_n]$
-          \end{tabular}
-        \right\}
-      \\
-        {}
-      & {}
-      & {}
-      \\
-        \rotatebox[origin=c]{90}{$\subseteq$}
-      & {}
-      & \rotatebox[origin=c]{90}{$\subseteq$}
-      \\
-        {}
-      & {}
-      & {}
-      \\
-        \left\{
-          \begin{tabular}{c}
-              irreducible \\
-              affine varieties \\
-              $X \subseteq \Aff^n$
-          \end{tabular}
-        \right\}
-      & \begin{tikzcd}[column sep = large]
-            {}
-            \arrow[shift left]{r}{\Ideal}
-          & {}
-            \arrow[shift left]{l}{\Vset}
-        \end{tikzcd}
-      & \left\{
-          \begin{tabular}{c}
-            prime ideals \\
-            $\mf{p} \idealleq k[x_1, \dotsc, x_n]$
-          \end{tabular}
-        \right\}
-      \\
-        {}
-      & {}
-      & {}
-      \\
-        \rotatebox[origin=c]{90}{$\subseteq$}
-      & {}
-      & \rotatebox[origin=c]{90}{$\subseteq$}
-      \\
-        {}
-      & {}
-      & {}
-      \\
-        \left\{
-          \begin{tabular}{c}
-            points $p \in \Aff^n$
-          \end{tabular}
-        \right\}
-      & \begin{tikzcd}[column sep = large]
-            {}
-            \arrow[shift left]{r}{\Ideal}
-          & {}
-            \arrow[shift left]{l}{\Vset}
-        \end{tikzcd}
-      & \left\{
-          \begin{tabular}{c}
-            maximal ideals \\
-            $\mf{m} \idealleq k[x_1, \dotsc, x_n]$
-          \end{tabular}
-        \right\}
-    \end{matrix}
-  \]
-  For every point $p = (p_1, \dotsc, p_n) \in \Aff^n$ the corresponding maximal ideal is given by $\mf{m}_p = (x_1 - p_1, \dotsc, x_n - p_n)$.
-\end{theorem}
-
-
-\begin{definition}
-  For every linear algebraic group $G$ the connected component of $1 \in G$ is denoted by $G^0$.
-\end{definition}
-
-
-\begin{proposition}
-  Let $G$ be a linear algebraic group.
-  \begin{enumerate}
-    \item
-      The connected components of $G$ coincide with the irreducible components.
-    \item
-      The connected/irreducible component $G^0$ is a normal subgroup of $G$.
-    \item
-      The connected/irreducible components of $G$ are the cosets of $G^0$.
-    \item
-      The group $G^0$ has finite index in $G$.
-  \end{enumerate}
-\end{proposition}
-
-
-
-
-
-
-
+\input{sections/affine_algebraic_geometry}
+\input{sections/affine_algebraic_groups}
 
 
 

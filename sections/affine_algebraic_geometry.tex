@@ -1,0 +1,723 @@
+\section{Affine Algebraic Varities}
+
+
+
+
+
+\subsection{Vanishing Sets}
+
+
+\begin{definition}
+  The \emph{affine~$n$-space} over~$k$ is~$\Aff^n \defined \Aff^n_k \defined k^n$.
+\end{definition}
+
+
+\begin{fluff}
+  It follows from~$k$ being infinite for all~$f, g \in k[x_1, \dotsc, x_n]$ with~$f(x) = g(x)$ for every~$x \in \Aff^n$ that~$f = g$.
+  We will therefore regard the polynomial ring~$k[x_1, \dotsc, x_n]$ as the ring of polynomial functions on~$\Aff^n$.
+\end{fluff}
+
+
+\begin{definition}
+  For every subset~$S \subseteq k[x_1, \dotsc, x_n]$ the set
+  \[
+              \vset(S)
+    \defined  \{
+                x \in \Aff^n
+              \suchthat
+                \text{$f(x) = 0$ for every~$f \in S$}
+              \}
+  \]
+  is the \emph{vanishing locus} of~$S$ or \emph{algebraic set} given by~$S$ or \emph{affine variety} given by~$S$.
+\end{definition}
+
+
+\begin{lemma}
+  \label{properties of vanishing sets}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      It holds for every subset~$S \subseteq k[x_1, \dotsc, x_n]$ that~$\vset(S) = \vset( (S) )$.
+    \item
+      It holds for all ideals~$I_1 \idealleq I_2 \idealleq k[x_1, \dotsc, x_n]$ that~$\vset(I_1) \supseteq \vset(I_2)$.
+    \item
+      It holds for all ideals~$I_1, I_2 \idealleq k[x_1, \dotsc, x_n]$ that
+      \[
+          \vset(I_1) \cup \vset(I_2)
+        = \vset(I_1 \cap I_2)
+        = \vset(I_1 \cdot I_2) \,.
+      \]
+    \item
+      It holds for every family~$(I_\lambda)_{\lambda \in \Lambda}$ of ideals~$I_\lambda \idealleq k[x_1, \dotsc, x_n]$ that
+      \[
+          \bigcap_{\lambda \in \Lambda} \vset(I_\lambda)
+        = \vset\left( \bigcup_{\lambda \in \Lambda} I_\lambda \right)
+        = \vset\left( \sum_{\lambda \in \Lambda} I_\lambda \right) .
+      \]
+    \item
+      It holds that~$\vset(1) = \emptyset$.
+    \item
+      It holds that~$\vset(0) = \Aff^n$.
+    \qed
+  \end{enumerate}
+\end{lemma}
+
+
+\begin{corollary}
+  \label{existence of zariski topology}
+  There exists a unique topology on~$\Aff^n$ whose closed subsets are the subsets of the form~$\vset(S)$ for subsets~$S \subseteq k[x_1, \dotsc, x_n]$.
+  \qed
+\end{corollary}
+
+
+\begin{definition}
+  The topology from \cref{existence of zariski topology} is the \emph{Zariski topology} on~$\Aff^n$.
+  The induced subspace topology on a subset~$X \subseteq \Aff^n$ is the \emph{Zariski topology} on~$X$.
+\end{definition}
+
+
+\begin{remark}
+  Linear algebra groups are precisely those subgroups of~$\GL_n(k)$ for some~$n$ which are closed with respect to (the subspace topology of~$\GL_n(k)$ induced by) the Zariski topology.
+\end{remark}
+
+
+\begin{theorem}[Hilbert]
+  Every ideal~$I \idealleq k[x_1, \dotsc, x_n]$ is finitely generated.
+  \qed
+\end{theorem}
+
+
+\begin{corollary}
+  It holds for every subset~$S \subseteq k[x_1, \dotsc, x_n]$ that
+  \[
+      \vset(S)
+    = \vset(f_1, \dotsc, f_m)
+    = \vset(f_1) \cap \dotsb \cap \vset(f_m) \,.
+  \]
+  for some finitely many~$f_1, \dotsc, f_m \in S$.
+  \qed
+\end{corollary}
+
+
+\begin{theorem}[Hilbert’s~Nullstellensatz, version~1]
+  If~$I \ideallneq k[x_1, \dotsc, x_n]$ is a proper ideal then its vanishing set~$\vset(I)$ is nonempty.
+  \qed
+\end{theorem}
+
+
+
+
+
+\subsection{Coordinate Rings}
+
+
+\begin{definition}
+  For every subset~$X \subseteq \Aff^n$ the set
+  \[
+              \videal(X)
+    \defined  \{
+                f \in k[x_1, \dotsc, x_n]
+              \suchthat
+                \text{$f(x) = 0$ for every~$x \in X$}
+              \}
+  \]
+  is the \emph{vanishing ideal} of~$X$.
+\end{definition}
+
+
+\begin{lemma}
+  \label{properties of vanishing ideals}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      For every subset~$X \subseteq \Aff^n$ the vanishing ideal~$\videal(X)$ is an ideal in~$k[x_1, \dotsc, x_n]$.
+    \item
+      It holds for all subsets~$X_1 \subseteq X_2 \subseteq \Aff^n$ that~$\videal(X_1) \idealgeq \videal(X_2)$.
+    \item
+      It holds for every family~$(X_\lambda)_{\lambda \in \Lambda}$ of subsets~$X_\lambda \subseteq \Aff^n$ that
+      \[
+          \videal\left( \bigcup_{\lambda \in \Lambda} X_\lambda \right)
+        = \bigcap_{\lambda \in \Lambda} \videal(X_\lambda) \,.
+      \]
+    \item
+      It holds that~$\videal(\emptyset) = (1) = k[x_1, \dotsc, x_n]$.
+    \item
+      It holds that~$\videal(\Aff^n) = 0$ (because~$k$ is infinite).
+    \qed
+  \end{enumerate}
+\end{lemma}
+
+
+\begin{definition}
+  The \emph{coordinate ring} of an affine variety~$X \subseteq \Aff^n$ is the~\dash{$k$}{algebra}
+  \[
+              \coord(X)
+    \defined  k[x_1, \dotsc, x_n]/{\videal(X)} \,.
+  \]
+\end{definition}
+
+
+\begin{fluff}
+  For an affine variety~$X \subseteq \Aff^n$ any two polyomial functions~$f, g \in k[x_1, \dotsc, x_n]$ coincide on~$X$ in the sense that~$f(x) = g(x)$ for all~$x \in X$ if and only if~$f - g \in \videal(X)$, i.e.\ if and only if~$f$ and~$g$ are identified in~$\coord(X)$.
+  We will therefore regard the coordinate ring~$\coord(X)$ as the ring of polynomial functions on~$X$.
+  
+  We can then define for every ideal~$I \idealleq \coord(X)$ the \emph{vanishing set}
+  \[
+              \vset(I)
+    \defined  \vset_X(I)
+    \defined  \{
+                x \in X
+              \suchthat
+                \text{$f(x) = 0$ for every~$f \in I$}
+              \}
+  \]
+  and can define for every subset~$Y \subseteq X$ the \emph{vanishing ideal}
+  \[
+              \videal(Y)
+    \defined  \videal_X(Y)
+    \defined  \{
+                f \in \coord(X)
+              \suchthat
+                \text{$f(y) = 0$ for every~$y \in Y$}
+              \} \,.
+  \]
+  For~$X = \Aff^n$ this agrees with the previous definitions of vanishing sets and vanishing ideals.
+  The properties from \cref{properties of vanishing sets} and \cref{properties of vanishing ideals} also hold for this more general definitions.
+\end{fluff}
+
+
+\begin{lemma}
+  The Zariski closed subsets of an affine variety~$X$ are precisely the subsets of the form~$\vset(I)$ with~$I \idealleq \coord(X)$.
+\end{lemma}
+
+
+\begin{corollary}
+  \label{standard basis of zariski topology}
+  If~$X$ is an affine variety then the sets
+  \[
+              \Dopen(f)
+    \defined  \{
+                x \in X
+              \suchthat
+                f(x) \neq 0
+              \}
+  \]
+  with~$f \in \coord(X)$ form a basis for the Zariski topology of~$X$.
+\end{corollary}
+
+
+\begin{proof}
+  The sets~$\Dopen(f)$ are Zariski open because~$\Dopen(f) = X \setminus \vset(f)$.
+  If~$U \subseteq X$ is any Zariski open subset then the complement~$X \setminus U$ is Zariski closed and thus of the form~$X \setminus U = \vset(I)$ for some ideal~$I \idealleq \coord(X)$.
+  If~$f_\lambda \in I$,~$\lambda \in \Lambda$ is a generating set of~$I$ then it follows from
+  \begin{gather*}
+      \vset(I)
+    = \vset(f_\lambda \suchthat \lambda \in \Lambda)
+    = \bigcap_{\lambda \in \Lambda} \vset(f_\lambda)
+  \shortintertext{that}
+      U
+    = X \setminus \vset(I)
+    = X \setminus \bigcap_{\lambda \in \Lambda} \vset(f_\lambda)
+    = \bigcup_{\lambda \in \Lambda} \big( X \setminus \vset(f_\lambda) \big)
+    = \bigcup_{\lambda \in \Lambda} \Dopen(f_\lambda)
+  \end{gather*}
+  as desired.
+\end{proof}
+
+
+\begin{definition}
+  For an affine variety~$X$ the open subsets~$\Dopen(f) \subseteq X$ with~$f \in \coord(X)$ are the \emph{standard open subsets} of~$X$.
+\end{definition}
+
+
+\begin{definition}
+  Let~$R$ be a commutative ring.
+  \begin{enumerate}
+    \item
+      The ring~$R$ is \emph{reduced} if~$0 \in R$ is the only nilpotent element of~$R$.
+    \item
+      The \emph{radical} of an ideal~$I \idealleq R$ is
+      \[
+                  \rad{I}
+        \defined  \{
+                    f \in R
+                  \suchthat
+                    \text{$f^n \in I$ for some~$n \geq 0$}
+                  \} \,.
+      \]
+    \item
+      An ideal~$I \idealleq R$ is \emph{radical} if~$I = \rad{I}$.
+  \end{enumerate}
+\end{definition}
+
+
+\begin{lemma}
+  Let~$R$ be a commutative ring.
+  \begin{enumerate}
+    \item
+      For every ideal~$I \idealleq R$ its radical~$\rad{I}$ is again an ideal in~$R$.
+    \item
+      An ideal~$I \idealleq R$ is radical if and only if the quotient~$R/I$ is reduced.
+    \qed
+  \end{enumerate}
+\end{lemma}
+
+
+\begin{lemma}
+  The ideal~$\videal(X) \idealleq k[x_1, \dotsc, x_n]$ is radical for every subset~$X \subseteq \Aff^n$.
+  \qed
+\end{lemma}
+
+
+\begin{corollary}
+  \label{coordinate ring is fg commutative reduced}
+  For every affine variety~$X$ its coordinate ring~$\coord(X)$ is a finitely generated, commutative, reduced~\dash{$k$}-algebra.
+\end{corollary}
+
+
+
+
+
+\subsection{Irreducibility}
+
+
+\begin{definition}
+  Let~$X$ be a topological space.
+  \begin{enumerate}
+    \item
+      The space~$X$ is \emph{reducible} if~$X = C_1 \cup C_2$ for some proper closed subsets~$C_1, C_2 \subsetneq X$.
+    \item
+      The space~$X$ is \emph{irreducible} if it is nonempty and not reducible.
+  \end{enumerate}
+\end{definition}
+
+
+\begin{lemma}
+  For a nonempty topological space~$X$ the following conditions are equivalent:
+  \begin{enumerate}
+    \item
+      The space~$X$ is irreducible.
+    \item
+      Every two nonempty open subsets of~$X$ intersect nontrivially.
+    \item
+      Every nonemtpy open subset of~$X$ is dense.
+    \qed
+  \end{enumerate}
+\end{lemma}
+
+
+\begin{lemma}
+  \label{irreducible is connected}
+  Every irreducible space is connected.
+  \qed
+\end{lemma}
+
+
+\begin{example}
+  The affine variety~$\vset(xy) \subseteq \Aff^2$ is connected but reducible, which shows that the converse to \cref{irreducible is connected} does not hold.
+\end{example}
+
+
+\begin{proposition}
+  \label{existence of irreducible components}
+  If~$X$ is a topological space then there exist closed irreducible subsets~$C_\lambda \subseteq X$,~$\lambda \in \Lambda$ with~$X = \bigcup_{\lambda \in \Lambda} C_\lambda$ and~$C_\lambda \nsubseteq C_\mu$ for~$\lambda \neq \mu$, and the sets~$C_\lambda$,~$\lambda \in \Lambda$ are unique up to permutation.
+  \qed
+\end{proposition}
+
+
+\begin{definition}
+  The sets~$C_\lambda$,~$\lambda \in \Lambda$ from \cref{existence of irreducible components} are the irreducible components of~$X$.
+\end{definition}
+
+
+\begin{definition}
+  A topological space~$X$ is \emph{noetherian} if every descending sequence
+  \[
+              C_1
+    \supseteq C_2
+    \supseteq C_3
+    \supseteq \dotsb
+  \]
+  of closed subsets~$C_i \subseteq X$ stabilizes, or equivalently if every ascending sequence
+  \[
+              U_1
+    \subseteq U_2
+    \subseteq U_3
+    \subseteq \dotsb
+  \]
+  of open subsets~$U_i \subseteq X$ stabilizes.
+\end{definition}
+
+
+\begin{lemma}
+  A noetherian topological space has only finitely many irreducible components.
+  \qed
+\end{lemma}
+
+
+\begin{lemma}
+  Any affine variety is noetherian.
+  \qed
+\end{lemma}
+
+
+\begin{corollary}
+  Any affine variety has only finitely many irreducible components.
+  \qed
+\end{corollary}
+
+
+\begin{theorem}[Hilbert’s~Nullstellensatz, version~2]
+  \label{hilberts nullstellensatz correspondence}
+  For every affine algebraic variety~$X$, the maps~$\vset_X, \videal_X$ restrict to the following bijections:
+  \[
+    \begin{matrix}
+        \left\{
+          \begin{tabular}{c}
+              affine  algebraic \\
+              varieties~$Y \subseteq X$
+          \end{tabular}
+        \right\}
+      & \begin{tikzcd}[column sep = large]
+            {}
+            \arrow[shift left]{r}{\videal_X}
+          & {}
+            \arrow[shift left]{l}{\vset_X}
+        \end{tikzcd}
+      & \left\{
+          \begin{tabular}{c}
+            radical ideals \\
+            $I \idealleq \coord(X)$
+          \end{tabular}
+        \right\}
+      \\
+        {}
+      & {}
+      & {}
+      \\
+        \rotatebox[origin=c]{90}{$\subseteq$}
+      & {}
+      & \rotatebox[origin=c]{90}{$\subseteq$}
+      \\
+        {}
+      & {}
+      & {}
+      \\
+        \left\{
+          \begin{tabular}{c}
+              irreducible affine \\
+              algebraic varieties \\
+              $Y \subseteq X$
+          \end{tabular}
+        \right\}
+      & \begin{tikzcd}[column sep = large]
+            {}
+            \arrow[shift left]{r}{\videal_X}
+          & {}
+            \arrow[shift left]{l}{\vset_X}
+        \end{tikzcd}
+      & \left\{
+          \begin{tabular}{c}
+            prime ideals \\
+            $\mf{p} \idealleq \coord(X)$
+          \end{tabular}
+        \right\}
+      \\
+        {}
+      & {}
+      & {}
+      \\
+        \rotatebox[origin=c]{90}{$\subseteq$}
+      & {}
+      & \rotatebox[origin=c]{90}{$\subseteq$}
+      \\
+        {}
+      & {}
+      & {}
+      \\
+        \left\{
+          \begin{tabular}{c}
+            points~$p \in X$
+          \end{tabular}
+        \right\}
+      & \begin{tikzcd}[column sep = large]
+            {}
+            \arrow[shift left]{r}{\videal_X}
+          & {}
+            \arrow[shift left]{l}{\vset_X}
+        \end{tikzcd}
+      & \left\{
+          \begin{tabular}{c}
+            maximal ideals \\
+            $\mf{m} \idealleq \coord(X)$
+          \end{tabular}
+        \right\}
+    \end{matrix}
+  \]
+  For every point~$p = (p_1, \dotsc, p_n) \in X$ the corresponding maximal ideal is given by~$\mf{m}_p = (\class{x_1} - p_1, \dotsc, \class{x_n} - p_n)$.
+  \qed
+\end{theorem}
+
+
+
+
+
+\subsection{Morphisms of Affine Varieties}
+
+
+\begin{definition}
+  Let~$X,Y$ be affine varities with~$X \subseteq \Aff^n$ and~$Y \subseteq \Aff^m$.
+  \begin{enumerate}
+    \item
+      A function~$f \colon X \to k = \Aff^1$ is \emph{regular} if it is an element of~$\coord(X)$.
+    \item
+      A map~$f \colon X \to \Aff^n$ is \emph{regular} if it is polynomial in each coordinate.
+    \item
+      A map~$f \colon X \to Y$ is \emph{regular} if it is the restriction of a polynomial map~$X \to \Aff^m$.
+  \end{enumerate}
+  A map~$X \to Y$ is a \emph{morphism} of affine varieties if it is regular, and the set of morphisms~$X \to Y$ is denoted by~$\Mor(X,Y)$.
+\end{definition}
+
+
+\begin{lemma}
+  Let~$X, Y, Z$ be affine varieties.
+  \begin{enumerate}
+    \item
+      The identity map~$\id_X \colon X \to X$ is a morphism.
+    \item
+      For every two morphisms~$f \colon X \to Y$ and~$g \colon Y \to Z$ their composition~$g \circ f \colon X \to Z$ is again morphism.
+    \qed
+  \end{enumerate}
+\end{lemma}
+
+
+\begin{lemma}
+  \label{fuctoriality of the coordinate ring}
+  Let~$X, Y, Z$ be affine varieties.
+  \begin{enumerate}
+    \item
+      If~$f \colon X \to Y$ is a morphism of affine varieties then the map
+      \[
+                f^*
+        \colon  \coord(Y)
+        \to     \coord(X) \,,
+        \quad   \varphi
+        \mapsto \varphi \circ f
+      \]
+      is a well-defined homomorphism of~\dash{$k$}{algebras}.
+    \item
+      It holds that~$\id_X^* = \id_{\coord(X)}$.
+    \item
+      It holds or any two composable morphisms of affine varities~$f \colon X \to Y$,~$g \colon Y \to Z$ that~$(g \circ f)^* = f^* \circ g^*$.
+    \qed
+  \end{enumerate}
+\end{lemma}
+
+
+\begin{proposition}
+  \label{coordinate ring is fully faithful}
+  For any two affine varieties~$X,Y$ the map
+  \[
+            \Mor(X, Y)
+    \to     \Hom_{\cAlg{k}}( \coord(Y), \coord(X) ) \,,
+    \quad   f
+    \mapsto f^*
+  \]
+  is a well-defined bijection.
+\end{proposition}
+
+
+\begin{proof}
+  We prove the claim by constructing an inverse to~$(-)^*$.
+  
+  With~$X \subseteq \Aff^n$ and~$Y \subseteq \Aff^m$ the coordinate rings~$\coord(X)$ and~$\coord(Y)$ are given by
+  \[
+      \coord(X)
+    = k[x_1, \dotsc, x_n]/{\videal(X)}
+    \quad\text{and}\quad
+      \coord(Y)
+    = k[y_1, \dotsc, y_m]/{\videal(Y)} \,.
+  \]
+  For any homomorphism of~\dash{$k$}{algebras}~$F \colon \coord(Y) \to \coord(X)$ we associate a morphism of affine varieties~$\tilde{F}^\circ \colon X \to \Aff^m$ with coordinates~$\tilde{F}^\circ = (\tilde{F}^\circ_1, \dotsc, \tilde{F}^\circ_m)$ given by
+  \[
+        \tilde{F}^\circ_j
+    =   F(\class{y_j})
+    \in \coord(X)
+  \]
+  for every~$j = 1, \dotsc, m$.
+  
+  The morphism~$\tilde{F}^\circ \colon X \to \Aff^m$ restrict to a morphism~$F^\circ \colon X \to Y$:
+  The affine variety~$Y$ is given by~$Y = \vset(\videal(Y))$ so needs to be shown that~$p( \tilde{F}^\circ(x) ) = 0$ for all~$p \in \videal(Y)$,~$x \in X$.
+  For this we calculate
+  \begin{align}
+        p(\tilde{F}^\circ(x))
+    &=  p( \tilde{F}^\circ_1(x), \dotsc, \tilde{F}^\circ_m(x) )
+        \label{equation: definiton of F circ} \\
+    &=  p( F(\class{y_1})(x), \dotsc, F(\class{y_m})(x) )
+        \label{equation: definiton of F circ j} \\
+    &=  p( F(\class{y_1}), \dotsc, F(\class{y_m}) )(x)
+        \label{equation: pulling x out} \\
+    &=  F( p(\class{y_1}, \dotsc, \class{y_m}) )(x)
+        \label{equation: pulling F out} \\
+    &=  F\left( \class{p(y_1, \dotsc, y_m)} \right)(x)
+        \label{equation: putting p in}\\
+    &=  F(\class{p})(x)
+        \nonumber \\
+    &=  F(0)(x)
+        \label{equation: p vanishes}  \\
+    &=  0
+        \nonumber \,.
+  \end{align}
+  \cref{equation: definiton of F circ} uses the definition of~$\tilde{F}^\circ$, \cref{equation: definiton of F circ j} uses the definiton of the components~$\tilde{F}^\circ_j$, \cref{equation: pulling x out} uses that the~\dash{$k$}{algebra} structure on~$\coord(X)$ is given pointwise, \cref{equation: pulling F out} uses that~$F$ is a~\dash{$k$}{algebra} homomorphism, \cref{equation: putting p in} uses that~$\class{(-)}$ is a~\dash{$k$}{algebra} homomorphism, and \cref{equation: p vanishes} uses that $p \in \videal(Y)$.
+  
+  The constructions~$(-)^*$ and~$(-)^\circ$ are mutually inverse:
+  If~$f \colon X \to Y$ is a morphism of affine varieties with coordinates~$f = (f_1, \dotsc, f_m)$ then
+  \[
+      (f^*)^\circ_j
+    = (f^*)(\class{y_j})
+    = \class{y_j} \circ f
+    = f_j
+  \]
+  for every~$j = 1, \dotsc, m$ and therefore~$(f^*)^\circ = f$.
+  If~$F \colon \coord(Y) \to \coord(X)$ is a homomorphism of $k$-algebras then
+  \[
+      (F^\circ)^*(\class{y_j})
+    = \class{y_j} \circ F^\circ
+    = F^\circ_j
+    = F(\class{y_j})
+  \]
+  for every~$j = 1, \dotsc, m$ and therefore $(F^\circ)^* = F$.
+\end{proof}
+
+
+\begin{lemma}
+  \label{coordinate ring is dense}
+  For every finitely generated, commutative, reduced~\dash{$k$}{algebra}~$A$ there exists an affine variety~$X$ with~$A \cong \coord(X)$ as~\dash{$k$}{algebras}.
+\end{lemma}
+
+
+\begin{proof}
+  Let~$a_1, \dotsc, a_n \in A$ be generating set of~$A$ as a~\dash{$k$}{algebra}.
+  Then there exists a unique homomorphisms of~\dash{$k$}{algebras}~$f \colon k[x_1, \dotsc, x_n] \to A$ with~$f(x_i) = a_i$ for every~$i = 1, \dotsc, n$ and~$f$ is surjective.
+  It follows for~$I \defined \ker(f)$ that~$f$ induces an isomorphism of~\dash{$k$}{algebras}~$\induced{f} \colon k[x_1, \dotsc, x_n]/I \to A$ with~$\induced{f}(\class{x_i}) = a_i$ for every~$i = 1, \dotsc, n$.
+  
+  The ideal~$I$ is a radical ideal because the quotient~$k[x_1, \dotsc, x_n]/I \cong A$ is reduced.
+  It follows from the \hyperref[hilberts nullstellensatz correspondence]{second version of Hilbert’s~Nullstellensatz} that~$\videal(X) = I$ for the affine algebraic variety~$X \defined \vset(I)$.
+  It follows that
+  \[
+          A
+    \cong k[x_1, \dots, x_n]/I
+    =     k[x_1, \dots, x_n]/{\videal(X)}
+    =     \coord(X)
+  \]
+  as desired.
+\end{proof}
+
+
+\begin{corollary}
+  The coordinate ring~$\coord(-)$ gives rise to a contravariant equivalence
+  \begin{align*}
+    \{
+      \text{affine varieties}
+    \}
+    &\longto
+    \left\{
+      \begin{tabular}{c}
+        finitely generated, \\
+        commutative,        \\
+        reduced~\dash{$k$}{algebras}
+      \end{tabular}
+    \right\} ,
+    \\
+    X
+    &\longmapsto
+    \coord(X) \,,
+    \\
+    f
+    &\longmapsto
+    f^* \,.
+  \end{align*}
+\end{corollary}
+
+
+\begin{proof}
+  It follows from \cref{coordinate ring is fg commutative reduced} and \cref{fuctoriality of the coordinate ring} that~$\coord(-)$ defines a functor as claimed.
+  It follows from \cref{coordinate ring is fully faithful} that~$\coord(-)$ is fully faithful and it follows from \cref{coordinate ring is dense} that~$\coord(-)$ is dense.
+\end{proof}
+
+
+\begin{fluff}
+  A
+\end{fluff}
+
+
+
+
+\subsection{Products of Affine Algebraic Varieties}
+
+
+\begin{lemma}
+  For any two affine varieties~$X \subseteq \Aff^n$ and~$Y \subseteq \Aff^m$ the set
+  \[
+              X \times Y
+    \subseteq \Aff^n \times \Aff^m
+    =         \Aff^{n+m}
+  \]
+  is again an affine variety.
+\end{lemma}
+
+
+% TODO: Add a proof.
+
+
+\begin{definition}
+  For any two affine varieties~$X \subseteq \Aff^n$ and~$Y \subseteq \Aff^m$ the affine variety~$X \times Y \subseteq \Aff^{n+m}$ is the \emph{product} of~$X$ and~$Y$.
+\end{definition}
+
+
+\begin{warning}
+  The Zariski topology on~$X \times Y$ is larger then the product topology and in general strictly so.
+% TODO: Add examples and pictures.
+\end{warning}
+
+
+\begin{proposition}
+  For any two affine varieties~$X,Y$ the map
+  \[
+            \coord(X) \tensor_k \coord(Y)
+    \to     \coord(X \times Y) \,,
+    \quad   f \tensor g
+    \mapsto \big[ (x,y) \mapsto f(x)g(y) \big]
+  \]
+  is a well-defined isomorphism of~$k$\nobreakdash-algebras.
+\end{proposition}
+
+
+% TODO: Add a proof.
+
+
+
+% TODO: Add this back in
+% 
+% \begin{definition}
+%   For every linear algebraic group~$G$ the connected component of the identity~$1 \in G$ is denoted by~$G^0$.
+% \end{definition}
+% 
+% 
+% \begin{proposition}
+%   Let~$G$ be a linear algebraic group.
+%   \begin{enumerate}
+%     \item
+%       The connected components of~$G$ coincide with the irreducible components.
+%     \item
+%       The connected/irreducible component~$G^0$ is a normal subgroup of~$G$.
+%     \item
+%       The connected/irreducible components of~$G$ are the cosets of~$G^0$.
+%     \item
+%       The group~$G^0$ has finite index in~$G$.
+%   \end{enumerate}
+% \end{proposition}
+
+
+
+
