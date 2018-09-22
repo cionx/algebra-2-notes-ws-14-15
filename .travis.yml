@@ -2,7 +2,20 @@ sudo: required
 dist: trusty
 language: generic
 before_install:
+# update the system
 - sudo apt-get -qq update
+# install the Inconsolata font
+- sudo apt-get -qq install fonts-inconsolata
+# install the Linux Libertine and Linux Biolinum fonts
+- sudo apt-get -qq install fonts-linuxlibertine
+# install the Libertinus font
+- git clone https://github.com/libertinus-fonts/libertinus
+- cd libertinus
+- sudo mkdir -p /usr/share/fonts/opentype
+- sudo cp *.otf /usr/share/fonts/opentype
+- fc-cache
+- cd ..
+# install the newest version of texlive
 - git clone https://github.com/cryptofuture/install-tl-ubuntu.git
 - cd install-tl-ubuntu
 - sudo ./install-tl-ubuntu

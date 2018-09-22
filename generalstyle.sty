@@ -1,28 +1,104 @@
 % all the packages
+
 \usepackage{gitinfo2}   % git information on the title page
+\usepackage[backend=biber,style=alphabetic, dateabbrev=false, urldate=long]{biblatex}   %for bibliography
 \usepackage{amsmath, amssymb, amsthm, mathtools}      % general math stuff
-\usepackage{stmaryrd}   % \mapsfrom
+\usepackage{fontspec}   % for font stuff
+\usepackage{unicode-math}
 \usepackage{extarrows}  % \xlongequal
-\usepackage{fontspec}   % for xelatex stuff
-\usepackage{hyperref}   % for internal (and external) links
-\usepackage[capitalise,noabbrev]{cleveref}            % for smarter referencing
+\usepackage[british]{babel}
 \usepackage{tikz-cd}    % commutative diagrams
 \usetikzlibrary{positioning}
-\usetikzlibrary{arrows}
+\usetikzlibrary{arrows,arrows.meta}
 \usepackage{enumitem}   % more control over enumerates
 \usepackage[automark, headsepline]{scrlayer-scrpage}  %for headers
 \usepackage{csquotes}   % for proper quotation marks
 \usepackage{microtype}  % for typography
 \usepackage{mathdots}
+\usepackage{hyperref}   % for internal (and external) links
+\usepackage[capitalise,noabbrev]{cleveref}            % for smarter referencing
+
+
+% the file for the refercences
+\addbibresource{references.bib}
+% no unplaned surprises with \cite
+\DeclareFieldFormat{postnote}{#1}
+\DeclareFieldFormat{multipostnote}{#1}
+
+
+% don't reset section counters between chapters
+\counterwithout{section}{chapter}
+
+
+% changing the main font to Libertine
+\setmainfont{Linux Libertine}
+\setmonofont{Inconsolata}
+% changeng the headings font to Biolinum
+\newfontfamily\headingfont[]{Linux Biolinum}
+\addtokomafont{disposition}{\headingfont}
+\addtokomafont{subject}{\headingfont}
+% changing the math font to libertinus
+\setmathfont{Libertinus Math}
+% symbols are too small
+% \setmathfont[range={\otimes,\oplus,\cup,\cap,\circ},Scale=1.2]{Libertinus Math}
+% \setmathfont[range={\leq,\trianglelefteq},Scale=1.2]{Libertinus Math}
+% import mathfrak from another font
+% \setmathfont[range={\mathfrak},Scale=MatchUppercase]{TeX Gyre Pagella Math}
+% mathcal doesn’t fit, what to do?
+% \setmathfont[range={\mathcal}]{STIX Two Math}
+% \DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
+
+
+
+% reconstruct the libertine arrow tip for tikz(cd)
+\pgfdeclarearrow{
+  name = libertinetip,
+  parameters = { \the\pgfarrowlength },
+  setup code = {
+    % The different end values:
+    \pgfarrowssettipend{48\pgfarrowlength}
+    \pgfarrowssetlineend{0\pgfarrowlength}
+    \pgfarrowssetvisualbackend{-35.25\pgfarrowlength}
+    \pgfarrowssetbackend{-144\pgfarrowlength}
+    % The hull
+    \pgfarrowshullpoint{48\pgfarrowlength}{7.5\pgfarrowlength}
+    \pgfarrowshullpoint{-114\pgfarrowlength}{137.25\pgfarrowlength}
+    \pgfarrowshullpoint{-144\pgfarrowlength}{137.25\pgfarrowlength}
+    \pgfarrowshullpoint{-144\pgfarrowlength}{-137.25\pgfarrowlength}
+    \pgfarrowshullpoint{-114\pgfarrowlength}{137.25\pgfarrowlength}
+    \pgfarrowshullpoint{48\pgfarrowlength}{-9.75\pgfarrowlength} % the arrow tip is not symmetric...?
+    % Saves: Only the length:
+    \pgfarrowssavethe\pgfarrowlength
+  },
+  drawing code = {
+    \pgfpathmoveto{\pgfpoint{48\pgfarrowlength}{7.5\pgfarrowlength}}
+    \pgfpathcurveto{\pgfpoint{-33\pgfarrowlength}{40.5\pgfarrowlength}}{\pgfpoint{-114\pgfarrowlength}{136.5\pgfarrowlength}}{\pgfpoint{-114\pgfarrowlength}{137.25\pgfarrowlength}}
+    \pgfpathlineto{\pgfpoint{-144\pgfarrowlength}{137.25\pgfarrowlength}}
+    \pgfpathcurveto{\pgfpoint{-114.75\pgfarrowlength}{74.25\pgfarrowlength}}{\pgfpoint{-84\pgfarrowlength}{39.75\pgfarrowlength}}{\pgfpoint{-59.25\pgfarrowlength}{19.5\pgfarrowlength}}
+    \pgfpathlineto{\pgfpoint{-35.25\pgfarrowlength}{0\pgfarrowlength}}
+    \pgfpathlineto{\pgfpoint{-59.25\pgfarrowlength}{-19.5\pgfarrowlength}}
+    \pgfpathcurveto{\pgfpoint{-83.25\pgfarrowlength}{-42.75\pgfarrowlength}}{\pgfpoint{-120\pgfarrowlength}{-83.25\pgfarrowlength}}{\pgfpoint{-142.5\pgfarrowlength}{-137.25\pgfarrowlength}}
+    \pgfpathlineto{\pgfpoint{-114\pgfarrowlength}{-137.25\pgfarrowlength}}
+    \pgfpathcurveto{\pgfpoint{-49.5\pgfarrowlength}{-64.5\pgfarrowlength}}{\pgfpoint{11.25\pgfarrowlength}{-22.5\pgfarrowlength}}{\pgfpoint{48\pgfarrowlength}{-9.75\pgfarrowlength}}
+    \pgfpathclose
+    \pgfusepathqfill
+  },
+  defaults = {length = 1/75pt}
+}
+
+\tikzcdset{
+  arrow style=tikz,
+  diagrams={>={libertinetip}},
+  arrows={line width=0.8*rule_thickness}
+}
+
+% fonts for titlepage
+\setkomafont{publishers}{\normalsize}
 
 
 % prevents breaking inline math around binary or relationship symbols
 \binoppenalty=\maxdimen
 \relpenalty=\maxdimen
-
-
-% fonts for titlepage
-\setkomafont{publishers}{\normalsize}
 
 
 % settings for scrlayer-scrpage
@@ -67,9 +143,12 @@
 \newtheorem{notation}[everything]{Notation}
 \newtheorem{proposition}[everything]{Proposition}
 \newtheorem{recall}[everything]{Recall}
+\newtheorem{Redefinition}[everything]{Redefinition}
 \newtheorem{remark}[everything]{Remark}
 \newtheorem{theorem}[everything]{Theorem}
 \newtheorem{warning}[everything]{Warning}
+\theoremstyle{remark}
+\newtheorem*{metaremark}{Meta-remark}
 
 
 % reset equation counters between sections
@@ -89,6 +168,12 @@
 \newcommand{\dash}[2]{#1\nobreakdash-#2}
 
 
+% text shortuts
+\newcommand{\Qaffine}{Quasi\nobreakdash-affine}
+\newcommand{\qaffine}{quasi\nobreakdash-affine}
+\newcommand{\qprojective}{quasi\nobreakdash-projective}
+
+
 % relations
 \newcommand{\defined}{\coloneqq}
 \newcommand{\defines}{\eqqcolon}
@@ -96,6 +181,7 @@
 \newcommand{\grouplneq}{\lneq}
 \newcommand{\ngroupleq}{\trianglelefteq}
 \newcommand{\ngrouplneq}{\mathrel{\ooalign{$\lneq$\cr\raise.22ex\hbox{$\lhd$}\cr}}}
+\newcommand{\moduleleq}{\leq}
 \newcommand{\idealleq}{\trianglelefteq}
 \newcommand{\idealgeq}{\trianglerighteq}
 \newcommand{\ideallneq}{\mathrel{\ooalign{$\lneq$\cr\raise.22ex\hbox{$\lhd$}\cr}}}
@@ -105,6 +191,7 @@
 
 % binary operators
 \newcommand{\tensor}{\mathbin{\otimes}}
+\newcommand{\hd}{\mathbin{:}}
 
 
 % misc. shortcuts
@@ -149,20 +236,24 @@
 
 % spaces and sets
 \DeclareMathOperator{\gl}{\mathfrak{gl}}
-\DeclareMathOperator{\Aff}{\mathbb{A}}
+\newcommand{\Aff}{\mathbb{A}}
+\newcommand{\Proj}{\mathbb{P}}
 \DeclareMathOperator{\vset}{V}
 \DeclareMathOperator{\videal}{I}
 \DeclareMathOperator{\coord}{A}
+\newcommand{\rational}{\mathcal{O}}
 \DeclareMathOperator{\Dopen}{D}
 \DeclareMathOperator{\Mor}{Mor}
 \DeclareMathOperator{\Hom}{Hom}
+\DeclarePairedDelimiter{\gen}{\langle}{\rangle}
+\DeclarePairedDelimiter{\genideal}{(}{)}
 
 
 % functions
 \DeclareMathOperator{\id}{id}
 
 
-% decorations
+% operations
 \newcommand{\class}[1]{\overline{#1}}
 \newcommand{\induced}[1]{\overline{#1}}
 \newcommand{\rad}[1]{\sqrt{#1}}

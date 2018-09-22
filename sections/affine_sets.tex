@@ -1,24 +1,37 @@
-\section{Affine Algebraic Varities}
+\section{Affine Sets}
+\label{affine sets}
+
+
+\begin{conventions}
+  Throughout these notes~$k$ denotes an algebraically closed field.
+\end{conventions}
+
+
+\begin{fluff}
+  In this \nameCref{affine sets} we recall the notion of an affine set and some of the basic theorems about them.
+  The missing proofs can, for example, be found in the \cite{algebra1notes}
+\end{fluff}
 
 
 
 
 
-\subsection{Vanishing Sets}
+\subsection{Definition}
 
 
 \begin{definition}
-  The \emph{affine~$n$-space} over~$k$ is~$\Aff^n \defined \Aff^n_k \defined k^n$.
+  The \emph{affine~\dash{$n$}{space}} over~$k$ is~$\Aff^n \defined \Aff^n_k \defined k^n$.
 \end{definition}
 
 
 \begin{fluff}
-  It follows from~$k$ being infinite for all~$f, g \in k[x_1, \dotsc, x_n]$ with~$f(x) = g(x)$ for every~$x \in \Aff^n$ that~$f = g$.
+  It follows from~$k$ being infinite that~$f = g$ for all~$f, g \in k[x_1, \dotsc, x_n]$ with~$f(x) = g(x)$ for every~$x \in \Aff^n$.
   We will therefore regard the polynomial ring~$k[x_1, \dotsc, x_n]$ as the ring of polynomial functions on~$\Aff^n$.
 \end{fluff}
 
 
 \begin{definition}
+  \label{definition of affine sets}
   For every subset~$S \subseteq k[x_1, \dotsc, x_n]$ the set
   \[
               \vset(S)
@@ -28,7 +41,7 @@
                 \text{$f(x) = 0$ for every~$f \in S$}
               \}
   \]
-  is the \emph{vanishing locus} of~$S$ or \emph{algebraic set} given by~$S$ or \emph{affine variety} given by~$S$.
+  is the \emph{vanishing locus} of~$S$, or \emph{affine \textup(algebraic\textup) set} given by~$S$.
 \end{definition}
 
 
@@ -52,7 +65,7 @@
       \[
           \bigcap_{\lambda \in \Lambda} \vset(I_\lambda)
         = \vset\left( \bigcup_{\lambda \in \Lambda} I_\lambda \right)
-        = \vset\left( \sum_{\lambda \in \Lambda} I_\lambda \right) .
+        = \vset\left( \sum_{\lambda \in \Lambda} I_\lambda \right) \,.
       \]
     \item
       It holds that~$\vset(1) = \emptyset$.
@@ -99,12 +112,6 @@
 \end{corollary}
 
 
-\begin{theorem}[Hilbert’s~Nullstellensatz, version~1]
-  If~$I \ideallneq k[x_1, \dotsc, x_n]$ is a proper ideal then its vanishing set~$\vset(I)$ is nonempty.
-  \qed
-\end{theorem}
-
-
 
 
 
@@ -149,16 +156,17 @@
 
 
 \begin{definition}
-  The \emph{coordinate ring} of an affine variety~$X \subseteq \Aff^n$ is the~\dash{$k$}{algebra}
+  The \emph{coordinate ring} of an affine set~$X \subseteq \Aff^n$ is the~\dash{$k$}{algebra}
   \[
               \coord(X)
-    \defined  k[x_1, \dotsc, x_n]/{\videal(X)} \,.
+    \defined  k[x_1, \dotsc, x_n] / {\videal(X)} \,.
   \]
 \end{definition}
+% TODO:: Make quotients into binary operators.
 
 
 \begin{fluff}
-  For an affine variety~$X \subseteq \Aff^n$ any two polyomial functions~$f, g \in k[x_1, \dotsc, x_n]$ coincide on~$X$ in the sense that~$f(x) = g(x)$ for all~$x \in X$ if and only if~$f - g \in \videal(X)$, i.e.\ if and only if~$f$ and~$g$ are identified in~$\coord(X)$.
+  For an affine set~$X \subseteq \Aff^n$ any two polyomial functions~$f, g \in k[x_1, \dotsc, x_n]$ coincide on~$X$ in the sense that~$f(x) = g(x)$ for all~$x \in X$ if and only if~$f - g \in \videal(X)$, i.e.\ if and only if~$f$ and~$g$ are identified in~$\coord(X)$.
   We will therefore regard the coordinate ring~$\coord(X)$ as the ring of polynomial functions on~$X$.
   
   We can then define for every ideal~$I \idealleq \coord(X)$ the \emph{vanishing set}
@@ -186,16 +194,17 @@
 \end{fluff}
 
 
-\begin{lemma}
-  The Zariski closed subsets of an affine variety~$X$ are precisely the subsets of the form~$\vset(I)$ with~$I \idealleq \coord(X)$.
-\end{lemma}
+% \begin{lemma}
+%   The Zariski closed subsets of an affine set~$X$ are precisely the subsets of the form~$\vset(I)$ with~$I \idealleq \coord(X)$.
+% \end{lemma}
 
 
 \begin{corollary}
   \label{standard basis of zariski topology}
-  If~$X$ is an affine variety then the sets
+  If~$X$ is an affine set then the sets
   \[
               \Dopen(f)
+    \defined  \Dopen_X(f)
     \defined  \{
                 x \in X
               \suchthat
@@ -204,6 +213,7 @@
   \]
   with~$f \in \coord(X)$ form a basis for the Zariski topology of~$X$.
 \end{corollary}
+
 
 
 \begin{proof}
@@ -226,8 +236,21 @@
 
 
 \begin{definition}
-  For an affine variety~$X$ the open subsets~$\Dopen(f) \subseteq X$ with~$f \in \coord(X)$ are the \emph{standard open subsets} of~$X$.
+  For an affine set~$X$ the open subsets~$\Dopen(f) \subseteq X$ with~$f \in \coord(X)$ are the \emph{standard open subsets} of~$X$.
 \end{definition}
+
+
+\begin{notation}
+  If more generally~$X'$ is any set,~$f \colon X' \to k$ is a function and~$X \subseteq X'$ is a subset then we will use the notation
+  \[
+              \Dopen_X(f)
+    \defined  \{
+                x \in X
+              \suchthat
+                f(x) \neq 0
+              \} \,.
+  \]
+\end{notation}
 
 
 \begin{definition}
@@ -271,10 +294,23 @@
 
 \begin{corollary}
   \label{coordinate ring is fg commutative reduced}
-  For every affine variety~$X$ its coordinate ring~$\coord(X)$ is a finitely generated, commutative, reduced~\dash{$k$}-algebra.
+  For every affine set~$X$ its coordinate ring~$\coord(X)$ is a finitely generated, commutative, reduced~\dash{$k$}-algebra.
+  \qed
 \end{corollary}
 
 
+\begin{theorem}[Hilbert’s~Nullstellensatz, version~1]
+  \label{nullstellensatz 1}
+  If~$X$ is an affine set then holds for every ideal~$I \idealleq \coord(X)$ that~$\videal( \vset( I ) ) = \rad{I}$.
+  \qed
+\end{theorem}
+
+
+\begin{theorem}[Hilbert’s~Nullstellensatz, version~2]
+  \label{nullstellensatz 2}
+  If~$X$ is an affine set and~$I \ideallneq \coord(X)$ is a proper ideal then its vanishing set~$\vset(I)$ is nonempty.
+  \qed
+\end{theorem}
 
 
 
@@ -314,19 +350,19 @@
 
 
 \begin{example}
-  The affine variety~$\vset(xy) \subseteq \Aff^2$ is connected but reducible, which shows that the converse to \cref{irreducible is connected} does not hold.
+  The affine set~$\vset(xy) \subseteq \Aff^2$ is connected but reducible, which shows that the converse to \cref{irreducible is connected} does not hold.
 \end{example}
 
 
 \begin{proposition}
   \label{existence of irreducible components}
-  If~$X$ is a topological space then there exist closed irreducible subsets~$C_\lambda \subseteq X$,~$\lambda \in \Lambda$ with~$X = \bigcup_{\lambda \in \Lambda} C_\lambda$ and~$C_\lambda \nsubseteq C_\mu$ for~$\lambda \neq \mu$, and the sets~$C_\lambda$,~$\lambda \in \Lambda$ are unique up to permutation.
+  For every topological space~$X$ there exist a unique collection~$( C_\lambda )_{\lambda \in \Lambda}$ of closed irreducible subsets~$C_\lambda \subseteq X$ with~$X = \bigcup_{\lambda \in \Lambda} C_\lambda$ and~$C_\lambda \nsubseteq C_\mu$ for~$\lambda \neq \mu$.
   \qed
 \end{proposition}
 
 
 \begin{definition}
-  The sets~$C_\lambda$,~$\lambda \in \Lambda$ from \cref{existence of irreducible components} are the irreducible components of~$X$.
+  The sets~$C_\lambda$,~$\lambda \in \Lambda$ from \cref{existence of irreducible components} are the \emph{irreducible components} of~$X$.
 \end{definition}
 
 
@@ -356,26 +392,26 @@
 
 
 \begin{lemma}
-  Any affine variety is noetherian.
+  Any affine set is noetherian.
   \qed
 \end{lemma}
 
 
 \begin{corollary}
-  Any affine variety has only finitely many irreducible components.
+  Any affine set has only finitely many irreducible components.
   \qed
 \end{corollary}
 
 
-\begin{theorem}[Hilbert’s~Nullstellensatz, version~2]
-  \label{hilberts nullstellensatz correspondence}
-  For every affine algebraic variety~$X$, the maps~$\vset_X, \videal_X$ restrict to the following bijections:
+\begin{theorem}[Hilbert’s~Nullstellensatz, version~3]
+  \label{nullstellensatz 3}
+  For every affine set~$X$, the maps~$\vset_X, \videal_X$ restrict to the following bijections:
   \[
     \begin{matrix}
         \left\{
-          \begin{tabular}{c}
+          \begin{tabular}{@{}c@{}}
               affine  algebraic \\
-              varieties~$Y \subseteq X$
+              sets~$Y \subseteq X$
           \end{tabular}
         \right\}
       & \begin{tikzcd}[column sep = large]
@@ -385,7 +421,7 @@
             \arrow[shift left]{l}{\vset_X}
         \end{tikzcd}
       & \left\{
-          \begin{tabular}{c}
+          \begin{tabular}{@{}c@{}}
             radical ideals \\
             $I \idealleq \coord(X)$
           \end{tabular}
@@ -404,9 +440,9 @@
       & {}
       \\
         \left\{
-          \begin{tabular}{c}
+          \begin{tabular}{@{}c@{}}
               irreducible affine \\
-              algebraic varieties \\
+              algebraic set \\
               $Y \subseteq X$
           \end{tabular}
         \right\}
@@ -417,7 +453,7 @@
             \arrow[shift left]{l}{\vset_X}
         \end{tikzcd}
       & \left\{
-          \begin{tabular}{c}
+          \begin{tabular}{@{}c@{}}
             prime ideals \\
             $\mf{p} \idealleq \coord(X)$
           \end{tabular}
@@ -436,7 +472,7 @@
       & {}
       \\
         \left\{
-          \begin{tabular}{c}
+          \begin{tabular}{@{}c@{}}
             points~$p \in X$
           \end{tabular}
         \right\}
@@ -447,40 +483,62 @@
             \arrow[shift left]{l}{\vset_X}
         \end{tikzcd}
       & \left\{
-          \begin{tabular}{c}
+          \begin{tabular}{@{}c@{}}
             maximal ideals \\
             $\mf{m} \idealleq \coord(X)$
           \end{tabular}
         \right\}
     \end{matrix}
   \]
-  For every point~$p = (p_1, \dotsc, p_n) \in X$ the corresponding maximal ideal is given by~$\mf{m}_p = (\class{x_1} - p_1, \dotsc, \class{x_n} - p_n)$.
+  For every point~$p = (p_1, \dotsc, p_n) \in X$ the corresponding maximal ideal~$\mf{m}_p \idealleq \coord(X)$ is given by~$\mf{m}_p = (\class{x_1} - p_1, \dotsc, \class{x_n} - p_n)$.
   \qed
 \end{theorem}
 
 
+\begin{corollary}
+  \label{containment of D}
+  If~$X$ is an affine set then it holds for all~$f, g \in \coord(X)$ that~$\Dopen(f) \subseteq \Dopen(g)$ if and only if~$f \in \rad{\genideal{g}}$.
+\end{corollary}
+
+
+\begin{proof}
+  It holds that
+  \[
+          \Dopen(f) \subseteq \Dopen(g)
+    \iff  \vset(f) \supseteq \vset(g)
+    \iff  \videal(\vset(f)) \subseteq \videal(\vset(g))
+    \iff  \rad{\genideal{f}} \subseteq \rad{\genideal{g}}
+    \iff  f \in \rad{\genideal{g}} \,,
+  \]
+  as desired.
+\end{proof}
 
 
 
-\subsection{Morphisms of Affine Varieties}
+
+
+
+\subsection{Morphisms of Affine Sets}
 
 
 \begin{definition}
-  Let~$X,Y$ be affine varities with~$X \subseteq \Aff^n$ and~$Y \subseteq \Aff^m$.
+  \label{regular for affine}
+  Let~$X,Y$ be affine sets with~$Y \subseteq \Aff^m$.
   \begin{enumerate}
     \item
       A function~$f \colon X \to k = \Aff^1$ is \emph{regular} if it is an element of~$\coord(X)$.
     \item
-      A map~$f \colon X \to \Aff^n$ is \emph{regular} if it is polynomial in each coordinate.
+      A map~$f \colon X \to \Aff^n$ is \emph{regular} if it is regular in each coordinate.
     \item
-      A map~$f \colon X \to Y$ is \emph{regular} if it is the restriction of a polynomial map~$X \to \Aff^m$.
+      A map~$f \colon X \to Y$ is \emph{regular} if it is the restriction of a regular map~$X \to \Aff^m$.
   \end{enumerate}
-  A map~$X \to Y$ is a \emph{morphism} of affine varieties if it is regular, and the set of morphisms~$X \to Y$ is denoted by~$\Mor(X,Y)$.
+  A map~$X \to Y$ is a \emph{morphism} of affine sets if it is regular.
+  The set of morphisms~$X \to Y$ is denoted by~$\Mor(X,Y)$.
 \end{definition}
 
 
 \begin{lemma}
-  Let~$X, Y, Z$ be affine varieties.
+  Let~$X, Y, Z$ be affine sets.
   \begin{enumerate}
     \item
       The identity map~$\id_X \colon X \to X$ is a morphism.
@@ -492,11 +550,23 @@
 
 
 \begin{lemma}
-  \label{fuctoriality of the coordinate ring}
-  Let~$X, Y, Z$ be affine varieties.
+  Let~$X,Y$ be affine sets and let~$f \colon X \to Y$ be a morphism of affine sets.
   \begin{enumerate}
     \item
-      If~$f \colon X \to Y$ is a morphism of affine varieties then the map
+      It holds for every~$\varphi \in \coord(Y)$ that~$f^{-1}(\Dopen_Y(\varphi)) = \Dopen_X(\varphi \circ f)$.
+    \item
+      The map~$f$ is continuous with respect to the Zariski topologies on~$X, Y$.
+    \qed
+  \end{enumerate}
+\end{lemma}
+
+
+\begin{lemma}
+  \label{fuctoriality of the coordinate ring}
+  Let~$X, Y, Z$ be affine sets.
+  \begin{enumerate}
+    \item
+      If~$f \colon X \to Y$ is a morphism of affine sets then the map
       \[
                 f^*
         \colon  \coord(Y)
@@ -508,7 +578,7 @@
     \item
       It holds that~$\id_X^* = \id_{\coord(X)}$.
     \item
-      It holds or any two composable morphisms of affine varities~$f \colon X \to Y$,~$g \colon Y \to Z$ that~$(g \circ f)^* = f^* \circ g^*$.
+      It holds or any two composable morphisms of affine sets~$f \colon X \to Y$,~$g \colon Y \to Z$ that~$(g \circ f)^* = f^* \circ g^*$.
     \qed
   \end{enumerate}
 \end{lemma}
@@ -516,7 +586,7 @@
 
 \begin{proposition}
   \label{coordinate ring is fully faithful}
-  For any two affine varieties~$X,Y$ the map
+  For any two affine sets~$X,Y$ the map
   \[
             \Mor(X, Y)
     \to     \Hom_{\cAlg{k}}( \coord(Y), \coord(X) ) \,,
@@ -538,7 +608,7 @@
       \coord(Y)
     = k[y_1, \dotsc, y_m]/{\videal(Y)} \,.
   \]
-  For any homomorphism of~\dash{$k$}{algebras}~$F \colon \coord(Y) \to \coord(X)$ we associate a morphism of affine varieties~$\tilde{F}^\circ \colon X \to \Aff^m$ with coordinates~$\tilde{F}^\circ = (\tilde{F}^\circ_1, \dotsc, \tilde{F}^\circ_m)$ given by
+  For any homomorphism of~\dash{$k$}{algebras}~$F \colon \coord(Y) \to \coord(X)$ we associate a morphism of affine sets~$\tilde{F}^\circ \colon X \to \Aff^m$ with coordinates~$\tilde{F}^\circ = (\tilde{F}^\circ_1, \dotsc, \tilde{F}^\circ_m)$ given by
   \[
         \tilde{F}^\circ_j
     =   F(\class{y_j})
@@ -547,7 +617,7 @@
   for every~$j = 1, \dotsc, m$.
   
   The morphism~$\tilde{F}^\circ \colon X \to \Aff^m$ restrict to a morphism~$F^\circ \colon X \to Y$:
-  The affine variety~$Y$ is given by~$Y = \vset(\videal(Y))$ so needs to be shown that~$p( \tilde{F}^\circ(x) ) = 0$ for all~$p \in \videal(Y)$,~$x \in X$.
+  The affine set~$Y$ is given by~$Y = \vset(\videal(Y))$ so needs to be shown that~$p( \tilde{F}^\circ(x) ) = 0$ for all~$p \in \videal(Y)$,~$x \in X$.
   For this we calculate
   \begin{align}
         p(\tilde{F}^\circ(x))
@@ -568,10 +638,10 @@
     &=  0
         \nonumber \,.
   \end{align}
-  \cref{equation: definiton of F circ} uses the definition of~$\tilde{F}^\circ$, \cref{equation: definiton of F circ j} uses the definiton of the components~$\tilde{F}^\circ_j$, \cref{equation: pulling x out} uses that the~\dash{$k$}{algebra} structure on~$\coord(X)$ is given pointwise, \cref{equation: pulling F out} uses that~$F$ is a~\dash{$k$}{algebra} homomorphism, \cref{equation: putting p in} uses that~$\class{(-)}$ is a~\dash{$k$}{algebra} homomorphism, and \cref{equation: p vanishes} uses that $p \in \videal(Y)$.
+  \cref{equation: definiton of F circ} uses the definition of~$\tilde{F}^\circ$, \cref{equation: definiton of F circ j} uses the definiton of the components~$\tilde{F}^\circ_j$, \cref{equation: pulling x out} uses that the~\dash{$k$}{algebra} structure on~$\coord(X)$ is given pointwise, \cref{equation: pulling F out} uses that~$F$ is a~\dash{$k$}{algebra} homomorphism, \cref{equation: putting p in} uses that~$\class{(-)}$ is a~\dash{$k$}{algebra} homomorphism, and \cref{equation: p vanishes} uses that~$p \in \videal(Y)$.
   
   The constructions~$(-)^*$ and~$(-)^\circ$ are mutually inverse:
-  If~$f \colon X \to Y$ is a morphism of affine varieties with coordinates~$f = (f_1, \dotsc, f_m)$ then
+  If~$f \colon X \to Y$ is a morphism of affine sets with coordinates~$f = (f_1, \dotsc, f_m)$ then
   \[
       (f^*)^\circ_j
     = (f^*)(\class{y_j})
@@ -579,30 +649,30 @@
     = f_j
   \]
   for every~$j = 1, \dotsc, m$ and therefore~$(f^*)^\circ = f$.
-  If~$F \colon \coord(Y) \to \coord(X)$ is a homomorphism of $k$-algebras then
+  If~$F \colon \coord(Y) \to \coord(X)$ is a homomorphism of~\dash{$k$}{algebras} then
   \[
       (F^\circ)^*(\class{y_j})
     = \class{y_j} \circ F^\circ
     = F^\circ_j
     = F(\class{y_j})
   \]
-  for every~$j = 1, \dotsc, m$ and therefore $(F^\circ)^* = F$.
+  for every~$j = 1, \dotsc, m$ and therefore~$(F^\circ)^* = F$.
 \end{proof}
 
 
 \begin{lemma}
   \label{coordinate ring is dense}
-  For every finitely generated, commutative, reduced~\dash{$k$}{algebra}~$A$ there exists an affine variety~$X$ with~$A \cong \coord(X)$ as~\dash{$k$}{algebras}.
+  For every finitely generated, commutative, reduced~\dash{$k$}{algebra}~$A$ there exists an affine set~$X$ with~$A \cong \coord(X)$ as~\dash{$k$}{algebras}.
 \end{lemma}
 
 
 \begin{proof}
   Let~$a_1, \dotsc, a_n \in A$ be generating set of~$A$ as a~\dash{$k$}{algebra}.
-  Then there exists a unique homomorphisms of~\dash{$k$}{algebras}~$f \colon k[x_1, \dotsc, x_n] \to A$ with~$f(x_i) = a_i$ for every~$i = 1, \dotsc, n$ and~$f$ is surjective.
-  It follows for~$I \defined \ker(f)$ that~$f$ induces an isomorphism of~\dash{$k$}{algebras}~$\induced{f} \colon k[x_1, \dotsc, x_n]/I \to A$ with~$\induced{f}(\class{x_i}) = a_i$ for every~$i = 1, \dotsc, n$.
+  Then there exists a unique homomorphisms of~\dash{$k$}{algebras}~$f \colon k[x_1, \dotsc, x_n] \to A$ with~$f(x_i) = a_i$ for every~$i = 1, \dotsc, n$, and~$f$ is surjective.
+  It follows that~$f$ induces an isomorphism of~\dash{$k$}{algebras}~$k[x_1, \dotsc, x_n]/I \to A$ for~$I \defined \ker(f)$.
   
   The ideal~$I$ is a radical ideal because the quotient~$k[x_1, \dotsc, x_n]/I \cong A$ is reduced.
-  It follows from the \hyperref[hilberts nullstellensatz correspondence]{second version of Hilbert’s~Nullstellensatz} that~$\videal(X) = I$ for the affine algebraic variety~$X \defined \vset(I)$.
+  It follows from the \hyperref[nullstellensatz 3]{second version of Hilbert’s~Nullstellensatz} that~$\videal(X) = I$ for the affine set~$X \defined \vset(I)$.
   It follows that
   \[
           A
@@ -618,16 +688,16 @@
   The coordinate ring~$\coord(-)$ gives rise to a contravariant equivalence
   \begin{align*}
     \{
-      \text{affine varieties}
+      \text{affine sets}
     \}
     &\longto
     \left\{
-      \begin{tabular}{c}
+      \begin{tabular}{@{}c@{}}
         finitely generated, \\
         commutative,        \\
         reduced~\dash{$k$}{algebras}
       \end{tabular}
-    \right\} ,
+    \right\} \,,
     \\
     X
     &\longmapsto
@@ -646,54 +716,98 @@
 \end{proof}
 
 
-\begin{fluff}
-  A
-\end{fluff}
 
 
 
-
-\subsection{Products of Affine Algebraic Varieties}
+\subsection{Products of Affine Sets}
 
 
 \begin{lemma}
-  For any two affine varieties~$X \subseteq \Aff^n$ and~$Y \subseteq \Aff^m$ the set
+  \label{product of affine sets is an affine set}
+  For any two affine sets~$X \subseteq \Aff^n$ and~$Y \subseteq \Aff^m$ the set
   \[
               X \times Y
     \subseteq \Aff^n \times \Aff^m
     =         \Aff^{n+m}
   \]
-  is again an affine variety.
+  is again an affine set.
 \end{lemma}
 
 
-% TODO: Add a proof.
+\begin{proof}
+  We may label the coordinates of~$\Aff^n$ by~$x_1, \dotsc, x_n$ while labeling the coordinates of~$\Aff^m$ by~$x_{n+1}, \dotsc, x_{n+m}$.
+  The affine set~$X$ is then cut out by an ideal~$I \idealleq k[x_1, \dotsc, x_n]$ while~$Y$ is cut out by an ideal~$J \idealleq k[x_{n+1}, \dotsc, x_{n+m}]$.
+  The set~$X \times Y$ is then cut out by the generated ideal~$\genideal{I,J} \idealleq k[x_1, \dotsc, x_{n+m}]$.
+\end{proof}
 
 
 \begin{definition}
-  For any two affine varieties~$X \subseteq \Aff^n$ and~$Y \subseteq \Aff^m$ the affine variety~$X \times Y \subseteq \Aff^{n+m}$ is the \emph{product} of~$X$ and~$Y$.
+  For any two affine sets~$X \subseteq \Aff^n$,~$Y \subseteq \Aff^m$ the affine set~$X \times Y \subseteq \Aff^{n+m}$ is the \emph{product} of~$X$ and~$Y$.
 \end{definition}
 
 
+\begin{example}
+  It holds that~$\Aff^n \times \Aff^m = \Aff^{n+m}$ as affine sets.
+\end{example}
+
+
 \begin{warning}
-  The Zariski topology on~$X \times Y$ is larger then the product topology and in general strictly so.
-% TODO: Add examples and pictures.
+  \label{zariski finer than product topology}
+  The Zariski topology on~$X \times Y$ is finer than the product topology (i.e.\ it has more open sets) and in general strictly so.
+  
+  To show that the Zariski topology on~$X \times Y$ is finer than the product topology it sufficies to consider the case~$X = \Aff^n$,~$Y = \Aff^m$ because both the Zariski topology and product topology on~$X \times Y$ are inherited from~$\Aff^n \times \Aff^m = \Aff^{n+m}$.
+  It further sufficies to show that the sets~$U \times V$ for open subsets~$U \subseteq \Aff^n$,~$V \subseteq \Aff^m$ are open in the Zariski topology because these form a basis of the product topology.
+  This holds because
+  \[
+      \Aff^{n+m} \setminus \, (U \times V)
+    = \left( (\Aff^n \setminus U) \times \Aff^m \right)
+      \cup
+      \left( \Aff^n \times (\Aff^m \setminus V) \right)
+  \]
+  is Zariski closed by \cref{product of affine sets is an affine set}.
+  
+  To show that the Zariski toplogy on~$X \times Y$ is in general strictly finer than the product topology we consider the case~$X = Y = \Aff^1$.
+  The diagonal
+  \[
+              \Delta
+    =         \{(x,x) \suchthat x \in \Aff^1\}
+    =         V(x_1 - x_2)
+    \subseteq \Aff^2
+  \]
+  is then Zariski closed.
+  But~$\Delta$ cannot be closed in the product topology because~$\Aff^1$ is not Hausdorff\footnote{Here we use the well-known fact from point set topology that a toplogical space~$X$ is Hausdorff if and only if the diagonal~$\Delta = \{(x,x) \suchthat x \in X\}$ is a closed subset of~$X \times X$.}, as it is an infinite set endowed with the cofinite topology.
 \end{warning}
 
 
 \begin{proposition}
-  For any two affine varieties~$X,Y$ the map
+  Let~$X, X_1, X_2, Y_1, Y_2$ be affine sets.
+  \begin{enumerate}
+    \item
+      The projections~$\pi_i \colon X_1 \times X_2 \to X_i$ are morphisms of affine sets.
+    \item
+      A map~$f \colon X \to Y_1 \times Y_2$ given by~$f = (f_1, f_2)$ with~$f_i \colon X \to Y_i$ is a morphism of affine sets if and only if both~$f_1, f_2$ are morphisms of affine sets.
+  \end{enumerate}
+  This shows that the product of two affine sets is their categorical product in the category of affine sets.
+  \begin{enumerate}[resume]
+    \item
+      If~$f \colon X \to X'$ and~$g \colon Y \to Y'$ are two morphisms of affine sets then the induced map~$f \times g \colon X \times Y \to X' \times Y'$ is again a morphism of affine sets.
+    \qed
+  \end{enumerate}
+\end{proposition}
+
+
+\begin{proposition}
+  \label{regular functions on product of affine sets}
+  For any two affine sets~$X,Y$ the map
   \[
             \coord(X) \tensor_k \coord(Y)
     \to     \coord(X \times Y) \,,
     \quad   f \tensor g
     \mapsto \big[ (x,y) \mapsto f(x)g(y) \big]
   \]
-  is a well-defined isomorphism of~$k$\nobreakdash-algebras.
+  is a well-defined natural isomorphism of~\dash{$k$}{algebras}.
+  \qed
 \end{proposition}
-
-
-% TODO: Add a proof.
 
 
 

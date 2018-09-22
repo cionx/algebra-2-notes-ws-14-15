@@ -1,8 +1,23 @@
-\section{Affine Algebraic Groups}
+\chapter{Affine Algebraic Groups}
 
+
+
+
+
+\section{Definition and First Examples}
 
 \begin{definition}
-  An \emph{affine algebraic group} is an affine variety~$G$ together with morphisms~$m \colon G \times G \to G$ and~$i \colon G \to G$ and an element~$e \in G$ such that~$G$ is a group with respect to the multiplication given by~$m$ with inverse map~$i$ and neutral element~$e$.
+  An \emph{affine algebraic group} is an affine variety~$G$ together with morphisms
+  \[
+            m
+    \colon  G \times G
+    \to     G
+    \quad\text{and}\quad
+            i
+    \colon  G
+    \to     G
+  \]
+  and an element~$e \in G$ such that~$G$ is a group with respect to the multiplication given by~$m$ with inverse map~$i$ and neutral element~$e$.
   In other words, the following diagrams need to commute:
   \[
     \renewcommand{\arraystretch}{1.5}
@@ -26,11 +41,11 @@
             \arrow{dd}[right]{m}
           & {}
           \\
-            G \times \{e\} \hspace{-10pt}
+            G \times \{e\}
             \arrow[hook]{ur}
             \arrow[two heads]{dr}[below left]{\operatorname{pr}_1}
           & {}
-          & \hspace{-10pt} \{e\} \times G
+          & \{e\} \times G
             \arrow[hook']{ul}
             \arrow[two heads]{dl}[below right]{\operatorname{pr}_2}
           \\
@@ -71,9 +86,9 @@
   If~$\mc{C}$ is any category with finite products, including a terminal object~$\ast$, then a \emph{group object} in~$\mc{C}$ is an object~$G \in \mc{C}$ together with morphisms
   \[
     m \colon G \times G \to G \,,
-    \quad
+    \qquad
     i \colon G \to G \,,
-    \quad
+    \qquad
     e \colon \ast \to G
   \]
   such that the following diagrams commute:
@@ -99,12 +114,12 @@
             \arrow{dd}[right]{m}
           & {}
           \\
-            G \times * \hspace{-10pt}
-            \arrow{ur}[above left]{e}
+            G \times *
+            \arrow{ur}[above left]{\id \times e}
             \arrow{dr}[below left]{\operatorname{pr}_1}
           & {}
-          & \hspace{-10pt} * \times G
-            \arrow{ul}[above right]{e}
+          & * \times G
+            \arrow{ul}[above right]{e \times \id}
             \arrow{dl}[below right]{\operatorname{pr}_2}
           \\
             {}
@@ -155,6 +170,11 @@
 \end{example}
 
 
+\begin{warning}
+  An affine algebraic group~$G$ is in general not a topological group.
+  While the multiplication~$m \colon G \times G \to G$ is a morphism of affine varieties and therefore continuous, it is so with respect to the Zariski topology on $G \times G$.
+  For~$G$ to be a topological group we would need~$m$ to be continuous with respect to the product topololgy of~$G \times G$, which is in general coarser than the Zariski topology (see \cref{zariski finer than product topology}).
+\end{warning}
 
 
 
