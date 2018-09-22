@@ -10,7 +10,12 @@ For those who want to compile these notes themselves:
 - Compiling is intented to be done using `lualatex`.
 - The bibliography is using `biber`.
 - The `gitinfo2` package is used to display the date and hash of the last commit.
-- The included `make` file is intented for remote building via [travis.ci][3] and may not work on other machines.
+- The following fonts are used:
+  - Serif: Linux Libertine
+  - Sans-serif: Linux Biolinum
+  - Mathematics: [Libertinus][3]
+  - Monospace: Inconsolata
+- The included `make` file is intented for remote building via [travis.ci][4].
 
 For comments and corrections please contact me at `stelzner (at) uni-bonn.de`.
 
@@ -20,4 +25,5 @@ For comments and corrections please contact me at `stelzner (at) uni-bonn.de`.
 
 [1]: https://travis-ci.org/cionx/algebra-2-notes-ws-14-15/builds
 [2]: https://github.com/cionx/algebra-2-notes-ws-14-15/raw/gh-pages/notes.pdf
-[3]: https://travis-ci.org/
+[3]: https://github.com/libertinus-fonts/libertinus
+[4]: https://travis-ci.org/
