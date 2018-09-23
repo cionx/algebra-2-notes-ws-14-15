@@ -1,0 +1,374 @@
+\section{Definition and First Examples}
+
+
+\begin{definition}
+  An \emph{affine algebraic group} is an affine variety~$G$ together with a group structure such that both the multiplication map~$G \times G \to G$,~$(g_1, g_2) \mapsto g_1 g_2$ and inversion map~$G \to G$,~$g \mapsto g^{-1}$ are morphisms of affine varieties.
+  
+  If~$G, H$ are affine algebraic groups then a map~$f \colon G \to H$ is a \emph{homomorphism of affine algebraic groups} if it is both a morphism of affine varieties and a group homomorphism.
+\end{definition}
+
+
+\begin{example}
+  The \emph{additive groups}~$\Gadd \defined (\Aff^1, +)$ is an affine algebraic group since the addition
+  \[
+            {+}
+    \colon  \Aff^1 \times \Aff^1
+    =       \Aff^2
+    \to     \Aff^1 \,,
+    \quad   (x,y)
+    \mapsto x+y
+  \]
+  and inversion
+  \[
+            {-}
+    \colon  \Aff^1
+    \to     \Aff^1 \,,
+    \quad   x
+    \mapsto -x
+  \]
+  are regular.
+\end{example}
+
+
+\begin{example}
+  The \emph{general linear group}~$\GL_n(k)$ together with the usual matrix multiplication is an affine algebraic group.
+  We have seen in \cref{principal open sets of affine are again affine} that~$\GL_n(k)$ is an affine variety, the multiplication map~$\GL_n(k) \times \GL_n(k) \to \GL_n(k)$ is polynomial and therefore regular, and the inversion map~$\GL_n(k) \to \GL_n(k)$ is a rational function (because the entries of~$A^{-1}$ are rational functions in the entries of~$A$ by Cramer’s rule) and therefore also regular.
+  
+  It follows for~$n = 1$ that the \emph{multiplicative group}~$\Gmult \defined \GL_1(k) = k^\times$ is an affine algebraic group.
+\end{example}
+
+
+\begin{lemma}
+  Every Zariski closed subgroup of an affin algebraic group is again an affine algebraic group.
+\end{lemma}
+
+
+\begin{proof}
+  Let~$G$ be an affine algebraic group and let~$H \groupleq G$ be a Zariski closed subgroup.
+  It follows from \cref{closed of affine is again affine} that~$H$ is again an affine variety, and the multiplication~$H \times H \to H$ and inversion~$H \to H$ are morphisms because they are restrictions of the multiplication~$G \times G \to G$ and inversion~$G \to G$.
+\end{proof}
+
+
+\begin{corollary}
+  \label{closed subgroups of affine algebraic group}
+  Every Zariski closed subgroup of~$\GL_n(k)$ is an affine algebraic group.
+  \qed
+\end{corollary}
+
+
+\begin{example}
+  It follows from \cref{closed subgroups of affine algebraic group} that the following are affine algebraic groups:
+  \begin{enumerate}
+    \item
+      The \emph{special linear group}~$\SL_n(k) = \{ A \in \GL_n(k) \suchthat \det A = 1 \}$.
+    \item
+      The \emph{orthogonal groups}~$\Orth_n(k) = \{ A \in \GL_n(k) \suchthat A^T A = I \}$.
+    \item
+      The \emph{special orthogonal group}~$\SOrth_n(k) = \SL_n(k) \cap \Orth_n(k)$.
+    \item
+      The \emph{symplectic group}~$\Symp_{2n}(k) = \{ A \in \GL_n(k) \suchthat A^T J A = J \}$ where~$
+          J
+        = \begin{psmallmatrix}
+             0    & I_n \\
+            -I_n  & 0
+          \end{psmallmatrix}
+      $.
+%     TODO:
+%     \item
+%       Every finite subgroup of $\GL_n(k)$ is a linear algebraic group.
+    \item
+      The \emph{group of diagonal matrices}~$
+          \Diag_n(k)
+        = \left\{
+            \begin{psmallmatrix}
+              * &        &    \\
+                & \ddots &    \\
+                &        & *
+            \end{psmallmatrix}
+            \in \GL_n(k)
+          \right\}
+      $.
+    \item
+      The \emph{group of upper triangular matrices}~$
+          \Triag_n(k)
+        = \left\{
+            \begin{psmallmatrix}
+              * & \cdots & *      \\
+                & \ddots & \vdots \\
+                &        & *
+            \end{psmallmatrix}
+            \in \GL_n(k)
+          \right\} \,.
+      $
+    \item
+      The \emph{group of unipotent matrices}~$
+          \Uni_n(k)
+        = \left\{
+            \begin{psmallmatrix}
+              1 & \cdots & *      \\
+                & \ddots & \vdots \\
+                &        & 1
+            \end{psmallmatrix}
+            \in \GL_n(k)
+          \right\} \,.
+      $
+  \end{enumerate}
+\end{example}
+
+
+% For embeddings: Motivate by G_a.
+
+
+\begin{remark}
+  One may rephrase the definition of an affine algebraic groups as saying that~$G$ is an affine variety together with morphisms
+  \[
+            m
+    \colon  G \times G
+    \to     G
+    \quad\text{and}\quad
+            i
+    \colon  G
+    \to     G
+  \]
+  and an element~$e \in G$ such that the following diagrams commute:
+  \[
+    \renewcommand{\arraystretch}{1.5}
+    \renewcommand{\arraycolsep}{3.3pt}
+    \begin{array}{ccc}
+        \begin{tikzcd}[column sep = 30pt, row sep = 35pt]
+            G \times G \times G
+            \arrow{r}[above]{m \times \id}
+            \arrow{d}[left]{\id \times m}
+          & G \times G
+            \arrow{d}[right]{m}
+          \\
+            G \times G
+            \arrow{r}[below]{m}
+          & G
+        \end{tikzcd}
+      &
+        \begin{tikzcd}[column sep = 10pt, row sep = 9pt]
+            {}
+          & G \times G
+            \arrow{dd}[right]{m}
+          & {}
+          \\
+            G \times \{e\}
+            \arrow[hook]{ur}
+            \arrow[two heads]{dr}[below left]{\pr_1}
+          & {}
+          & \{e\} \times G
+            \arrow[hook']{ul}
+            \arrow[two heads]{dl}[below right]{\pr_2}
+          \\
+            {}
+          & G
+          & {}
+        \end{tikzcd}
+      &
+        \begin{tikzcd}[column sep = 3pt, row sep = 9pt]
+            G
+            \arrow{rr}[above]{(i,\id)}
+            \arrow{dd}[left]{(\id,i)}
+            \arrow{dr}
+          & {}
+          & G \times G
+            \arrow{dd}[right]{m}
+          \\
+            {}
+          & \{e\}
+            \arrow[hook]{dr}
+          & {}
+          \\
+            G \times G
+            \arrow{rr}[below]{m}
+          & {}
+          & G
+        \end{tikzcd}
+    \\
+        \text{associativity}
+      & \text{neutral element}
+      & \text{inverse}
+    \end{array}
+  \]
+
+  If more generally~$\mc{C}$ is any category with finite products, including a terminal object~$\ast$, then a \emph{group object} in~$\mc{C}$ is an object~$G \in \mc{C}$ together with morphisms
+  \[
+    m \colon G \times G \to G \,,
+    \qquad
+    i \colon G \to G \,,
+    \qquad
+    e \colon \ast \to G
+  \]
+  such that the following diagrams commute:
+  \[
+    \renewcommand{\arraystretch}{1.5}
+    \renewcommand{\arraycolsep}{4pt}
+    \begin{array}{ccc}
+        \begin{tikzcd}[row sep = 36pt, column sep = 30pt]
+            G \times G \times G
+            \arrow{r}[above]{m \times \id}
+            \arrow{d}[left]{\id \times m}
+          & G \times G
+            \arrow{d}[right]{m}
+          \\
+            G \times G
+            \arrow{r}[below]{m}
+          & G
+        \end{tikzcd}
+      &
+        \begin{tikzcd}[row sep = 10pt, column sep = 15pt]
+            {}
+          & G \times G
+            \arrow{dd}[right]{m}
+          & {}
+          \\
+            G \times *
+            \arrow{ur}[above left]{\id \times e}
+            \arrow{dr}[below left]{\pr_1}
+          & {}
+          & * \times G
+            \arrow{ul}[above right]{e \times \id}
+            \arrow{dl}[below right]{\pr_2}
+          \\
+            {}
+          & G
+          & {}
+        \end{tikzcd}
+      &
+        \begin{tikzcd}[row sep = 12pt, column sep = 10pt]
+            G
+            \arrow{rr}[above]{(i,\id)}
+            \arrow{dd}[left]{(\id,i)}
+            \arrow{dr}
+          & {}
+          & G \times G
+            \arrow{dd}[right]{m}
+          \\
+            {}
+          & *
+            \arrow{dr}{e}
+          & {}
+          \\
+            G \times G
+            \arrow{rr}[below]{m}
+          & {}
+          & G
+        \end{tikzcd}
+    \\
+        \text{associativity}
+      & \text{neutral \enquote{element}}
+      & \text{inverse}
+    \end{array}
+  \]
+\end{remark}
+
+
+\begin{example}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      The group objects in the category of sets are just groups.
+    \item
+      The group objects in the category of topological spaces are topological groups.
+    \item
+      The group objects in the category of smooth real manifolds are real Lie groups.
+    \item
+      The group objects in the category of affine varieties are affine algebraic groups.
+  \end{enumerate}
+\end{example}
+
+
+\begin{warning}
+  An affine algebraic group~$G$ is in general not a topological group.
+  While the multiplication~$m \colon G \times G \to G$ is a morphism of affine varieties and therefore continuous, it is so with respect to the Zariski topology on~$G \times G$.
+  For~$G$ to be a topological group we would need~$m$ to be continuous with respect to the product topololgy of~$G \times G$, which is in general coarser than the Zariski topology (see \cref{zariski finer than product topology}).
+\end{warning}
+
+
+\begin{definition}
+  For an affine algebraic group~$G$ the connected component of the identity~$1 \in G$ is denoted by~$G^0$.
+\end{definition}
+
+
+\begin{proposition}
+  Let~$G$ be a linear algebraic group.
+  \begin{enumerate}
+    \item
+      The connected components of~$G$ coincide with its irreducible components.
+    \item
+      The connected/irreducible component~$G^0$ is a normal subgroup of~$G$.
+    \item
+      The connected/irreducible components of~$G$ are the cosets of~$G^0$.
+    \item
+      The group~$G^0$ has finite index in~$G$.
+  \end{enumerate}
+\end{proposition}
+
+
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      It follows from \cref{quasi-affine have only finitely many irreducible} that~$G$ has only finitely many irreducible components~$C_1, \dotsc, C_n$.
+      It holds that~$C_1 \nsubseteq C_2 \cup \dotsb \cup C_n$ because it would otherwise follows from the irreducibility of~$C_1$ that~$C_1 \subseteq C_i$ for some~$i \geq 2$, which would contradict~$C_1, \dotsc, C_n$ being the irreducible components of~$G$.
+      Let~$g \in C_1$ with~$x \notin C_2 \cup \dotsc \cup C_n$.
+      
+      The element~$x$ is contained in precisely one irreducible component.
+      For every~$g \in G$ the map
+      \[
+                G
+        \to     G \,,
+        \quad   h
+        \mapsto g h x^{-1}
+      \]
+      is regular and therefore a homeomorphism, and maps~$x$ to~$g$.
+      It follows that every~$g \in G$ is contained in precisely one irreducible component.
+      The irreducible components of~$G$ are therefore disjoint.
+      
+      Each irreducible component~$C$ is closed.
+      The complement of~$C$ is also closed because it is the union of all other irreducible components, and therefore a finite union of closed sets.
+      This shows that each irreducible component~$C$ of~$G$ is actually clopen.
+      
+      It follows that each connected component of~$G$ is contained in an irreducible component.
+      It also holds that every irreducible component is contained in a connected component because irreducible topological spaces are connected.
+      It follows that the connected and irreducible components coincide.
+    \item
+      It holds that~$1 \in G^0$ by the definition of~$G^0$.
+      For every~$g \in G^0$ the left multiplication
+      \[
+                \lambda_g
+        \colon  G
+        \to     G \,,
+        \quad   h
+        \mapsto gh
+      \]
+      is an isomorphism of varieties and thus a homeomorphism.
+      It therefore maps the component~$G^0$ of the identity~$1$ onto the component of~$\lambda_g(1) = g$.
+      It follows from~$g$ being contained in~$G^0$ that this component is~$G^0$ and therefore that~$g G^0 = \lambda_g( G^0 ) = G^0$.
+      
+      It follows similarly that~$(G^0)^{-1}$ is the component of~$G$ which contains~$1^{-1} = 1$ and therefore that~$(G^0)^{-1} = G^0$.
+      
+      Together this shows that~$G^0$ is a subgroups of~$G$.
+      To show that~$G^0$ is normal in~$G$ let~$g \in G$.
+      The conjugation map
+      \[
+                c_g
+        \colon  G
+        \to     G \,,
+        \quad   h
+        \mapsto g h g^{-1}
+      \]
+      is regular and therefore a homeomorphism.
+      It follows that~$g G^0 g^{-1} = c_g(G^0)$ is the component containing~$c_g(1) = 1$ and therefore that~$g G^0 g^{-1} = G^0$.
+    \item
+      We find in the above notation that the component of~$g \in G$ is given by~$\lambda_g( G^0 ) = g G^0$.
+    \item
+      The index~$[G : G^0]$ is the number of components of~$G$.
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+
+
+

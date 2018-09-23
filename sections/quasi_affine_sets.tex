@@ -71,6 +71,13 @@
 \end{example}
 
 
+\begin{lemma}
+\label{quasi-affine have only finitely many irreducible}
+  A {\qaffine} set has only finitely many irreducible components.
+  \qed
+\end{lemma}
+
+
 
 
 
@@ -342,15 +349,8 @@
 
 
 \begin{notation}
-  \leavevmode
-  \begin{enumerate}
-    \item
-      We often just say than a {\qaffine} variety is \emph{affine} to mean that it is an quasi-affine variety.
-      Note that this does not necessarily mean that it is affine as a set!
-    \item
-      For an affine variety~$X$ we often write~$\coord(X) \defined \rational(X)$.
-      \Cref{regular on affine is polynomial} shows that this is well-defined when~$X$ is an affine set.
-  \end{enumerate}
+  For an affine variety~$X$ we often write~$\coord(X) \defined \rational(X)$.
+  \Cref{regular on affine is polynomial} shows that this is well-defined when~$X$ is an affine set.
 \end{notation}
 
 
@@ -361,6 +361,7 @@
 
 
 \begin{example}
+\label{principal open sets of affine are again affine}
   \leavevmode
   \begin{enumerate}
     \item
@@ -436,12 +437,61 @@
 
 
 \begin{lemma}
+  \label{closed of affine is again affine}
+  Every Zariski closed subset of an affine variety is again an affine variety.
+\end{lemma}
+
+
+\begin{proof}
+  Let~$X$ be an affine variety and let~$Y \subseteq X$ be Zariski closed.
+  Then there exists an affine set~$X' \subseteq \Aff^n$ and an isomorphism~$\varphi \colon X \to X'$.
+  The set~$Y' \defined \varphi(X')$ is Zariski closed in~$X'$ because~$\varphi$ is a homeomorphism, and it follows that~$Y' \subseteq \Aff^n$ is an affine set.
+  The isomorphism~$\varphi \colon X \to X'$ restricts to an isomorphism~$Y \to Y'$, showing that~$Y$ is an affine variety.
+\end{proof}
+
+
+\begin{lemma}
+  \label{equivalence for affine varieties}
+  The coordinate ring~$\coord(-)$ gives rise to a contravariant equivalence
+  \begin{align*}
+    \{
+      \text{affine varieties}
+    \}
+    &\longto
+    \left\{
+      \begin{tabular}{@{}c@{}}
+        finitely generated, \\
+        commutative,        \\
+        reduced~\dash{$k$}{algebras}
+      \end{tabular}
+    \right\} \,,
+    \\
+    X
+    &\longmapsto
+    \coord(X) \,,
+    \\
+    f
+    &\longmapsto
+    f^* \,.
+  \end{align*}
+\end{lemma}
+
+
+\begin{proof}
+  This follows from \cref{equivalence for affine sets}.
+\end{proof}
+
+
+% TODO: Show that A^n - 0 is quasi-affine but not affine.
+
+
+\begin{lemma}
   \label{coordinate ring of product of qaffine}
   For affine varieties~$X,Y$ the map
   \[
-            \coord(X) \otimes_k \coord(Y)
+            \coord(X) \tensor_k \coord(Y)
     \to     \coord(X \times Y) \,,
-    \quad   f \otimes g
+    \quad   f \tensor g
     \mapsto [(x, y) \mapsto f(x) g(y)]
   \]
   is a \dash{well}{defined} natural isomorphism of~\dash{$k$}{algebras}.
@@ -450,23 +500,23 @@
 
 \begin{proof}
   To see that the proposed map~$\Phi = \Phi_{X,Y}$ is \dash{well}{defined} let~$f \in \coord(X)$ and~$g \in \coord(Y)$.
-  We need to show that~$\Phi(f \otimes g)$ is regular at every point~$(x,y) \in X \times Y$.
+  We need to show that~$\Phi(f \tensor g)$ is regular at every point~$(x,y) \in X \times Y$.
   There exist a neighbourhood~$U \subseteq X$ of~$x$ on which~$f$ is given by a rational function~$f_1/f_2$, and similarly a neighbourhood~$V \subseteq Y$ of~$y$ on which~$g$ is given by a rational function~$g_1/g_2$.
   It follows that~$U \times V$ is an open neighbourhood of~$(x,y)$ in~$X \times Y$ because the Zariski topology on~$X \times Y$ is finer than the product topology.
-  In this neighbourhood the map~$\Phi(f \otimes g)$ is given by the rational function~$(f_1 g_1) / (f_2 g_2)$.
-  This shows that~$\Phi(f \otimes g)$ is regular at~$(x,y)$.
+  In this neighbourhood the map~$\Phi(f \tensor g)$ is given by the rational function~$(f_1 g_1) / (f_2 g_2)$.
+  This shows that~$\Phi(f \tensor g)$ is regular at~$(x,y)$.
   
   To show that naturality of~$\Phi$ let~$X', Y'$ be another pair of affine varieties and consider a pair of morphisms~$\varphi \colon X \to X'$,~$\psi \colon Y \to Y'$.
   For the naturialty of~$\Phi$ we need the diagram
   \begin{equation}
   \label{naturality for product of coordinate rings}
     \begin{tikzcd}[sep = large]
-        \coord(X) \otimes_k \coord(Y)
+        \coord(X) \tensor_k \coord(Y)
         \arrow{r}[above]{\Phi_{X,Y}}
       & \coord(X \times Y)
       \\
-        \coord(X') \otimes_k \coord(Y')
-        \arrow{u}[left]{\varphi^* \otimes \psi^*}
+        \coord(X') \tensor_k \coord(Y')
+        \arrow{u}[left]{\varphi^* \tensor \psi^*}
         \arrow{r}[above]{\Phi_{X',Y'}}
       & \coord(X' \times Y')
         \arrow{u}[right]{(\varphi \times \psi)^*}
@@ -475,23 +525,23 @@
   to commutes.
   This holds because
   \begin{align*}
-        \Phi_{X,Y}( (\varphi^* \times \psi^*)(f \otimes g) )(x,y)
-    &=  \Phi_{X,Y}( \varphi^*(f) \otimes \psi^*(g) )(x,y)         \\
+        \Phi_{X,Y}( (\varphi^* \times \psi^*)(f \tensor g) )(x,y)
+    &=  \Phi_{X,Y}( \varphi^*(f) \tensor \psi^*(g) )(x,y)         \\
     &=  \varphi^*(f)(x) \psi^*(g)(y)                              \\
     &=  (f \circ \varphi)(x) (g \circ \psi)(y)                    \\
     &=  f(\varphi(x)) g(\psi(y))                                  \\
-    &=  \Phi_{X',Y'}(f \otimes g)(\varphi(x), \psi(y))            \\
-    &=  \Phi_{X',Y'}(f \otimes g)( (\varphi \times \psi)(x,y) )   \\
-    &=  (\varphi \times \psi)^*( \Phi_{X',Y'}(f \otimes g) )(x,y)
+    &=  \Phi_{X',Y'}(f \tensor g)(\varphi(x), \psi(y))            \\
+    &=  \Phi_{X',Y'}(f \tensor g)( (\varphi \times \psi)(x,y) )   \\
+    &=  (\varphi \times \psi)^*( \Phi_{X',Y'}(f \tensor g) )(x,y)
   \end{align*}
   for all~$(x,y) \in X \times Y$, and therefore
   \[
-      \Phi_{X,Y}( (\varphi^* \otimes \psi^*)(f \otimes g) )
-    = (\varphi \times \psi)^*( \Phi_{X',Y'}(f \otimes g ) )
+      \Phi_{X,Y}( (\varphi^* \tensor \psi^*)(f \tensor g) )
+    = (\varphi \times \psi)^*( \Phi_{X',Y'}(f \tensor g ) )
   \]
-  for every simple tensor~$f \otimes g \in \coord(X') \otimes \coord(Y')$, and thus overall
+  for every simple tensor~$f \tensor g \in \coord(X') \tensor \coord(Y')$, and thus overall
   \[
-      \Phi_{X,Y} \circ (\varphi^* \otimes \psi^*)
+      \Phi_{X,Y} \circ (\varphi^* \tensor \psi^*)
     = (\varphi \times \psi)^* \circ \Phi_{X',Y'} \,.
   \]
 
@@ -502,7 +552,7 @@
   \begin{equation}
   \label{isomorphism for affine varieties}
       \Phi_{X,Y}
-    = (\varphi \times \psi)^* \circ \Phi_{X',Y'} \circ ( \varphi^* \otimes \psi^* )^{-1} \,,
+    = (\varphi \times \psi)^* \circ \Phi_{X',Y'} \circ ( \varphi^* \tensor \psi^* )^{-1} \,,
   \end{equation}
   is also an isomomorphism.
 \end{proof}

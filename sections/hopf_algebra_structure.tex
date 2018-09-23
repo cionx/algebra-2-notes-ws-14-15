@@ -1,0 +1,685 @@
+\section{Hopf Algebra Structure on the Coordinate Ring}
+
+
+\begin{fluff}
+  If~$X$ is an affine variety then the coordinate ring~$\coord(X)$ is a~\dash{$k$}{algebra}, with addition and multiplication coming from~$k$.
+  In this section we will see that if~$G$ is an affine algebraic group then the additional group structure of~$G$ gives the coordinate ring~$\coord(G)$ the additional structure of a Hopf algebra. 
+\end{fluff}
+
+
+\begin{fluff}
+  A~\dash{$k$}{algebra}~$A$ may be defined as a~\dash{$k$}{vector space}~$A$ together with two~\dash{$k$}{linear} maps
+  \[
+    m \colon A \tensor A \to A
+    \quad\text{and}\quad
+    u \colon k \to A
+  \]
+  such that the following diagrams commute:
+  \[
+    \begin{tikzcd}[column sep = 30pt, row sep = 35pt]
+        A \tensor A \tensor A
+        \arrow{r}[above]{m \tensor \id}
+        \arrow{d}[left]{\id \tensor m}
+      & A \tensor A
+        \arrow{d}[right]{m}
+      \\
+        A \tensor A
+        \arrow{r}[below]{m}
+      & A
+    \end{tikzcd}
+    \quad\quad
+    \begin{tikzcd}[column sep = 10pt, row sep = 10pt]
+        {}
+      & A \tensor A
+        \arrow{dd}[right]{m}
+      & {}
+      \\
+        A \tensor k
+        \arrow{ur}{\id \tensor u}
+        \arrow{dr}[below left]{\sim}
+      & {}
+      & k \tensor A
+        \arrow{ul}[above right]{u \tensor \id}
+        \arrow{dl}[below right]{\sim}
+      \\
+        {}
+      & A
+      & {}
+    \end{tikzcd}
+  \]
+  The commutativity of the first diagram encodes the associativity of the multiplication~$m$ and the commutativity of the second diagram encodes that the elemente~$u(1)$ is the unit with respect to this multiplication.
+  
+  By reversing the arrows in these diagrams we arrive at the notion of a coalgebra:
+\end{fluff}
+
+
+\begin{definition}
+  A~\dash{($k$}{)coalgebra} is a~\dash{$k$}{vector space}~$C$ together with~\dash{$k$}{linear} maps
+  \[
+    \Delta \colon A \to A \tensor A
+    \quad\text{and}\quad
+    \varepsilon \colon A \to k
+  \]
+  such that the diagrams
+  \[
+    \begin{tikzcd}[column sep = 30pt, row sep = 35pt]
+        C
+        \arrow{r}[above]{\Delta}
+        \arrow{d}[left]{\Delta}
+      & C \tensor C
+        \arrow{d}[right]{\id \tensor \Delta}
+      \\
+        C \tensor C
+        \arrow{r}[below]{\Delta \tensor \id}
+      & C \tensor C \tensor C
+    \end{tikzcd}
+    \quad\quad
+    \begin{tikzcd}[column sep = 10pt, row sep = 10pt]
+        {}
+      & C
+        \arrow{dl}[above left]{\sim}
+        \arrow{dd}{\Delta}
+        \arrow{dr}[above right]{\sim}
+      & {}
+      \\
+        C \tensor k
+      & {}
+      & k \tensor C
+      \\
+        {}
+      & C \tensor C
+        \arrow{ul}[below left]{\id \tensor \varepsilon}
+        \arrow{ur}[below right]{\varepsilon \tensor \id}
+      & {}
+    \end{tikzcd}
+  \]
+  commute.
+  The map~$\Delta$ is the \emph{comultiplication} of~$C$ and~$\varepsilon$ is its \emph{counit}.
+  The commutativity of the first diagram is the \emph{coassociativity} of~$\Delta$ and the commutativity of the second diagram states that~$\varepsilon$ is \emph{counitial}.
+\end{definition}
+
+
+% \begin{fluff}[Sweedler notation]
+%   Let~$C$ be a~\dash{$k$}{coalgebra}.
+%   For~$x \in C$ the element~$\Delta(x) \in C$ can be written as a sum of simple tensors
+%   \begin{equation}
+%   \label{prepreswedler notation}
+%       \Delta(x)
+%     = \sum_{i=1}^n x_{1,i} \tensor x_{i,2} \,.
+%   \end{equation}
+%   For calculations it is often not important what the number~$n$ of summands are, and one may write instead
+%   \[
+%       \Delta(x)
+%     = \sum_i x_{1,i} \tensor x_{i,2} \,.
+%   \]
+%   This expression can further be simplified by dropping the index~$i$ and simply writing
+%   \[
+%       \Delta(x)
+%     = \sum_{(x)} x_{(1)} \tensor x_{(2)} \,.
+%   \] 
+%   This is known as \emph{Sweedler’s notation}.
+%   One can think about Sweedler’s notation as giving a blueprint for how to construct the original expression~\eqref{prepreswedler notation}.
+%   
+%   The coassociativity
+%   \[
+%       (\Delta \tensor \id)( \Delta(x) )
+%     = (\id \tensor \Delta)( \Delta(x) )
+%   \]
+%   can in Sweedler’s notation be expressed as
+%   \[
+%       \sum_{(x)} \sum_{(x_{(1)})} x_{(1)(1)} \tensor x_{(1)(2)} \tensor x_{(2)}
+%     = \sum_{(x)} x_{(1)} \tensor \sum_{(x_{(2)})} x_{(2)(1)} \tensor x_{(2)(2)} \,,
+%   \]
+%   and the counital axiom
+%   \[
+%     ()
+%   \]
+% 
+% 
+% \end{fluff}
+
+
+\begin{definition}
+  A \emph{\dash{$k$}{bialgebra}} is a~\dash{$k$}{algebra}~$B$ together with~\dash{$k$}{linear} maps~$\Delta \colon B \to B \tensor B$ and~$\varepsilon \colon B \to k$ such that~$(B,\Delta,\varepsilon)$ is a~\dash{$k$}{coalgebra} and~$\Delta$,~$\varepsilon$ are algebra homomorphisms.
+\end{definition}
+
+
+\begin{definition}
+  A~\dash{$k$}{Hopf algebra} is a~\dash{$k$}{bialgebra}~$H$ together with a~\dash{$k$}{linear} map~$S \colon H \to H$ which makes the diagram
+  \[
+    \begin{tikzcd}[column sep = small, row sep = large]
+        {}
+      & H \tensor H
+        \arrow{rr}[above]{S \tensor \id}
+      & {}
+      & H \tensor H
+        \arrow{dr}[above right]{m}
+      & {}
+      \\
+        H
+        \arrow{ur}[above left]{\Delta}
+        \arrow{rr}[above]{\varepsilon}
+        \arrow{dr}[below left]{\Delta}
+      & {}
+      & k
+        \arrow{rr}[above]{u}
+      & {}
+      & H
+      \\
+        {}
+      & H \tensor H
+        \arrow{rr}[above]{\id \tensor S}
+      & {}
+      & H \tensor H
+        \arrow{ur}[below right]{m}
+      & {}
+    \end{tikzcd}
+  \]
+  commutes.
+  The map~$S$ is the \emph{antipode} of~$H$.
+\end{definition}
+
+
+\begin{remark}
+  If~$C$ is a~\dash{$k$}{coalgebra} and~$A$ is a~\dash{$k$}{algebra} then one can define on~$\Hom_k(C,A)$ the structure of a~\dash{$k$}{algebra} via the \emph{involution product}~$*$ given by
+  \[
+              f * g
+    \defined  m_A \circ (f \tensor g) \circ \Delta_C
+  \]
+  for all~$f, g \in \Hom_k(C,A)$.
+  The convolution unit of~$\Hom_k(C,A)$ is given by~$u_A \circ \varepsilon_C$.
+  If~$B$ is a~\dash{$k$}{bilalgebra} then it follows that~$\End_k(B)$ is a~\dash{$k$}{algebra} with respect to the convolution product, and an antipode for~$B$ is precisely a convolution inverse to the identity~$\id_B \in \End_k(B)$.
+  It follows in particular that for every~\dash{$k$}{bialgebra}~$B$ there exists at most one possible antipode map which makes it into a Hopf algebra.
+  
+  The antipode of a Hopf algebra is an antimorphism of both~\dash{$k$}{algebras} and~\dash{$k$}{coalgebras}.
+\end{remark}
+
+
+\begin{fluff}
+  Let~$G$ be an affine algebraic group with multiplication~$m \colon G \times G \to G$, inversion~$G \to G$ and neutral element~$e \in G$;
+  let~$j \colon \{e\} \to G$ be the inclusion.
+  The induced algebra homomorphism~$m^* \colon \coord(G) \to \coord(G \times G)$ is given by
+  \begin{equation}
+  \label{action of mstar}
+      m^*(f)(x_1, x_2)
+    = f(x_1 x_2)
+  \end{equation}
+  for all~$f \in \coord(G)$,~$x_1, x_2 \in G$, the induced homomorphism~$i^* \colon \coord(G) \to \coord(G)$ is given by
+  \[
+      i^*(f)(x)
+    = f(x^{-1})
+  \]
+  for all~$f \in \coord(G)$,~$x \in G$
+  
+  We define~$\Delta \colon \coord(G) \to \coord(G) \tensor \coord(G)$ to be the composition of the algebra homomorphism~$m^* \colon \coord(G) \to \coord(G \times G)$ with the natural isomorphism~$\coord(G \times G) \cong \coord(G) \tensor \coord(G)$ from \cref{coordinate ring of product of qaffine}.
+  The homomorphism~$\Delta$ is thus given by~$\Delta(f) = \sum_{i=1}^n f_1 \tensor f_2$ such that
+  \[
+      m^*(f)(x_1, x_2)
+    = \sum_{i=1}^n f_1(x_1) f_2(x_2)
+  \]
+  for all~$x_1, x_2 \in G$.
+  \Cref{action of mstar} then becomes
+  \[
+      f(x_1 x_2)
+    = \sum_{i=1}^n f_1(x_1) \tensor f_2(x_2)
+  \]
+  for all~$f \in \coord(G)$,~$x_1, x_2 \in G$.  
+  We further define~$\varepsilon$ to be the composition of~$j^* \colon \coord(G) \to \coord(\{e\})$ with the (unique) isomorphism (of \dash{$k$}{algebras})~$\coord(\{e\}) \cong k$.
+  The homomorphism~$\varepsilon$ is given by
+  \[
+      \varepsilon(f)
+    = f(e)
+  \]
+  for all~$f \in \coord(G)$.
+  Lastly we define~$S \defined i^*$, which is given by
+  \[
+      S(f)(x)
+    = f(x^{-1})
+  \]
+  for all~$f \in \coord(G)$,~$x \in G$.
+  
+  That~$m, i, e$ give a group structure on~$G$ can be encoded in the commutativity of the following diagrams:
+  \[
+    \begin{tikzcd}[column sep = 30pt, row sep = 35pt]
+        G \times G \times G
+        \arrow{r}[above]{m \times \id}
+        \arrow{d}[left]{\id \times m}
+      & G \times G
+        \arrow{d}[right]{m}
+      \\
+        G \times G
+        \arrow{r}[below]{m}
+      & G
+    \end{tikzcd}
+    \quad
+    \begin{tikzcd}[column sep = 10pt, row sep = 9pt]
+        {}
+      & G \times G
+        \arrow{dd}[right]{m}
+      & {}
+      \\
+        G \times \{e\}
+        \arrow{ur}[above left]{\id \times j}
+        \arrow{dr}[below left]{\pr_1}
+      & {}
+      & \{e\} \times G
+        \arrow{ul}[above right]{j \times \id}
+        \arrow{dl}[below right]{\pr_2}
+      \\
+        {}
+      & G
+      & {}
+    \end{tikzcd}
+    \quad
+    \begin{tikzcd}[column sep = 3pt, row sep = 9pt]
+        G
+        \arrow{rr}[above]{(i,\id)}
+        \arrow{dd}[left]{(\id,i)}
+        \arrow{dr}
+      & {}
+      & G \times G
+        \arrow{dd}[right]{m}
+      \\
+        {}
+      & \{e\}
+        \arrow{dr}{j}
+      & {}
+      \\
+        G \times G
+        \arrow{rr}[below]{m}
+      & {}
+      & G
+    \end{tikzcd}
+  \]
+  By applying the contravariant functor~$\coord(-)$ to these diagrams we get commutative diagrams involving~$\coord(G)$,~$\Delta$,~$\varepsilon$ and $S$, and which will show that these homomorphisms give~$\coord(G)$ the structure of a Hopf-algebra.
+  \begin{itemize}
+    \item
+      By applying~$\coord(-)$ to the first diagram we get the following commutative diagram:
+      \[
+        \begin{tikzcd}[sep = large]
+            \coord(G)
+            \arrow{r}[above]{m^*}
+            \arrow{d}[left]{m^*}
+          & \coord(G \times G)
+            \arrow{d}[right]{(\id \times m)^*}
+          \\
+            \coord(G \times G)
+            \arrow{r}[below]{(m \times \id)^*}
+          & \coord(G \times G \times G)
+        \end{tikzcd}
+      \]
+      By using the natural (!) isomorphism~$\coord(G \times G) \cong \coord(G) \tensor \coord(G)$ this becomes the following commutative diagram:
+      \begin{equation}
+      \label{coassociativity}
+        \begin{tikzcd}[sep = large]
+            \coord(G)
+            \arrow{r}[above]{\Delta}
+            \arrow{d}[left]{\Delta}
+          & \coord(G) \tensor \coord(G)
+            \arrow{d}[right]{\id \tensor \Delta}
+          \\
+            \coord(G) \tensor \coord(G)
+            \arrow{r}[below]{\Delta \tensor \id}
+          & \coord(G) \tensor \coord(G) \tensor \coord(G)
+        \end{tikzcd}
+      \end{equation}
+      This diagram gives the coassociativity of~$\Delta$.
+    \item
+      By applying~$\coord(-)$ to the second diagram we get the following commutative diagram:
+      \[
+        \begin{tikzcd}
+            {}
+          & \coord(G)
+            \arrow{dl}[above left]{\pr_1^*}
+            \arrow{dd}[right]{m^*}
+            \arrow{dr}[above right]{\pr_2^*}
+          & {}
+          \\
+            \coord(G \times \{e\})
+          & {}
+          & \coord(\{e\} \times G)
+          \\
+            {}
+          & \coord(G \times G)
+            \arrow{ul}[below left]{(\id \times i)^*}
+            \arrow{ur}[below right]{(i \times \id)^*}
+          & {}
+        \end{tikzcd}
+      \]
+      By applying the natural isomorphism~$\coord(G \times \{e\}) \cong \coord(G) \tensor k$ the algebra homomorphisms~$\pr_1^*$ becomes the natural isomorphism~$\coord(G) \cong \coord(G) \tensor k$, and similarly for~$\pr_2^*$.
+      We thus get the following commutative diagram:
+      \[
+        \begin{tikzcd}
+            {}
+          & \coord(G)
+            \arrow{dl}[above left]{\sim}
+            \arrow{dd}[right]{\Delta}
+            \arrow{dr}[above right]{\sim}
+          & {}
+          \\
+            \coord(G) \tensor k
+          & {}
+          & k \tensor \coord(G)
+          \\
+            {}
+          & \coord(G) \tensor \coord(G)
+            \arrow{ul}[below left]{\id \tensor \varepsilon}
+            \arrow{ur}[below right]{\varepsilon \tensor \id}
+          & {}
+        \end{tikzcd}
+      \]
+      This diagram gives that~$\varepsilon$ is a counit.
+  \end{itemize}
+  Together this shows that~$\Delta$,~$\varepsilon$ endow~$\coord(G)$ with the structure of a~\dash{$k$}{bilalgebra}.
+  \begin{itemize}[resume]
+    \item
+      Before we apply~$\coord(-)$ to the third diagram we rewrite this diagram as follows, where~$d$ denotes the diagonal map:
+      \[
+        \begin{tikzcd}[column sep = small, row sep = large]
+            {}
+          & G \times G
+            \arrow{rr}[above]{i \times \id}
+          & {}
+          & G \times G
+            \arrow{dr}[above right]{m}
+          & {}
+          \\
+            G
+            \arrow{ur}[above left]{d}
+            \arrow{rr}[above]{}
+            \arrow{dr}[below left]{d}
+          & {}
+          & \{e\}
+            \arrow{rr}[above]{j}
+          & {}
+          & G
+          \\
+            {}
+          & G \times G
+            \arrow{rr}[above]{\id \times S}
+          & {}
+          & G \times G
+            \arrow{ur}[below right]{m}
+          & {}
+        \end{tikzcd}
+      \]
+      By applying the functor~$\coord(-)$ to this diagram we get the following commutative diagram:
+      \[
+        \begin{tikzcd}[column sep = small, row sep = large]
+            {}
+          & \coord(G \times G)
+            \arrow{rr}[above]{(i \times \id)^*}
+          & {}
+          & \coord(G \times G)
+            \arrow{dr}[above right]{d^*}
+          & {}
+          \\
+            \coord(G)
+            \arrow{ur}[above left]{m*}
+            \arrow{rr}[above]{j^*}
+            \arrow{dr}[below left]{m*}
+          & {}
+          & \coord(\{e\})
+            \arrow{rr}
+          & {}
+          & \coord(G)
+          \\
+            {}
+          & \coord(G \times G)
+            \arrow{rr}[above]{(\id \times i)^*}
+          & {}
+          & \coord(G \times G)
+            \arrow{ur}[below right]{d^*}
+          & {}
+        \end{tikzcd}
+      \]
+      (The unlabeled arrow is the unique homomorphism of~\dash{$k$}{algebras}.)
+      By applying the natural isomorphism $\coord(G \times G) \cong \coord(G) \tensor \coord(G)$ and the isomorphism~$\coord(\{e\}) \cong k$ the induced morphism~$d^*$ becomes the multiplication~$\coord(G) \tensor \coord(G) \to \coord(G)$,~$f \tensor g \mapsto fg$.
+      We thus get the following commutative diagram:
+            \[
+        \begin{tikzcd}[column sep = small, row sep = large]
+            {}
+          & \coord(G) \tensor \coord(G)
+            \arrow{rr}[above]{S \mathbin{\otimes} \id}
+          & {}
+          & \coord(G) \tensor \coord(G)
+            \arrow{dr}[above right]{\text{mult}}
+          & {}
+          \\
+            \coord(G)
+            \arrow{ur}[above left]{\Delta}
+            \arrow{rr}[above]{\varepsilon}
+            \arrow{dr}[below left]{\Delta}
+          & {}
+          & k
+            \arrow{rr}
+          & {}
+          & \coord(G)
+          \\
+            {}
+          & \coord(G) \tensor \coord(G)
+            \arrow{rr}[above]{\id \tensor S}
+          & {}
+          & \coord(G) \tensor \coord(G)
+            \arrow{ur}[below right]{\text{mult}}
+          & {}
+        \end{tikzcd}
+      \]
+      The commutativity of this diagram shows that~$S$ is an antipode for the bialgebra~$(\coord(G), \Delta, \varepsilon)$.
+  \end{itemize}
+
+  Altogether we have seen and shown that the groups structure on the affine variety~$G$ induces on its coordinate ring~$\coord(G)$ the structure of a Hopf algebra with
+  \begin{itemize}
+    \item
+      the comultiplication~$\Delta$ of~$\coord(G)$ being induced by the multiplication and~$G$ and given by~$\Delta(f) = \sum_{i=1}^n f_1 \otimes f_2$ such that
+      \begin{equation}
+      \label{explicit description of comultiplication}
+          f(x_1 x_2)
+        = \sum_{i=1}^n f_1(x_1) f_2(x_2)
+      \end{equation}
+      for all~$f \in \coord(G)$,~$x_1, x_2 \in G$;
+    \item
+      the counit~$\varepsilon$ of~$\coord(G)$ being induced by by the neutral element of~$G$ and given by evaluation at~$e$, i.e.\ by
+      \begin{equation}
+      \label{explicit description of counit}
+          \varepsilon(f)
+        = f(e)
+      \end{equation}
+      for all~$f \in \coord(G)$;
+    \item
+      and the antipode~$S$ of~$\coord(G)$ being induced by the inversion of~$G$ and given by
+      \begin{equation}
+      \label{explicit description of antipode}
+          S(f)(x)
+        = f(x^{-1})
+      \end{equation}
+      for all~$f \in \coord(G)$,~$x \in G$.
+  \end{itemize}
+\end{fluff}
+
+
+\begin{example}
+  Let us consider the additive groups~$\Gadd = (\Aff^1, +)$.
+  The coordinate ring of~$\Gadd$ is given by
+  \[
+      \coord(\Gadd)
+    = \coord(\Aff^1)
+    = k[x] \,.
+  \]
+  To determine the action of the comultiplication~$\Delta \colon k[x] \to k[x] \otimes k[x]$ on the algebra generator~$x \in k[x]$ we note that
+  \[
+      x(y_1 + y_2)
+    = y_1 + y_2
+    = x(y_1) \cdot 1 + 1 \cdot x(y_2)
+  \]
+  for all~$y_1, y_2 \in G$.
+  It follows from the explicit description of the comultiplication given in~\eqref{explicit description of comultiplication} that
+  \[
+      \Delta(x)
+    = x \otimes 1 + 1 \otimes x \,.
+  \]
+  The counit~$\varepsilon \colon k[x] \to k$ is by~\eqref{explicit description of counit} given by~$\varepsilon(f) = f(0)$ for every~$f \in k[x]$.
+  It is on the algebra generator~$x \in k[x]$ given by
+  \[
+      \varepsilon(x)
+    = x(0)
+    = 0 \,.
+  \]
+  The antipode~$S \colon k[x] \to k[x]$ is by~\eqref{explicit description of antipode} given by~$S(f(x)) = f(-x)$ for all~$f \in k[x]$.
+  It is on the algebra generator~$x \in k[x]$ given by
+  \[
+      S(x)
+    = -x \,.
+  \]
+\end{example}
+
+
+\begin{example}
+  The coordinate ring of the general linear group~$\GL_n(k)$ is given by
+  \[
+      \coord(\GL_n(k))
+    = k\left[ x_{11}, \dotsc, x_{nn}, \det^{-1} \right]
+  \]
+  where the element~$\det \in k[x_{11}, \dotsc, x_{nn}]$ is given by
+  \[
+      \det
+    = \sum_{\sigma \in \symm_n} \sgn(\sigma) x_{1\sigma(1)} \dotsm x_{n\sigma(n)} \,.
+  \]
+  
+  To determine the action of the comultiplication~$\Delta$ on the algebra generators~$x_{ij}$ we note that
+  \[
+      x_{ij}(A_1 A_2)
+    = \sum_{\ell=1}^n (A_1)_{i \ell} (A_2)_{\ell j}
+    = \sum_{\ell=1}^n x_{i \ell}(A_1) x_{\ell j}(A_2)
+  \]
+  for all~$A_1, A_2 \in \GL_n(k)$.
+  It follows from the explicit description of the comultiplication given in~\eqref{explicit description of comultiplication} that
+  \[
+      \Delta(x_{ij})
+    = \sum_{\ell = 1}^n x_{i \ell} x_{\ell j} \,.
+  \]
+  To determine the action of~$\Delta$ on the generator~$\det^{-1}$ we note that
+  \[
+      \det^{-1}(A_1 A_2)
+    = \frac{1}{\det(A_1 A_2)}
+    = \frac{1}{\det(A_1) \det(A_2)}
+    = \frac{1}{\det(A_1)} \cdot \frac{1}{\det(A_2)}
+    = \det^{-1}(A_1) \cdot \det^{-1}(A_2)
+  \]
+  for all~$A_1, A_2 \in \GL_n(k)$.
+  It follows that
+  \[
+      \Delta( \det^{-1} )
+    = \det^{-1} \otimes \det^{-1} \,.
+  \]
+  
+  The action of the counit~$\varepsilon$ is by~\eqref{explicit description of counit} given by~$\varepsilon(f) = f(I)$ for all~$f \in k[x_{11}, \dotsc, x_{nn}, \det^{-1}]$.
+  It follows that the action of~$\varepsilon$ on the algebra generators~$x_{ij}$ is given by
+  \[
+      \varepsilon(x_{ij})
+    = x_{ij}(I)
+    = \delta_{ij}
+  \]
+  and that the action of~$\varepsilon$ on the algebra generator~$\det^{-1}$ is given by
+  \[
+      \varepsilon\left( \det^{-1} \right)
+    = \det^{-1}(I)
+    = \frac{1}{\det(I)}
+    = \frac{1}{1}
+    = 1 \,.
+  \]
+  
+  The action of the antipode~$S$ is by~\eqref{explicit description of antipode} given by~$S(f)(A) = f(A^{-1})$ for all~$f \in \coord(\GL_n(k))$ and all~$A \in \GL_n(k)$.
+  It therefore follows from
+  \[
+      \det^{-1}\left( A^{-1} \right)
+    = \frac{1}{\det(A^{-1})}
+    = \frac{1}{\det(A)^{-1}}
+    = \det(A)
+  \]
+  that~$S(\det^{-1}) = \det$.
+  The action of~$S$ on the algebra generators~$x_{ij}$ is messier to write down, as it boils down to explicitely expressing the coordinates of~$A^{-1}$ in terms of the coordinates of~$A$ via Cramer’s rule.
+  One finds that
+  \begin{align*}
+          S(x_{ij})
+    ={}&  (-1)^{ij} \det^{-1}
+          \sum_{\sigma \in \symm_{n-1}}
+          \sgn(\sigma)  \\
+     {}&  {}\cdot
+          \left(
+            \sum_{\substack{p,q=1,\dotsc,i-1 \\ p < i, \sigma(q) < j}}
+            x_{ij}
+            +
+            \sum_{\substack{p,q=1,\dotsc,n-1 \\ p \geq i, \sigma(q) < j}}
+            x_{i+1,j}
+            +
+            \sum_{\substack{p,q=1,\dotsc,n-1 \\ p < i, \sigma(q) \geq j}}
+            x_{i,j+1}
+            +
+            \sum_{\substack{p,q=1,\dotsc,n-1 \\ p \geq i, \sigma(q) \geq j}}
+            x_{i+1,j+1}
+          \right)
+  \end{align*}
+\end{example}
+
+
+\begin{example}
+  As a special case of the previous example we find that the coordinate ring of the multilplicative group~$\Gmult = (k^\times, \cdot) = \GL_1(k)$ is given by
+  \[
+      \coord(\Gmult)
+    = k[x, x^{-1}]
+  \]
+  with the comultiplication~$\Delta$, counit~$\varepsilon$ and antipode~$S$ being given on the generators $x$,$~x^{-1}$ by
+  \[
+      \Delta\left( x^{\pm 1} \right)
+    = x^{\pm 1} \otimes x^{\pm 1} \,,
+    \qquad
+      \varepsilon\left( x^{\pm 1} \right)
+    = 1 \,,
+    \qquad
+      S\left( x^{\pm 1} \right)
+    = x^{\mp 1} \,.
+  \]
+\end{example}
+
+
+% TODO: A(G x H) = A(G) ⊗ A(H) as Hopf algebras -> A^n and D_n
+% TODO: Tn, Un ?
+
+
+\begin{remark}
+  One can show that the contravariant equivalence of categories
+  \begin{align*}
+            \coord(-)
+    \colon  \{
+              \text{affine varieties}
+            \}
+    \longto \left\{
+              \begin{tabular}{@{}c@{}}
+                finitely generated,   \\
+                commutative, reduced  \\
+                \dash{$k$}{algebras}
+              \end{tabular}
+            \right\}
+  \end{align*}
+  from \cref{equivalence for affine varieties} induces a contravariant equivalence of categories
+  \begin{align*}
+            \coord(-)
+    \colon  \{
+              \text{affine algebraic groups}
+            \}
+    \longto \left\{
+              \begin{tabular}{@{}c@{}}
+                finitely generated, \\
+                commutative, reduced  \\
+                \dash{$k$}{Hopf algebras}
+              \end{tabular}
+            \right\} \,.
+  \end{align*}
+  In this sense a group structure on an affine variety~$G$ (which is given by morphisms of affine varieties) is \enquote{the same} as a Hopf algebra structure on its coordinate ring~$\coord(G)$.
+% TODO: Give brief overview of how to retrieve the group structure from the coordinate ring.
+\end{remark}
+
+
+
+

@@ -232,10 +232,10 @@
 \DeclareMathOperator{\Uni}{U}
 \newcommand{\Gadd}{\mathbb{G}_{\text{a}}}
 \newcommand{\Gmult}{\mathbb{G}_{\text{m}}}
+\newcommand{\symm}{\operatorname{S}}
 
 
 % spaces and sets
-\DeclareMathOperator{\gl}{\mathfrak{gl}}
 \newcommand{\Aff}{\mathbb{A}}
 \newcommand{\Proj}{\mathbb{P}}
 \DeclareMathOperator{\vset}{V}
@@ -245,12 +245,17 @@
 \DeclareMathOperator{\Dopen}{D}
 \DeclareMathOperator{\Mor}{Mor}
 \DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\End}{End}
 \DeclarePairedDelimiter{\gen}{\langle}{\rangle}
 \DeclarePairedDelimiter{\genideal}{(}{)}
 
 
 % functions
-\DeclareMathOperator{\id}{id}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\pr}{\operatorname{pr}}
+\DeclareMathOperator{\sgn}{sgn}
+\let\det\relax % "Undefine" \det
+\DeclareMathOperator{\det}{det} % dont want \det to have limits
 
 
 % operations
