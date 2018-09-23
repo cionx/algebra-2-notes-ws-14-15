@@ -24,6 +24,6 @@ For comments and corrections please contact me at `stelzner (at) uni-bonn.de`.
 
 
 [1]: https://travis-ci.org/cionx/algebra-2-notes-ws-14-15/builds
-[2]: https://github.com/cionx/algebra-2-notes-ws-14-15/raw/gh-pages/notes.pdf
+[2]: https://github.com/cionx/algebra-2-notes-ws-14-15/raw/gh-pages/algebra2.pdf
 [3]: https://github.com/libertinus-fonts/libertinus
 [4]: https://travis-ci.org/

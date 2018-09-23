@@ -28,7 +28,7 @@ script:
 - mkdir github-pages
 - chmod +x make
 - ./make
-- mv notes.pdf github-pages
+- mv notes.pdf github-pages/algebra2.pdf
 
 deploy:
   provider: pages
