@@ -30,14 +30,10 @@
 \counterwithout{section}{chapter}
 
 
-% changing the main font to Libertine
-\setmainfont{Linux Libertine}
+% changing fonts
+\setmainfont{Libertinus Serif}
+\setsansfont{Libertinus Sans}
 \setmonofont{Inconsolata}
-% changeng the headings font to Biolinum
-\newfontfamily\headingfont[]{Linux Biolinum}
-\addtokomafont{disposition}{\headingfont}
-\addtokomafont{subject}{\headingfont}
-% changing the math font to libertinus
 \setmathfont{Libertinus Math}
 % symbols are too small
 % \setmathfont[range={\otimes,\oplus,\cup,\cap,\circ},Scale=1.2]{Libertinus Math}
@@ -254,6 +250,7 @@
 \newcommand{\id}{\operatorname{id}}
 \newcommand{\pr}{\operatorname{pr}}
 \DeclareMathOperator{\sgn}{sgn}
+\DeclarePairedDelimiter{\card}{\lvert}{\rvert}
 \let\det\relax % "Undefine" \det
 \DeclareMathOperator{\det}{det} % dont want \det to have limits
 

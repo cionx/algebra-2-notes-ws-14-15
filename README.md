@@ -10,11 +10,8 @@ For those who want to compile these notes themselves:
 - Compiling is intented to be done using `lualatex`.
 - The bibliography is using `biber`.
 - The `gitinfo2` package is used to display the date and hash of the last commit.
-- The following fonts are used:
-  - Serif: Linux Libertine
-  - Sans-serif: Linux Biolinum
-  - Mathematics: [Libertinus][3]
-  - Monospace: Inconsolata
+- The [Libertinus][3] fonts are used for serif, sans-serif and mathematics.
+  The Inconsolata font is used for monospace.
 - The included `make` file is intented for remote building via [travis.ci][4].
 
 For comments and corrections please contact me at `stelzner (at) uni-bonn.de`.

@@ -6,8 +6,6 @@ before_install:
 - sudo apt-get -qq update
 # install the Inconsolata font
 - sudo apt-get -qq install fonts-inconsolata
-# install the Linux Libertine and Linux Biolinum fonts
-- sudo apt-get -qq install fonts-linuxlibertine
 # install the Libertinus font
 - git clone https://github.com/libertinus-fonts/libertinus
 - cd libertinus
