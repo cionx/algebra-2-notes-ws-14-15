@@ -343,7 +343,8 @@
 
 \begin{definition}
   An \emph{affine~variety} is a {\qaffine} set which is isomorphic to an affine set (as a {\qaffine} set).
-  A \emph{{\qaffine}~variety} is just a {\qaffine} set.% make footnote not nice the line break
+  A \emph{{\qaffine}~variety} is just a {\qaffine} set.
+  A \emph{morphism} of (quasi-)affine varieties is just a morphism of {\qaffine} sets.% this comment makes footnote not notice this line break
   \footnote{We will later on extend this notions to projective and {\qprojective} sets.}
 \end{definition}
 
@@ -547,7 +548,7 @@
 
   
   To show that~$\Phi$ is an isomorphism let~$X' \subseteq \Aff^n$ and~$Y' \subseteq \Aff^m$ be affine sets for which there exists isomorphisms~$\varphi \colon X \to X'$ and~$\psi \colon Y \to Y'$.
-  Then in the resulting commutative diagram~\eqref{naturality for product of coordinate rings} the vertical arrows are both isomorphisms and the lower horizontial map~$\Phi_{X', Y'}$ is an isomorphism by~\Cref{regular functions on product of affine sets}.
+  Then in the resulting commutative diagram~\eqref{naturality for product of coordinate rings} the vertical arrows are both isomorphisms and the lower horizontial map~$\Phi_{X', Y'}$ is an isomorphism by~\Cref{coordinate ring of product of affine sets}.
   It follows that the upper horizontal arrow, which can be expressed as
   \begin{equation}
   \label{isomorphism for affine varieties}
@@ -566,7 +567,10 @@
 \end{remark}
 
 
-% TODO: Calculate some induced morphisms used for algebraic groups
+\begin{remark}
+  Just as we can generalize \cref{equivalence for affine sets} to \cref{equivalence for affine varieties} and \cref{coordinate ring of product of affine sets} to \cref{coordinate ring of product of qaffine} we can generalize most of our previous results about affine sets from \cref{affine sets} to affine varieties, as these are just affine sets up to isomorphism.
+  We will not do this explicitely for every such result but instead also refer to the result about affine sets even when we are using the generalized result about affine varieties.
+\end{remark}
 
 
 \begin{fluff}
@@ -575,7 +579,7 @@
   We have choosen to include these concept earlier on so that~$\GL_n(k)$ becomes an affine variety.
   This places the upcoming discussion of affine algebraic groups on a more formally solid foundation.
   
-  The idea of considering~{\qaffine} sets and the regular maps between them was inspired by~\cite[2.2]{frankeAlg1}.
+  The idea of using~{\qaffine} sets and the regular maps between them was inspired by~\cite[2.2]{frankeAlg1}.
   The proof of \cref{regular on affine is polynomial} is taken from~\cite[Lemma~3.10]{milneAG}.
 \end{fluff}
 

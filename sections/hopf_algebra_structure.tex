@@ -147,7 +147,7 @@
 \begin{definition}
   A~\dash{$k$}{Hopf algebra} is a~\dash{$k$}{bialgebra}~$H$ together with a~\dash{$k$}{linear} map~$S \colon H \to H$ which makes the diagram
   \[
-    \begin{tikzcd}[column sep = small, row sep = large]
+    \begin{tikzcd}[column sep = small]
         {}
       & H \tensor H
         \arrow{rr}[above]{S \tensor \id}
@@ -291,7 +291,7 @@
       & G
     \end{tikzcd}
   \]
-  By applying the contravariant functor~$\coord(-)$ to these diagrams we get commutative diagrams involving~$\coord(G)$,~$\Delta$,~$\varepsilon$ and $S$, and which will show that these homomorphisms give~$\coord(G)$ the structure of a Hopf-algebra.
+  By applying the contravariant functor~$\coord(-)$ to these diagrams we get commutative diagrams involving~$\coord(G)$,~$\Delta$,~$\varepsilon$ and~$S$, and which will show that these homomorphisms give~$\coord(G)$ the structure of a Hopf-algebra.
   \begin{itemize}
     \item
       By applying~$\coord(-)$ to the first diagram we get the following commutative diagram:
@@ -375,7 +375,7 @@
     \item
       Before we apply~$\coord(-)$ to the third diagram we rewrite this diagram as follows, where~$d$ denotes the diagonal map:
       \[
-        \begin{tikzcd}[column sep = small, row sep = large]
+        \begin{tikzcd}[column sep = small]
             {}
           & G \times G
             \arrow{rr}[above]{i \times \id}
@@ -405,7 +405,7 @@
       \]
       By applying the functor~$\coord(-)$ to this diagram we get the following commutative diagram:
       \[
-        \begin{tikzcd}[column sep = small, row sep = large]
+        \begin{tikzcd}[column sep = tiny]
             {}
           & \coord(G \times G)
             \arrow{rr}[above]{(i \times \id)^*}
@@ -434,10 +434,10 @@
         \end{tikzcd}
       \]
       (The unlabeled arrow is the unique homomorphism of~\dash{$k$}{algebras}.)
-      By applying the natural isomorphism $\coord(G \times G) \cong \coord(G) \tensor \coord(G)$ and the isomorphism~$\coord(\{e\}) \cong k$ the induced morphism~$d^*$ becomes the multiplication~$\coord(G) \tensor \coord(G) \to \coord(G)$,~$f \tensor g \mapsto fg$.
+      By applying the natural isomorphism~$\coord(G \times G) \cong \coord(G) \tensor \coord(G)$ and the isomorphism~$\coord(\{e\}) \cong k$ the induced morphism~$d^*$ becomes the multiplication~$\coord(G) \tensor \coord(G) \to \coord(G)$,~$f \tensor g \mapsto fg$.
       We thus get the following commutative diagram:
             \[
-        \begin{tikzcd}[column sep = small, row sep = large]
+        \begin{tikzcd}[column sep = tiny]
             {}
           & \coord(G) \tensor \coord(G)
             \arrow{rr}[above]{S \mathbin{\otimes} \id}
@@ -600,26 +600,29 @@
   that~$S(\det^{-1}) = \det$.
   The action of~$S$ on the algebra generators~$x_{ij}$ is messier to write down, as it boils down to explicitely expressing the coordinates of~$A^{-1}$ in terms of the coordinates of~$A$ via Cramer’s rule.
   One finds that
-  \begin{align*}
-          S(x_{ij})
-    ={}&  (-1)^{ij} \det^{-1}
-          \sum_{\sigma \in \symm_{n-1}}
-          \sgn(\sigma)  \\
-     {}&  {}\cdot
-          \left(
-            \sum_{\substack{p,q=1,\dotsc,i-1 \\ p < i, \sigma(q) < j}}
-            x_{ij}
-            +
-            \sum_{\substack{p,q=1,\dotsc,n-1 \\ p \geq i, \sigma(q) < j}}
-            x_{i+1,j}
-            +
-            \sum_{\substack{p,q=1,\dotsc,n-1 \\ p < i, \sigma(q) \geq j}}
-            x_{i,j+1}
-            +
-            \sum_{\substack{p,q=1,\dotsc,n-1 \\ p \geq i, \sigma(q) \geq j}}
-            x_{i+1,j+1}
-          \right)
-  \end{align*}
+  \begin{multline*}
+      S(x_{ij})
+    = (-1)^{ij} \det^{-1}
+      \sum_{\sigma \in \symm_{n-1}}
+      \sgn(\sigma)
+      \cdot
+      \left(
+        \sum_{\substack{p,q=1,\dotsc,i-1 \\ p < i, \sigma(q) < j}}
+        x_{i,\sigma(j)}
+        +
+        \sum_{\substack{p,q=1,\dotsc,n-1 \\ p \geq i, \sigma(q) < j}}
+        x_{i+1,\sigma(j)}
+      \right.
+    \\
+      \left.
+        +
+        \sum_{\substack{p,q=1,\dotsc,n-1 \\ p < i, \sigma(q) \geq j}}
+        x_{i,\sigma(j)+1}
+        +
+        \sum_{\substack{p,q=1,\dotsc,n-1 \\ p \geq i, \sigma(q) \geq j}}
+        x_{i+1,\sigma(j)+1}
+        \right)
+  \end{multline*}
 \end{example}
 
 
@@ -629,7 +632,7 @@
       \coord(\Gmult)
     = k[x, x^{-1}]
   \]
-  with the comultiplication~$\Delta$, counit~$\varepsilon$ and antipode~$S$ being given on the generators $x$,$~x^{-1}$ by
+  with the comultiplication~$\Delta$, counit~$\varepsilon$ and antipode~$S$ being given on the generators~$x$,$~x^{-1}$ by
   \[
       \Delta\left( x^{\pm 1} \right)
     = x^{\pm 1} \otimes x^{\pm 1} \,,

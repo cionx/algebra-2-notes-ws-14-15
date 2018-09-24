@@ -31,14 +31,15 @@
 
 
 % changing fonts
-\setmainfont{Libertinus Serif}
-\setsansfont{Libertinus Sans}
+\setmainfont[Ligatures={Required,Common,Contextual,Rare}]{Libertinus Serif}
+\setsansfont[Ligatures={Required,Common,Contextual,Rare}]{Libertinus Sans}
 \setmonofont{Inconsolata}
 \setmathfont{Libertinus Math}
+% import mathfrak from another font
+\setmathfont[range={\mathfrak},Scale=MatchUppercase]{TeX Gyre Pagella Math}
 % symbols are too small
 % \setmathfont[range={\otimes,\oplus,\cup,\cap,\circ},Scale=1.2]{Libertinus Math}
 % \setmathfont[range={\leq,\trianglelefteq},Scale=1.2]{Libertinus Math}
-% import mathfrak from another font
 % \setmathfont[range={\mathfrak},Scale=MatchUppercase]{TeX Gyre Pagella Math}
 % mathcal doesn’t fit, what to do?
 % \setmathfont[range={\mathcal}]{STIX Two Math}
@@ -231,6 +232,10 @@
 \newcommand{\symm}{\operatorname{S}}
 
 
+% Lie algebras
+\newcommand{\gl}{\mathfrak{gl}}
+
+
 % spaces and sets
 \newcommand{\Aff}{\mathbb{A}}
 \newcommand{\Proj}{\mathbb{P}}
@@ -242,6 +247,8 @@
 \DeclareMathOperator{\Mor}{Mor}
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Stab}{Stab}
+\DeclareMathOperator{\im}{im}
 \DeclarePairedDelimiter{\gen}{\langle}{\rangle}
 \DeclarePairedDelimiter{\genideal}{(}{)}
 

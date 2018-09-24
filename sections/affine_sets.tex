@@ -194,9 +194,39 @@
 \end{fluff}
 
 
-% \begin{lemma}
-%   The Zariski closed subsets of an affine set~$X$ are precisely the subsets of the form~$\vset(I)$ with~$I \idealleq \coord(X)$.
-% \end{lemma}
+\begin{lemma}
+  The Zariski closed subsets of an affine set~$X$ are precisely the subsets of the form~$\vset(I)$ with~$I \idealleq \coord(X)$.
+  \qedhere
+\end{lemma}
+
+
+\begin{corollary}
+  \label{characterization of zariski dense}
+  Let~$X$ be an affine set.
+  For a subset~$X' \subseteq X$ the following conditions are equivalent:
+  \begin{enumerate}
+    \item
+      The set is Zariski dense in~$X$.
+    \item
+      It follows for every~$f \in \coord(X)$ from~$\restrict{f}{X'} = 0$ that~$f = 0$.
+    \item
+      It follows for all~$f, g \in \coord(X)$ from~$\restrict{f}{X'} = \restrict{g}{X'}$ that~$f = g$.
+  \end{enumerate}
+\end{corollary}
+
+
+\begin{proof}
+  It holds that
+  \begin{align*}
+        {}& \text{$X'$ is Zariski dense in~$X$}                                                 \\
+    \iff{}& \text{if~$C \subseteq X$ is a Zariski closed with~$X' \subseteq C$ then~$C = X$}    \\
+    \iff{}& \text{if~$f \in \coord(X)$ with~$X' \subseteq \vset(f)$ then~$\vset(f) = X$}        \\
+    \iff{}& \text{if~$f \in \coord(X)$ with~$\restrict{f}{X'} = 0$ then~$f = 0$}                \\
+    \iff{}& \text{if~$f, g \in \coord(X)$ with~$\restrict{(f-g)}{X'} = 0$ then~$f-g = 0$}       \\
+    \iff{}& \text{if~$f, g \in \coord(X)$ with~$\restrict{f}{X'} = \restrict{g}{X'}$ then~$f = g$}
+  \end{align*}
+  as claimed.
+\end{proof}
 
 
 \begin{corollary}
@@ -523,7 +553,6 @@
 
 
 
-
 \subsection{Morphisms of Affine Sets}
 
 
@@ -584,10 +613,42 @@
     \item
       It holds that~$\id_X^* = \id_{\coord(X)}$.
     \item
-      It holds or any two composable morphisms of affine sets~$f \colon X \to Y$,~$g \colon Y \to Z$ that~$(g \circ f)^* = f^* \circ g^*$.
+      It holds for any two composable morphisms of affine sets~$f \colon X \to Y$,~$g \colon Y \to Z$ that~$(g \circ f)^* = f^* \circ g^*$.
     \qed
   \end{enumerate}
 \end{lemma}
+
+
+\begin{fluff}[Finite sets as affine sets]
+  If~$X$ is a finite affine set then every function~$X \to k$ is regular.
+  It follows that for every affine set~$Y$ every map~$X \to Y$ is regular.
+  If~$X'$ is another finite affine set with~$\card{X} = \card{X'}$ then it follows that every bijection~$X \to X'$ is already an isomorphism of affine sets.
+
+
+  This shows that any two affine sets of the same cardinality are isomorphic as affine sets.
+  This allows us to regard every finite set as an affine set by identifying it with an (up to isomorphicsm unique) affine set of suitable cardinality.
+\end{fluff}
+
+
+\begin{lemma}
+  Let~$X$,~$Y$ be affine sets and let~$f \colon X \to Y$ be a morphism of affine sets with image~$X' \defined \im(f)$.
+  The induced morphism~$f^*$ is injective if and only if the image~$X'$ is dense in~$Y$.
+\end{lemma}
+
+
+\begin{proof}
+  \leavevmode
+  It holds that
+  \begin{align*}
+        &{} \text{$f^*$ in injective} \\
+    \iff&{} \text{it follows for all~$\varphi \in \coord(G)$ from~$f^*(\varphi) = 0$ that~$\varphi = 0$} \\
+    \iff&{} \text{it follows for all~$\varphi \in \coord(G)$ from~$\varphi \circ f = 0$ that~$\varphi = 0$} \\
+    \iff&{} \text{it follows for all~$\varphi \in \coord(G)$ from~$\restrict{\varphi}{X'} = 0$ that~$\varphi = 0$} \\
+    \iff&{} \text{$X'$ is dense in~$Y$}
+  \end{align*}
+  by \cref{characterization of zariski dense}.
+\end{proof}
+
 
 
 \begin{proposition}
@@ -723,6 +784,90 @@
 \end{proof}
 
 
+\begin{corollary}
+  \label{induced is isomorphism or surjective}
+  Let~$X$,~$Y$ be affine sets
+  \begin{enumerate}
+    \item
+      \label{affine sets isomorphic iff coordinate rings isomorphic}
+      The affine sets~$X, Y$ are isomorphic if and only if their coordinate rings~$\coord(X)$,~$\coord(Y)$ are.
+  \end{enumerate}
+  Let~$f \colon X \to Y$ be a morphism of affine sets with image~$X' \defined \im(f)$.
+  \begin{enumerate}[resume]
+    \item
+      \label{isomorphism iff induced isomorphism}
+      The morphism~$f$ is an isomorphism if and only if the induced algebra homomorphism~$f^*$ is an isomorphism.
+    \item
+      \label{induced surjective iff closed embedding}
+      The induced map~$f^*$ is surjective if and only if~$X'$ is closed in~$Y$ and~$f$ is an isomorphism onto~$X'$.% make footnote not notice this linebreak
+      \footnote{The author linkes to think about~$f$ as a closed embedding, but is not sure if this is how algebraic geometers use this term.}
+  \end{enumerate}
+\end{corollary}
+
+
+\begin{proof}
+  Parts~\ref*{affine sets isomorphic iff coordinate rings isomorphic} and~\ref*{isomorphism iff induced isomorphism} follows from \cref{equivalence for affine sets}.
+  
+  To show part~\ref*{induced surjective iff closed embedding} first suppose that~$X'$ is closed in~$Y \subseteq \Aff^m$ and that~$f$ restricts to an isomorphism~$X \to X'$.
+  To show that~$f^*$ surjective we may assume that~$X = X' \subseteq Y$ and that~$f$ is the inclusion~$f \colon X \inclusion Y$.
+  The induced algebra homomorphism~$f \colon \coord(Y) \to \coord(X)$ maps every~$\varphi \in \coord(Y)$ to~$\varphi \circ f$, which is the restriction of~$\varphi$ to~$X$.
+  The homomorphism~$f^*$ is therefore surjective because every regular function on~$X$ is the restriction of a regular function on~$\Aff^m$, and therefore also of a regular function on~$Y$.
+  
+  Suppose now that~$f^*$ is surjective.
+  The ideal~$I \defined \ker(f^*)$ is radical because the quotient~$\coord(Y)/I \cong \coord(X)$ is reduced.
+  It follows from \hyperref[nullstellensatz 3]{Hilbert’s Nullstellensatz} that~$X'' \defined \vset(I)$ is an affine set~$X'' \subseteq Y$ with~$\coord(X'') = \coord(Y)/I \cong \coord(X)$.
+  We show that~$X' = X''$ and that~$f$ restricts to an isomorphism~$X \to X'$:
+  
+  That~$0 = f^*(\varphi) = \varphi \circ f$ for every~$\varphi \in I$ means that
+  \[
+              X'
+    =         \im(f)
+    \subseteq \vset(I)
+    =         X''
+  \]
+  It follows that~$f$ restricts to a morphism of affine varieties~$\tilde{f} \colon X \to X''$ which fits in the following commutative diagram:
+  \[
+    \begin{tikzcd}[column sep = large]
+        {}
+      & Y
+      \\
+        X
+        \arrow{ru}[above left]{f}
+        \arrow{r}[below]{\tilde{f}}
+      & X''
+        \arrow[hook]{u}
+    \end{tikzcd}
+  \]
+  This induces on coordinate rings the following commutative diagram:
+  \[
+    \begin{tikzcd}[column sep = large]
+        {}
+      & \coord(Y)
+        \arrow{dl}[above left]{f^*}
+        \arrow{d}
+      \\
+        \coord(X)
+      & \coord(X'')
+        \arrow{l}[below]{\tilde{f}^*}
+    \end{tikzcd}
+  \]
+  The homomorphism~$\coord(Y) \to \coord(X'')$ is the restriction homomorphism~$\varphi \mapsto \restrict{\varphi}{X''}$, which is by the above observations surjective with kernel~$\videal(X'') = \videal(\vset(I)) = I$.
+  
+  Both~$f^*$ and the restriction homomorphism~$\coord(Y) \to \coord(X'')$ are surjective algebra homomorphisms with the same kernel so it follows that there exists a unique algebra homomorphism~$\coord(X'') \to \coord(X)$ which makes the above diagram commute, and that it is an isomorphism.
+  This shows that~$\tilde{f}^*$ is an isomorphism.
+  It follows from part~\ref*{isomorphism iff induced isomorphism} that~$\tilde{f}$ is an isomorphism from~$X$ to~$X''$.
+  The inclusion
+  \[
+              \im(f)
+    =         X'
+    \subseteq X''
+    =         \im(\tilde{f})
+    =         \im(f)
+  \]
+  is therefore already an equality~$X' = X''$, and~$f$ restricts to the isomorphism~$\tilde{f}$.
+\end{proof}
+
+
 
 
 
@@ -804,13 +949,13 @@
 
 
 \begin{proposition}
-  \label{regular functions on product of affine sets}
+  \label{coordinate ring of product of affine sets}
   For any two affine sets~$X,Y$ the map
   \[
             \coord(X) \tensor_k \coord(Y)
     \to     \coord(X \times Y) \,,
     \quad   f \tensor g
-    \mapsto \big[ (x,y) \mapsto f(x)g(y) \big]
+    \mapsto \bigl[ (x,y) \mapsto f(x)g(y) \bigr]
   \]
   is a well-defined natural isomorphism of~\dash{$k$}{algebras}.
   \qed

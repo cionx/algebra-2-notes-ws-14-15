@@ -6,6 +6,8 @@ before_install:
 - sudo apt-get -qq update
 # install the Inconsolata font
 - sudo apt-get -qq install fonts-inconsolata
+# install the tex gyre fonts
+- sudo apt-get -qq install tex-gyre
 # install the Libertinus font
 - git clone https://github.com/libertinus-fonts/libertinus
 - cd libertinus
