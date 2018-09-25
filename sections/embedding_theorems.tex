@@ -9,6 +9,9 @@
 \end{fluff}
 
 
+% Remark: Doing things coordinate free.
+
+
 \begin{fluff}
   We motivate the next few statements by first considering a finite group~$G$.
   Then~$G$ acts on the group algebra~$k[G]$ via left multplication.
@@ -174,6 +177,7 @@
 
 
 \begin{corollary}
+  \label{better embedding theorem}
   Let~$G$ be a linear algebraic group and let~$H \groupleq G$ be a closed subgroup.
   Then~$G$ is isomorphic to a closed subgroup~$G'$ of some~$\GL(W)$, for~$W$ a \dash{finite}{dimensional}-\dash{$k$}{vector space}, such that
   \[
@@ -223,6 +227,197 @@
   because~$W$ is~\dash{$G$}{invariant}.
   If on the other hand~$\rho_g(W_H) \subseteq W_H$ then the generators~$f_1, \dotsc, f_r$ of the ideal~$I$, which are contained in both~$W$ and~$I$ and therefore also in~$W_H$, are mapped into~$W_H \subseteq I$ by the algebra automorphism~$\rho_g$.
   It then follows that the whole of~$I$ is again mapped into~$I$ by~$\rho_g$.
+\end{proof}
+
+
+\begin{recall}
+  Let~$V$,~$W$ be~\dash{$k$}-vector spaces and let~$d \geq 0$.
+  \begin{enumerate}
+    \item
+      If~$e_1, \dotsc, e_n$ is a basis of~$V$ then the elements~$e_{i_1} \wedge \dotsb \wedge e_{i_d}$ with~$1 \leq i_1 < \dotsb < i_d \leq n$ form a basis for~$\exterior^d V$.
+      It follows in particular that~$\dim \exterior^d V = \binom{n}{d}$ (where~$\binom{n}{d} = 0$ for~$d > n$).
+    \item
+      It also follows that if~$U \subseteq V$ an an~\dash{$n$}{dimensional} linear subspace then $\exterior^d U$ can be regarded as a linear subspace of~$\exterior^d V$ of dimension~$\binom{n}{d}$ (with~$\binom{n}{d} = 0$ for~$d > n$).
+      If $d \leq n$ then the map
+      \begin{align*}
+                      \left\{
+                        \text{\dash{$n$}{dimensional} subspaces of $V$} \;
+                      \right\}
+        &\longto      \left\{
+                        \text{\dash{$\binom{n}{d}$}{dimensional} subspaces of $\exterior^d V$} \;
+                      \right\} \,,
+        \\
+                      U
+        &\longmapsto  \exterior^d U
+      \end{align*}
+      in injective.
+      
+      To show this injectivity let~$U_1$ and~$U_2$ be two distinct~\dash{$d$}{dimesional} linear subspaces of $V$.
+      Let~$e_1, \dotsc, e_r$ with~$r < n$ be a basis of~$U_1 \cap U_2$ and extend this to a basis~$e_1, \dotsc, e_r, e'_{r+1}, \dotsc, e'_n$ of~$U_1$ and also to a basis~$e_1, \dotsc, e_r, e''_{r+1}, \dotsc, e''_n$ of~$U_2$.
+      Then $e_1, \dotsc, e_r, e'_{r+1}, \dotsc, e'_n, e''_{r+1}, \dotsc, e''_n$ is a basis for~$U_1 + U_2$.
+      The induced basis for~$\exterior^d(U_1 + U_2)$ then contains the induced bases for~$\exterior^d U_1$ and~$\exterior^d U_2$ as two distinct subsets.
+      Any two distinct subsets of a linearly independent family of vectors span distinct subspaces, so it follows that~$\exterior^d U_1$ and~$\exterior^d U_2$ are different.
+    \item
+      Let~$f \colon V \to W$ be a~\dash{$k$}{linear} map and let~$A$ be the matrix which represents~$f$ with respect to a basis~$v_1, \dotsc, v_n$ of~$V$ and a basis~$w_1, \dotsc, w_m$ of~$W$.
+      Then the coefficients of the induced linear map~$\exterior^d f$ with respect to the induced bases of~$\exterior^d V$ and~$\exterior^d W$ are given by the~$d \times d$ minors of the matrix $A$.
+      
+      Let’s be a bit more precise:
+      It holds for all $1 \leq j_1 < \dotsb < j_d \leq n$ that
+      \begingroup
+      \allowdisplaybreaks
+      \begin{align*}
+         &{}  \left( \exterior^d f \right)\left( v_{j_1} \wedge \dotsb \wedge v_{j_d} \right) \\
+        =&{}  f(v_{j_1}) \wedge \dotsb \wedge f(v_{j_d})  \\
+        =&{}  \left(
+                \sum_{i=1}^m A_{i j_1} w_i
+              \right)
+              \wedge \dotsb \wedge
+              \left(
+                \sum_{i=1}^m A_{i j_d} w_i
+              \right) \\
+        =&{}  \sum_{i_1, \dotsc, i_d = 1}^m
+              A_{i_1 j_1} \dotsm A_{i_d j_d}
+              w_{i_1} \wedge \dotsb \wedge w_{i_d} \\
+        =&{}  \sum_{\substack{i_1, \dotsc, i_d = 1, \dotsc, m \\ \text{pairwise different}}}
+              A_{i_1 j_1} \dotsm A_{i_d j_d}
+              w_{i_1} \wedge \dotsb \wedge w_{i_d} \\
+        =&{}  \sum_{1 \leq i_1 < \dotsb < i_d \leq m}
+              \;
+              \sum_{\sigma \in {\symm}_d}
+              \sgn(\sigma)
+              A_{i_{\sigma(1)} j_1} \dotsm A_{i_{\sigma(d)} j_d}
+              w_{i_1} \wedge \dotsb \wedge w_{i_d} \,.
+      \end{align*}
+      This shows that for all~$1 \leq i_1 < \dotsb < i_d \leq m$ the coefficient of the basis element~$w_{i_1} \wedge \dotsb \wedge w_{i_d}$ in the image element~$f(v_{j_1} \wedge \dotsb \wedge v_{j_d})$ is given by
+      \[
+        \sum_{\sigma \in {\symm}_d}
+        \sgn(\sigma)
+        A_{i_{\sigma(1)} j_1} \dotsb A_{i_{\sigma(d)} j_d} \,,
+      \]
+      which is precisely the~$d \times d$ minor of~$A$ which corresponds to the rows~$i_1, \dotsc, i_d$ and the colums~$j_1, \dotsc, j_d$.
+      
+      It follows in particular that the group homomorphism
+      \[
+                \GL(V)
+        \to     \GL\left( \exterior^d V\right) \,,
+        \quad   f
+        \mapsto \exterior^d f
+      \]
+      is regular, and thus a homorphism of linear algebraic groups.
+      \endgroup
+  \end{enumerate}
+\end{recall}
+
+
+\begin{lemma}[Chevalley]
+  \label{chevalley lemma}
+  Let~$G$ be a linear algebra group and let~$H \groupleq G$ be a closed subgroup.
+  Then there exists for some \dash{finite}{dimenisonal}~\dash{$k$}{vector space}~$V$ a homomorphism of linear algebraic groups~$G \to \GL(V)$ such that~$H = \Stab(L)$ for some \dash{one}{dimensional} linear subspace~$L \subseteq V$.
+\end{lemma}
+
+
+\begin{proof}
+  By \cref{better embedding theorem} we may assume that~$G \subseteq \GL(W)$ is a closed subgroup for some \dash{finite}{dimensional}~\dash{$k$}{vector space}~$W$ and that~$H = \Stab(H)$ for some linear subspace~$W_H \subseteq W$ of dimension~$d \defined \dim(W_H)$.
+  We then consider~$V \defined \exterior^d W$ and the homomorphism of linear algebraic groups
+  \[
+            G
+    \to     \GL(V) \,,
+    \quad   g
+    \mapsto \exterior^d g \,.
+  \]
+  Then linear subspace~$L \defined \exterior^d W_H$ of~$V$ is \dash{one}{dimensional} and if~$h \in H =  \Stab(W_H)$ then~$h \in \Stab(L)$.
+  Suppose on the other hand that~$g \in G$ with~$g \in \Stab(L)$.
+  Then~$W_H$ and~$g(W_H)$ are two~\dash{$d$}{dimensional} linear subspaces of~$W$ with
+  \[
+      \exterior^d W_H
+    = L
+    = g L
+    = \left( \exterior^d g \right)(L)
+    = \left( \exterior^d g \right) \left( \exterior^d W_H \right)
+   =  \exterior^d g(W_H)
+  \]
+  it follows that~$W_H = g W_H$.
+  This then shows that~$g \in \Stab(W_H) = H$.
+  Together this shows that~$\Stab(V) = \Stab(W_H) = H$ as desired.
+\end{proof}
+
+
+\begin{proposition}
+  Let~$G$ be a linear algebraic group and let~$H \ngroupleq G$ be a closed normal subgroup.
+  Then there exists for some \dash{finite}{dimensional}~\dash{$k$}{vector space}~$V$ a homomorphism of affine algebraic groups~$G \to \GL(V)$ with kernel~$H$.
+\end{proposition}
+
+
+\begin{proof}
+  By \hyperref[chevalley lemma]{Chevalley’s lemma} we may start with a homomorphism~$\varphi \colon G \to \GL(W)$ such that~$H = \Stab(L)$ for some \dash{one}{dimensional} linear subspace~$L \subseteq W$.
+  It follows that every nonzero vector~$w \in L$ is a common eigenvector of all~$H$, i.e.\ there exists for every~$h \in H$ a scalar~$\chi(h) \in k^\times$ with~$h v = \chi(h) v$.
+  (The map~$\chi_w \colon G \to k^\times$ is a group homomorphism but we won’t need this here.)
+  
+  Let~$W' \subseteq W$ be the linear subspace generated by the common eigenvectors for~$H$.
+  If~$w'$ is a common eigenvectors for all~$h \in H$ then it follows for every~$g \in G$ that~$g w'$ is again a common eigenvector for all~$h \in G$ since
+  \begin{equation}
+  \label{mapped onto eigenvalues again}
+      h g w'
+    = g \underbrace{g^{-1} h g}_{\in H} w'
+    = g \chi_{w'}(g^{-1} h g) w'
+    = \chi_{w'}(g^{-1} h g) g w' \,.
+  \end{equation}
+  This shows that~$W'$ is~\dash{$G$}{invariant} and that the set of common eigenvectors for~$H$ is generating set for~$W'$.
+  We may use the~\dash{$G$}{invariance} of~$W'$ and that~$L \subseteq W'$ to replace~$W$ by~$W'$.
+  It then follows from~$W$ being \dash{$k$}{generated} by common eigenvectors of~$H$ that there exists a decomposition
+  \[
+    W = W_1 \oplus \dotsb \oplus W_n
+  \]
+  into common eigenspaces~$W_1, \dotsc, W_n$ of the~$h \in H$, i.e.\ every~$V_i$ is a~\dash{$k$}{linear} subspace of~$W$ and every~$h \in H$ acts on every~$V_i$ by some scalar~$\chi_i(h) \in k^\times$.
+  The map~$\chi_i \colon H \to k^\times$ is a group homomorphism and it follows from~$k^\times$ being abelian that~$\chi_i$ is constant on conjugacy classes.
+  It therefore follows from the calculation done in~$\eqref{mapped onto eigenvalues again}$ that
+  \begin{equation}
+  \label{invariance of common eigenspaces}
+    g V_i \subseteq V_i
+  \end{equation}
+  for all~$i$.
+  
+  The action of~$G$ on~$W$ induces an action of~$G$ on~$\End_k(W)$ by conjugation given by
+  \[
+      g \cdot f
+    = \varphi(g) \circ f \circ \varphi(g)^{-1}
+  \]
+  for all~$f \in \End_k(W)$.
+  It follows from~$\varphi \colon G \to \GL(W)$ being regular that the corresponding group homomorphism~$\psi \colon G \to \GL(\End_k(W))$ is also regular.
+  
+  We now consider the linear subspace~$V \subseteq \End_k(W)$ given by
+  \[
+      V
+    = \left\{
+        f \in \End_k(W)
+      \suchthat
+        \text{$f(V_i) \subseteq V_i$ for every~$i$}
+      \right\}
+    = \prod_{i=1}^n \End_k(V_i) \,.
+  \]
+  This linear subspace~$V$ of~$\End_k(W)$ is~\dash{$G$}{invariant}:
+  If~$f \in V$ and~$g \in G$ then it follows from~\eqref{invariance of common eigenspaces} that
+  \[
+              (g \cdot f)(V_i)
+    =         g f( g^{-1} V_i)
+    \subseteq g f( V_i )
+    \subseteq g V_i
+    =         V_i \,.
+  \]
+  The conjugation action of~$G$ on~$\End_k(W)$ therefore restricts to an aciton of~$G$ on~$V$, which corresponds to a regular group homomorphism~$\rho \colon G \to \GL(V)$.
+  
+  We claim that~$\ker(\rho) = H$.
+  It holds that~$H \subseteq \ker(\rho)$ because every~$h \in H$ acts on every~$V_i$ by multiplication with some scalar
+  The needed equality~$\varphi(h) \circ f \circ \varphi(h)^{-1}$ for~$h \in H$ and~$f \in V$ therefore holds on every~$V_i$, and thus on all of~$V$.
+  If on the other hand~$g \in G$ with~$g \in \ker(\rho)$ then it follows that~$\varphi(g)$ must be in the center of~$\prod_{i=1}^n \End_k(V_i)$, which is given by
+  \[
+      \ringcenter(\prod_{i=1}^n \End_k(V_i))
+    = \prod_{i=1}^n \ringcenter(\End_k(V_i))
+    = \prod_{i=1}^n k \,.
+  \]
+  This means that~$\varphi(g)$ acts on every~$V_i$ by some scalar.
+  This holds in particular for the \dash{one}{dimensional} subspace~$L$, which is contained in some~$V_i$ (namely the one for~$\chi_i = \chi_w$ with~$w \in L$ nonzero).
+  It then holds that~$g \in \Stab(L) = H$.
 \end{proof}
 
 

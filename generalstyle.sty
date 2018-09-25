@@ -31,8 +31,8 @@
 
 
 % changing fonts
-\setmainfont[Ligatures={Required,Common,Contextual,Rare}]{Libertinus Serif}
-\setsansfont[Ligatures={Required,Common,Contextual,Rare}]{Libertinus Sans}
+\setmainfont[Ligatures={TeX,Required,Common,Contextual,Rare},RawFeature=+calt]{Libertinus Serif}
+\setsansfont{Libertinus Sans}
 \setmonofont{Inconsolata}
 \setmathfont{Libertinus Math}
 % import mathfrak from another font
@@ -247,8 +247,10 @@
 \DeclareMathOperator{\Mor}{Mor}
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\ringcenter}{Z}
 \DeclareMathOperator{\Stab}{Stab}
 \DeclareMathOperator{\im}{im}
+\newcommand{\exterior}{\bigwedge}
 \DeclarePairedDelimiter{\gen}{\langle}{\rangle}
 \DeclarePairedDelimiter{\genideal}{(}{)}
 
