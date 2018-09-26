@@ -2,6 +2,10 @@
 *.bbl
 *.bcf
 *.blg
+*.glsdefs
+*.idx
+*.ilg
+*.ind
 *.log
 *.out
 *.pdf

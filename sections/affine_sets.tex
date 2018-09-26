@@ -20,7 +20,7 @@
 
 
 \begin{definition}
-  The \emph{affine~\dash{$n$}{space}} over~$k$ is~$\Aff^n \defined \Aff^n_k \defined k^n$.
+  The \emph{affine~\dash{$n$}{space}}\index{affine!space} over~$k$ is~$\Aff^n \defined \Aff^n_k \defined k^n$.
 \end{definition}
 
 
@@ -41,7 +41,7 @@
                 \text{$f(x) = 0$ for every~$f \in S$}
               \}
   \]
-  is the \emph{vanishing locus} of~$S$, or \emph{affine \textup(algebraic\textup) set} given by~$S$.
+  is the \emph{affine set}\index{affine!set} given by~$S$.
 \end{definition}
 
 
@@ -84,17 +84,13 @@
 
 
 \begin{definition}
-  The topology from \cref{existence of zariski topology} is the \emph{Zariski topology} on~$\Aff^n$.
-  The induced subspace topology on a subset~$X \subseteq \Aff^n$ is the \emph{Zariski topology} on~$X$.
+  The topology from \cref{existence of zariski topology} is the \emph{Zariski topology}\index{Zariski topology} on~$\Aff^n$.
+  The induced subspace topology on a subset~$X \subseteq \Aff^n$ is the \emph{Zariski topology}\index{Zariski topology!for affine sets} on~$X$.
 \end{definition}
 
 
-\begin{remark}
-  Linear algebra groups are precisely those subgroups of~$\GL_n(k)$ for some~$n$ which are closed with respect to (the subspace topology of~$\GL_n(k)$ induced by) the Zariski topology.
-\end{remark}
-
-
-\begin{theorem}[Hilbert]
+\begin{theorem}[Hilbert’s basis theroem]
+  \index{Hilbert!basis theorem}
   Every ideal~$I \idealleq k[x_1, \dotsc, x_n]$ is finitely generated.
   \qed
 \end{theorem}
@@ -128,7 +124,7 @@
                 \text{$f(x) = 0$ for every~$x \in X$}
               \}
   \]
-  is the \emph{vanishing ideal} of~$X$.
+  is the \emph{vanishing ideal}\index{vanishing!ideal} of~$X$.
 \end{definition}
 
 
@@ -156,7 +152,7 @@
 
 
 \begin{definition}
-  The \emph{coordinate ring} of an affine set~$X \subseteq \Aff^n$ is the~\dash{$k$}{algebra}
+  The \emph{coordinate ring}\index{coordinate ring!of affine sets} of an affine set~$X \subseteq \Aff^n$ is the~\dash{$k$}{algebra}
   \[
               \coord(X)
     \defined  k[x_1, \dotsc, x_n] / {\videal(X)} \,.
@@ -169,7 +165,7 @@
   For an affine set~$X \subseteq \Aff^n$ any two polyomial functions~$f, g \in k[x_1, \dotsc, x_n]$ coincide on~$X$ in the sense that~$f(x) = g(x)$ for all~$x \in X$ if and only if~$f - g \in \videal(X)$, i.e.\ if and only if~$f$ and~$g$ are identified in~$\coord(X)$.
   We will therefore regard the coordinate ring~$\coord(X)$ as the ring of polynomial functions on~$X$.
   
-  We can then define for every ideal~$I \idealleq \coord(X)$ the \emph{vanishing set}
+  We can then define for every ideal~$I \idealleq \coord(X)$ the \emph{vanishing set}\index{vanishing!set}
   \[
               \vset(I)
     \defined  \vset_X(I)
@@ -179,7 +175,7 @@
                 \text{$f(x) = 0$ for every~$f \in I$}
               \}
   \]
-  and can define for every subset~$Y \subseteq X$ the \emph{vanishing ideal}
+  and can define for every subset~$Y \subseteq X$ the \emph{vanishing ideal}\index{vanishing!ideal}
   \[
               \videal(Y)
     \defined  \videal_X(Y)
@@ -266,7 +262,7 @@
 
 
 \begin{definition}
-  For an affine set~$X$ the open subsets~$\Dopen(f) \subseteq X$ with~$f \in \coord(X)$ are the \emph{standard open subsets} of~$X$.
+  For an affine set~$X$ the open subsets~$\Dopen(f) \subseteq X$ with~$f \in \coord(X)$ are the \emph{standard open subsets}\index{standard open subset} of~$X$.
 \end{definition}
 
 
@@ -287,9 +283,9 @@
   Let~$R$ be a commutative ring.
   \begin{enumerate}
     \item
-      The ring~$R$ is \emph{reduced} if~$0 \in R$ is the only nilpotent element of~$R$.
+      The ring~$R$ is \emph{reduced}\index{reduced ring} if~$0 \in R$ is the only nilpotent element of~$R$.
     \item
-      The \emph{radical} of an ideal~$I \idealleq R$ is
+      The \emph{radical}\index{radical!of an ideal} of an ideal~$I \idealleq R$ is
       \[
                   \rad{I}
         \defined  \{
@@ -299,7 +295,7 @@
                   \} \,.
       \]
     \item
-      An ideal~$I \idealleq R$ is \emph{radical} if~$I = \rad{I}$.
+      An ideal~$I \idealleq R$ is \emph{radical}\index{radical!ideal} if~$I = \rad{I}$.
   \end{enumerate}
 \end{definition}
 
@@ -330,6 +326,7 @@
 
 
 \begin{theorem}[Hilbert’s~Nullstellensatz, version~1]
+  \index{Hilbert!Nullstellensatz}
   \label{nullstellensatz 1}
   If~$X$ is an affine set then holds for every ideal~$I \idealleq \coord(X)$ that~$\videal( \vset( I ) ) = \rad{I}$.
   \qed
@@ -337,6 +334,7 @@
 
 
 \begin{theorem}[Hilbert’s~Nullstellensatz, version~2]
+  \index{Hilbert!Nullstellensatz}
   \label{nullstellensatz 2}
   If~$X$ is an affine set and~$I \ideallneq \coord(X)$ is a proper ideal then its vanishing set~$\vset(I)$ is nonempty.
   \qed
@@ -351,9 +349,9 @@
   Let~$X$ be a topological space.
   \begin{enumerate}
     \item
-      The space~$X$ is \emph{reducible} if~$X = C_1 \cup C_2$ for some proper closed subsets~$C_1, C_2 \subsetneq X$.
+      The space~$X$ is \emph{reducible}\index{reducible topological space} if~$X = C_1 \cup C_2$ for some proper closed subsets~$C_1, C_2 \subsetneq X$.
     \item
-      The space~$X$ is \emph{irreducible} if it is nonempty and not reducible.
+      The space~$X$ is \emph{irreducible}\index{irreducible!topological space} if it is nonempty and not reducible.
   \end{enumerate}
 \end{definition}
 
@@ -392,12 +390,12 @@
 
 
 \begin{definition}
-  The sets~$C_\lambda$,~$\lambda \in \Lambda$ from \cref{existence of irreducible components} are the \emph{irreducible components} of~$X$.
+  The sets~$C_\lambda$,~$\lambda \in \Lambda$ from \cref{existence of irreducible components} are the \emph{irreducible components}\index{irreducible!component} of~$X$.
 \end{definition}
 
 
 \begin{definition}
-  A topological space~$X$ is \emph{noetherian} if every descending sequence
+  A topological space~$X$ is \emph{noetherian}\index{noetherian topological space} if every descending sequence
   \[
               C_1
     \supseteq C_2
@@ -440,6 +438,7 @@
 
 
 \begin{theorem}[Hilbert’s~Nullstellensatz, version~3]
+  \index{Hilbert!Nullstellensatz}
   \label{nullstellensatz 3}
   For every affine set~$X$, the maps~$\vset_X, \videal_X$ restrict to the following bijections:
   \[
@@ -561,13 +560,13 @@
   Let~$X,Y$ be affine sets with~$Y \subseteq \Aff^m$.
   \begin{enumerate}
     \item
-      A function~$f \colon X \to k = \Aff^1$ is \emph{regular} if it is an element of~$\coord(X)$.
+      A function~$f \colon X \to k = \Aff^1$ is \emph{regular}\index{regular!for affine sets} if it is an element of~$\coord(X)$.
     \item
-      A map~$f \colon X \to \Aff^n$ is \emph{regular} if it is regular in each coordinate.
+      A map~$f \colon X \to \Aff^n$ is \emph{regular}\index{regular!for affine sets} if it is regular in each coordinate.
     \item
-      A map~$f \colon X \to Y$ is \emph{regular} if it is the restriction of a regular map~$X \to \Aff^m$.
+      A map~$f \colon X \to Y$ is \emph{regular}\index{regular!for affine sets} if it is the restriction of a regular map~$X \to \Aff^m$.
   \end{enumerate}
-  A map~$X \to Y$ is a \emph{morphism} of affine sets if it is regular.
+  A map~$X \to Y$ is a \emph{morphism}\index{homomorphism@(homo)morphism!of affine sets}\index{morphism|see {(homo)morphism}} of affine sets if it is regular.
   The set of morphisms~$X \to Y$ is denoted by~$\Mor(X,Y)$.
 \end{definition}
 
@@ -894,7 +893,7 @@
 
 
 \begin{definition}
-  For any two affine sets~$X \subseteq \Aff^n$,~$Y \subseteq \Aff^m$ the affine set~$X \times Y \subseteq \Aff^{n+m}$ is the \emph{product} of~$X$ and~$Y$.
+  For any two affine sets~$X \subseteq \Aff^n$,~$Y \subseteq \Aff^m$ the affine set~$X \times Y \subseteq \Aff^{n+m}$ is the \emph{product}\index{product!of affine sets} of~$X$ and~$Y$.
 \end{definition}
 
 

@@ -2,14 +2,14 @@
 
 
 \begin{definition}
-  An \emph{affine algebraic group} is an affine variety~$G$ together with a group structure such that both the multiplication map~$G \times G \to G$,~$(g_1, g_2) \mapsto g_1 g_2$ and inversion map~$G \to G$,~$g \mapsto g^{-1}$ are morphisms of affine varieties.
+  An \emph{affine algeberaic group}\index{affine!algebraic group}\index{group!affine algebraic} is an affine variety~$G$ together with a group structure such that both the multiplication map~$G \times G \to G$,~$(g_1, g_2) \mapsto g_1 g_2$ and inversion map~$G \to G$,~$g \mapsto g^{-1}$ are morphisms of affine varieties.
   
-  If~$G, H$ are affine algebraic groups then a map~$f \colon G \to H$ is a \emph{homomorphism of affine algebraic groups} if it is both a morphism of affine varieties and a group homomorphism.
+  If~$G, H$ are affine algebraic groups then a map~$f \colon G \to H$ is a \emph{homomorphism of affine algebraic groups}\index{homomorphism@(homo)morphism!of affine algebraic groups} if it is both a morphism of affine varieties and a group homomorphism.
 \end{definition}
 
 
 \begin{example}
-  The \emph{additive groups}~$\Gadd \defined (\Aff^1, +)$ is an affine algebraic group since the addition
+  The \emph{additive groups}\index{additive group}\index{group!additive}~$\Gadd \defined (\Aff^1, +)$ is an affine algebraic group since the addition
   \[
             {+}
     \colon  \Aff^1 \times \Aff^1
@@ -31,15 +31,15 @@
 
 
 \begin{example}
-  The \emph{general linear group}~$\GL_n(k)$ together with the usual matrix multiplication is an affine algebraic group.
+  The \emph{general linear group}\index{general linear group}\index{group!general linear}~$\GL_n(k)$ together with the usual matrix multiplication is an affine algebraic group.
   We have seen in \cref{principal open sets of affine are again affine} that~$\GL_n(k)$ is an affine variety, the multiplication map~$\GL_n(k) \times \GL_n(k) \to \GL_n(k)$ is polynomial and therefore regular, and the inversion map~$\GL_n(k) \to \GL_n(k)$ is a rational function (because the entries of~$A^{-1}$ are rational functions in the entries of~$A$ by Cramer’s rule) and therefore also regular.
   
-  It follows for~$n = 1$ that the \emph{multiplicative group}~$\Gmult \defined \GL_1(k) = k^\times$ is an affine algebraic group.
+  It follows for~$n = 1$ that the \emph{multiplicative group}\index{multiplicative group}\index{group!multiplicative}~$\Gmult \defined \GL_1(k) = k^\times$ is an affine algebraic group.
 \end{example}
 
 
 \begin{lemma}
-  Every Zariski closed subgroup of an affin algebraic group is again an affine algebraic group.
+  Every Zariski closed subgroup of an affine algebraic group is again an affine algebraic group.
 \end{lemma}
 
 
@@ -60,13 +60,13 @@
   It follows from \cref{closed subgroups of affine algebraic group} that the following are affine algebraic groups:
   \begin{enumerate}
     \item
-      The \emph{special linear group}~$\SL_n(k) = \{ A \in \GL_n(k) \suchthat \det A = 1 \}$.
+      The \emph{special linear group}\index{special!linear group}\index{group!special linear}~$\SL_n(k) = \{ A \in \GL_n(k) \suchthat \det A = 1 \}$.
     \item
-      The \emph{orthogonal groups}~$\Orth_n(k) = \{ A \in \GL_n(k) \suchthat A^T A = I \}$.
+      The \emph{orthogonal group}\index{orthogonal group}\index{group!orthogonal}~$\Orth_n(k) = \{ A \in \GL_n(k) \suchthat A^T A = I \}$.
     \item
-      The \emph{special orthogonal group}~$\SOrth_n(k) = \SL_n(k) \cap \Orth_n(k)$.
+      The \emph{special orthogonal group}\index{special!orthogonal group}\index{group!special orthogonal}~$\SOrth_n(k) = \SL_n(k) \cap \Orth_n(k)$.
     \item
-      The \emph{symplectic group}~$\Symp_{2n}(k) = \{ A \in \GL_n(k) \suchthat A^T J A = J \}$ where~$
+      The \emph{symplectic group}\index{symplectic group}\index{group!symplectic}~$\Symp_{2n}(k) = \{ A \in \GL_n(k) \suchthat A^T J A = J \}$ where~$
           J
         = \begin{psmallmatrix}
              0    & I_n \\
@@ -77,7 +77,7 @@
       Every finite group, when regarded as an affine set and thus an affine variety, is an affine algebraic group.
       The multiplication map~$G \times G \to G$ and inversion map~$G \to G$ are morphisms of afffine varieties because both~$G$ and~$G \times G$ are finite, and therefore all maps~$G \times G \to G$ and~$G \to G$ are morphisms.
     \item
-      The \emph{group of diagonal matrices}~$
+      The \emph{group of diagonal matrices}\index{group!of diagonal matrices}\index{diagonal matrices, group of}~$
           \Diag_n(k)
         = \left\{
             \begin{psmallmatrix}
@@ -89,7 +89,7 @@
           \right\}
       $.
     \item
-      The \emph{group of upper triangular matrices}~$
+      The \emph{group of upper triangular matrices}\index{group!of triangular matrices}\index{triangular matrices, group of}~$
           \Triag_n(k)
         = \left\{
             \begin{psmallmatrix}
@@ -101,7 +101,7 @@
           \right\} \,.
       $
     \item
-      The \emph{group of unipotent matrices}~$
+      The \emph{group of unipotent matrices}\index{group!of unipotent matrices}\index{unipotent!matrices, group of}~$
           \Uni_n(k)
         = \left\{
             \begin{psmallmatrix}
@@ -192,7 +192,7 @@
     \end{array}
   \]
 
-  If more generally~$\mc{C}$ is any category with finite products, including a terminal object~$\ast$, then a \emph{group object} in~$\mc{C}$ is an object~$G \in \mc{C}$ together with morphisms
+  If more generally~$\mc{C}$ is any category with finite products, including a terminal object~$\ast$, then a \emph{group object}\index{group!object} in~$\mc{C}$ is an object~$G \in \mc{C}$ together with morphisms
   \[
     m \colon G \times G \to G \,,
     \qquad

@@ -15,8 +15,10 @@
 \usepackage{csquotes}   % for proper quotation marks
 \usepackage{microtype}  % for typography
 \usepackage{mathdots}
+\usepackage{imakeidx} % for the index, load before hyperref
 \usepackage{hyperref}   % for internal (and external) links
-\usepackage[capitalise,noabbrev]{cleveref}            % for smarter referencing
+\usepackage[capitalise,noabbrev]{cleveref}  % for smarter referencing, load after hyperref
+
 
 
 % the file for the refercences
@@ -25,13 +27,16 @@
 \DeclareFieldFormat{postnote}{#1}
 \DeclareFieldFormat{multipostnote}{#1}
 
+% for the index
+\makeindex
+
 
 % don't reset section counters between chapters
 \counterwithout{section}{chapter}
 
 
 % changing fonts
-\setmainfont[Ligatures={TeX,Required,Common,Contextual,Rare},RawFeature=+calt]{Libertinus Serif}
+\setmainfont[Ligatures={TeX,Required,Common,Contextual,Rare},RawFeature={+calt}]{Libertinus Serif}
 \setsansfont{Libertinus Sans}
 \setmonofont{Inconsolata}
 \setmathfont{Libertinus Math}

@@ -8,8 +8,8 @@
 
 
 \begin{definition}
-  If~$X$ is an affine set and~$X' \subseteq X$ is a Zariski open subset then~$X'$ is a \emph{{\qaffine} \textup(algebraic\textup) set}.
-  The \emph{Zariski topology} on~$X'$ is the subspace topology induced by the Zariski topology on~$X$.
+  If~$X$ is an affine set and~$X' \subseteq X$ is a Zariski open subset then~$X'$ is a \emph{{\qaffine} set}\index{quasi-affine!set}.
+  The \emph{Zariski topology}\index{Zariski topology!for quasi-affine sets} on~$X'$ is the subspace topology induced by the Zariski topology on~$X$.
 \end{definition}
 
 
@@ -89,10 +89,10 @@
   Let~$X$ be a {\qaffine} set and let~$f \colon X \to k$ be a function.
   \begin{enumerate}
     \item
-      The function~$f$ is \emph{regular at~$x \in X$} if~$f$ is a rational function in some neighbourhood of~$x$, i.e.\ if there exist~$U \subseteq X$ open and~$g, h \in \coord(X)$ such that~$x \in U$,~$h(y) \neq 0$ for every~$y \in U$ and~$f(y) = g(y)/h(y)$ for all~$y \in U$.
+      The function~$f$ is \emph{regular at~$x \in X$}\index{regular!for quasi-affine sets} if~$f$ is a rational function in some neighbourhood of~$x$, i.e.\ if there exist~$U \subseteq X$ open and~$g, h \in \coord(X)$ such that~$x \in U$,~$h(y) \neq 0$ for every~$y \in U$ and~$f(y) = g(y)/h(y)$ for all~$y \in U$.
     \item
-      The function~$f$ is \emph{regular} if it is regular at every point~$x \in X$.
-      The set of all rational functions~$X \to k$ is denoted by~$\rational(X)$.
+      The function~$f$ is \emph{regular}\index{regular!for quasi-affine sets} if it is regular at every point~$x \in X$.
+      The set of all regular functions~$X \to k$ is denoted by~$\rational(X)$.
   \end{enumerate}
 \end{definition}
 
@@ -184,11 +184,11 @@
   Let~$X,Y$ be {\qaffine} sets.
   \begin{enumerate}[resume]
     \item
-      A map~$f \colon X \to \Aff^m$ is \emph{regular} if it is regular in each coordinate.
+      A map~$f \colon X \to \Aff^m$ is \emph{regular}\index{regular!for quasi-affine sets} if it is regular in each coordinate.
     \item
-      A map~$f \colon X \to Y$ is \emph{regular} if it is the restriction of a regular map~$X \to \Aff^m$.
+      A map~$f \colon X \to Y$ is \emph{regular}\index{regular!for quasi-affine sets} if it is the restriction of a regular map~$X \to \Aff^m$.
   \end{enumerate}
-  A map~$X \to Y$ is a \emph{morphism} of {\qaffine} sets if it is regular.
+  A map~$X \to Y$ is a \emph{morphism}\index{homomorphism@(homo)morphism!of quasi-affine sets} of {\qaffine} sets if it is regular.
 \end{definition}
 
 
@@ -308,7 +308,7 @@
 
 
 \begin{definition}
-  For {\qaffine} sets~$X \subseteq \Aff^n$,~$Y \subseteq \Aff^m$ their \emph{product} is the {\qaffine} set~$X \times Y \subseteq \Aff^{n+m}$.
+  For {\qaffine} sets~$X \subseteq \Aff^n$,~$Y \subseteq \Aff^m$ their \emph{product}\index{product!of quasi-affine sets} is the {\qaffine} set~$X \times Y \subseteq \Aff^{n+m}$.
 \end{definition}
 
 
@@ -342,14 +342,15 @@
 
 
 \begin{definition}
-  An \emph{affine~variety} is a {\qaffine} set which is isomorphic to an affine set (as a {\qaffine} set).
-  A \emph{{\qaffine}~variety} is just a {\qaffine} set.
-  A \emph{morphism} of (quasi-)affine varieties is just a morphism of {\qaffine} sets.% this comment makes footnote not notice this line break
+  An \emph{affine~variety}\index{affine!variety}\index{variety!affine} is a {\qaffine} set which is isomorphic to an affine set (as a {\qaffine} set).
+  A \emph{{\qaffine}~variety}\index{quasi-affine!variety}\index{variety!quasi-affine} is just a {\qaffine} set.
+  A \emph{morphism}\index{homomorphism@(homo)morphism!of affine varieties}\index{homomorphism@(homo)morphism!of quasi-affine varieties} of (quasi-)affine varieties is just a morphism of {\qaffine} sets.% this comment makes footnote not notice this line break
   \footnote{We will later on extend this notions to projective and {\qprojective} sets.}
 \end{definition}
 
 
 \begin{notation}
+  \index{coordinate ring!of affine varieties}
   For an affine variety~$X$ we often write~$\coord(X) \defined \rational(X)$.
   \Cref{regular on affine is polynomial} shows that this is well-defined when~$X$ is an affine set.
 \end{notation}
