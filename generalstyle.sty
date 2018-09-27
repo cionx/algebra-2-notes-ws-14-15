@@ -15,7 +15,7 @@
 \usepackage{csquotes}   % for proper quotation marks
 \usepackage{microtype}  % for typography
 \usepackage{mathdots}
-\usepackage{imakeidx} % for the index, load before hyperref
+\usepackage[original]{imakeidx} % for the index, load before hyperref
 \usepackage{hyperref}   % for internal (and external) links
 \usepackage[capitalise,noabbrev]{cleveref}  % for smarter referencing, load after hyperref
 
@@ -27,8 +27,10 @@
 \DeclareFieldFormat{postnote}{#1}
 \DeclareFieldFormat{multipostnote}{#1}
 
+
 % for the index
 \makeindex
+
 
 
 % don't reset section counters between chapters
@@ -36,7 +38,7 @@
 
 
 % changing fonts
-\setmainfont[Ligatures={TeX,Required,Common,Contextual,Rare},RawFeature={+calt}]{Libertinus Serif}
+\setmainfont[Ligatures={Required,Common,Contextual,Rare},RawFeature={+calt}]{Libertinus Serif}
 \setsansfont{Libertinus Sans}
 \setmonofont{Inconsolata}
 \setmathfont{Libertinus Math}
@@ -183,7 +185,7 @@
 \newcommand{\grouplneq}{\lneq}
 \newcommand{\ngroupleq}{\trianglelefteq}
 \newcommand{\ngrouplneq}{\mathrel{\ooalign{$\lneq$\cr\raise.22ex\hbox{$\lhd$}\cr}}}
-\newcommand{\moduleleq}{\leq}
+\newcommand{\moduleleq}{\subseteq}
 \newcommand{\idealleq}{\trianglelefteq}
 \newcommand{\idealgeq}{\trianglerighteq}
 \newcommand{\ideallneq}{\mathrel{\ooalign{$\lneq$\cr\raise.22ex\hbox{$\lhd$}\cr}}}
@@ -283,7 +285,7 @@
 }
 \NewDocumentCommand{\restrict}{smmO{}}{
   \IfBooleanTF{#1}
-    {\left. {#2} \middle|_{#3}^{#4} \right.}
+    {\left. {#2} \,\middle|_{#3}^{#4} \right.}
     {{#2}|_{#3}^{#4}}
 }
 

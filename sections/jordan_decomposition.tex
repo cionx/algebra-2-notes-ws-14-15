@@ -1,0 +1,407 @@
+\section{Jordan--Chevalley Decomposition}
+
+
+
+
+
+\subsection{Additive Jordan--Chevalley Decomposition}
+
+
+
+\begin{recall}
+  Let~$R$ be a ring and let~$M$ be an~\dash{$R$}{module}.
+  \begin{enumerate}
+    \item
+      Recall that~$M$ is \emph{simple}\index{simple!module}\index{module!simple} if it is nonzero and~$0$ and~$M$ are the only submodules of~$M$.
+    \item
+      Recall that the following conditions on~$M$ are equivalent:
+      \begin{enumerate}
+        \item
+          The module~$M$ is a sum of simple submodules.
+        \item
+          The module~$M$ is a direct sum of simple submodules.
+        \item
+          Every submodule~$N \moduleleq M$ is a direct summand.
+      \end{enumerate}
+      A proof of the equivalence of these statements can be found in~\cite[Proposition~22.13]{algebra1notes}.
+      If~$M$ satisfies these equivalent conditions then~$M$ is \emph{semisimple}\index{semisimple!module}\index{module!semisimple}.
+  \end{enumerate}
+\end{recall}
+
+
+\begin{definition}
+  Let~$g \colon V \to V$ be an endomorphism of a~\dash{$k$}{vector space}~$V$.
+  A~\dash{$g$}{invariant} subspace~$U \subseteq V$ is~\emph{simple}\index{simple!invariant subspace} if it is nonzero and~$0$ and~$U$ are the only~\dash{$g$}{invariant} subspaces of~$U$.
+\end{definition}
+
+
+\begin{corollary}
+  \label{characterizations of semisimple endomorphisms}
+  Let~$V$ be a~\dash{$k$}{vector space} and let~$g \colon V \to V$ be an endomorphism.
+  The following conditions are equivalent:
+  \begin{enumerate}
+    \item
+      The vector space~$V$ is a sum of simple~\dash{$g$}{invariant} subspaces.
+    \item
+      The vector space~$V$ is a direct sum of simple~\dash{$g$}{invariant} subspaces.
+    \item
+      Every~\dash{$g$}{invariant} subspace~$U \subseteq V$ has a direct complement which is again~\dash{$g$}{invariant}.
+  \end{enumerate}
+\end{corollary}
+
+
+\begin{proof}
+  We may regard~$V$ as a~\dash{$k[x]$}{module} by letting~$x$ acts via~$g$.
+  Then all three conditions state that~$V$ is semisimple as an~$k[x]$ module.
+\end{proof}
+
+
+\begin{definition}
+  An endomorphism~$g \colon V \to V$ of a~\dash{$k$}{vector space}~$V$ is~\emph{semisimple}\index{semisimple!endomorphism} if it satisfies the equivalent conditions from \cref{characterizations of semisimple endomorphisms}.
+\end{definition}
+
+
+\begin{lemma}
+  Let~$V$ be \dash{finite}{dimensional} (and~$k$ algebraically closed).
+  Then~$g$ is semisimple if and only if~$g$ is diagonalizable.
+\end{lemma}
+
+
+\begin{proof}
+  It follows from~$k$ being algebraically closed and~$V$ being \dash{finite}{dimensional} that every nonzero~\dash{$g$}{invariant} subspace~$U \subseteq V$ contains an eigenvector of~$g$, which then spans an \dash{one}{dimensional}~\dash{$g$}{invariant} subspace.
+  This shows that the simple~\dash{$g$}{invariant} subspaces of~$V$ are the precisely the \dash{one}{dimensional} ones, which are then spanned by an eigenvector of~$g$.
+  
+  It follows that~$V$ is a sum of simple~\dash{$g$}{invariant} subspaces if and only if it is spanned by eigenvectors of~$g$ as a~\dash{$k$}{vector space}, which is what is means for~$g$ to be diagonalizable.
+\end{proof}
+
+
+\begin{proposition}[Additive Jordan--Chevalley~decomposition]
+  \label{jcd}
+  Let~$g \colon V \to V$ be an endomorphism of a \dash{finite}{dimensional}~\dash{$k$}{vector space}~$V$.
+  \begin{enumerate}
+    \item
+      \label{the jcd itself}
+      There exists unique endomorphisms~$g_s, g_n \colon V \to V$ with~$g = g_s + g_n$ such that~$g_s$ is semisimple,~$g_n$ is nilpotent and~$g_s$ and~$g_n$ commute with each other.
+    \item
+      \label{existence of polynomials}
+      There exist polynomials~$P, Q \in k[t]$ with~$P(0) = Q(0) = 0$ such that~$g_s = P(g)$ and~$g_n = Q(g)$.
+    \item
+      \label{commuting via jcd}
+      An endomorphism~$h \colon V \to V$ commutes with~$g$ if and only if it commutes with both~$g_s$ and~$g_n$.
+  \end{enumerate}
+\end{proposition}
+
+
+\begin{proof}
+  Let~$\chi_g \in k[t]$ be the characteristic polynomials of~$g$ and let
+  \[
+      \chi_g(t)
+    = (t - \lambda_1)^{n_1} \dotsm (t - \lambda_r)^{n_r}
+  \]
+  be the decomposition of~$g$ into linear factors with~$\lambda_1, \dotsc, \lambda_r \in k$  being the pairwise different eigenvalues of~$g$.
+  For every~$i = 1, \dotsc, r$ let~$V_i \defined \ker (g - \lambda_i \id_V)^{n_i}$ be the generalized eigenspace of~$g$ with respect to the eigenvalues~$\lambda_i$.
+  It then holds that
+  \begin{equation}
+    \label{generalized eigenspace decomposition for g}
+      V
+    = V_1 \oplus \dotsb \oplus V_r \,.
+  \end{equation}
+  
+  The polynomials~$(t - \lambda_1)^{n_1}, \dotsc, (t - \lambda_r)^{n_r}$ are pairwise coprime, so it follows from the chinese remainder theorem that there exist some polynomial~$P \in k[t]$ with
+  \begin{align}
+    \label{congruence for crt}
+    P(t) &\equiv \lambda_i \mod (t - \lambda_i)^{n_i}
+  \intertext{
+  for all~$i = 1, \dotsc, r$.
+  We may also assume that}
+    \notag
+    P(t) &\equiv 0 \mod t \,;
+  \end{align}
+  if~$0$ is an eigenvalue of~$g$ then this follows from~\eqref{congruence for crt} and otherwise we may add~$t$ to the list of coprime polynomials~$(t - \lambda_1)^{n_1}, \dotsc, (t - \lambda_r)^{n_r}$.
+  We thus have~$P(0) = 0$.
+  
+  We set~$g_s \defined P(g)$.
+  It follows from~\eqref{congruence for crt} for every~$i$ that
+  \[
+      P(t)
+    = \lambda_i + P'_i(t)(t - \lambda_i)^{n_i}
+  \]
+  for some~$P' \in k[t]$, and therefore that
+  \[
+      g_s
+    = P(g)
+    = \lambda_i \id_V + P'_i(g)(g - \lambda_i \id_V)^{n_i} \,.
+  \]
+  It follows that~$g_s$ acts on~$V_i$ by multiplication with the scalar~$\lambda_i$ because~$V_i$ is annihilated by~$(g - \lambda_i \id_V)^{n_i}$.
+  This shows that~\eqref{generalized eigenspace decomposition for g} is the decomposition of~$V$ into eigenspaces of~$g$ and therefore that~$g$ is diagonalizable.
+  
+  We also set~$Q(t) \defined t - P(t)$ and~$g_n \defined Q(g) = g - g_s$.
+  It follows from~$P(0) = 0$ that also~$Q(0) = 0$.
+  It holds that~$g = g_s + g_n$ and the endomorphisms~$g_s$ and~$g_n$ commute because they are both polynomials in~$g$.
+  As~$g_s$ acts on~$V_i$ by multiplication with~$\lambda_i$ it follows that~$g_n = g - g_s$ acts on~$V_i$ by~$g - \lambda \id_V$, and thus nilpotent.
+  It does so for every~$i = 1, \dotsc, n$, which shows by~\eqref{generalized eigenspace decomposition for g} that~$g_n$ is nilpotent.
+  
+  Altogether this shows part~\ref*{existence of polynomials} and the existence for part~\ref*{the jcd itself}.
+  Part~\ref*{commuting via jcd} follows from part~\ref*{existence of polynomials}.
+  
+  To show the uniquenes for part~\ref*{the jcd itself} let~$g'_s, g'_n \colon V \to V$ be another pair of endomorphisms satisfying~$g = g'_s + g'_n$ with~$g'_s$ being semisimple,~$g'_n$ being nilpotend and~$g'_s$ and~$g'_n$ commuting.
+  It then follows that~$g'_s$ and~$g'_n$ commute wtih~$g = g'_s + g'_n$ and therefore also with~$g_s$ and~$g_n$ by part~\ref*{commuting via jcd}.
+  It also follows from
+  \begin{gather*}
+    g_s + g_n = g = g'_s + g'_n
+  \shortintertext{that}
+    g_s - g'_s = g'_n - g_n \,.
+  \end{gather*}
+  The left hand side of this equation is again semisimple (i.e.\ diagonalizable) as both~$g_s$ and~$g'_s$ are semisimple and commute and are therefore simultaneously diagonalizable.
+  The right hand side of the equation is nilpotent as both~$g'_n$ and~$g_n$ and nilpotent and they commute.
+  The only diagonalizable nilpotent endomorphism is the zero endomorphism, so it follows that
+  \[
+      g_s - g'_s
+    = g'_n - g_n
+    = 0
+  \]
+  and thus~$g_s = g'_s$ and~$g_n = g'_n$.
+\end{proof}
+
+
+\begin{definition}
+  Let~$g \colon V \to V$ be an endomorphism of a \dash{finite}{dimensional}~\dash{$k$}{vector space}~$V$.
+  The unique decomposition~$g = g_s + g_n$ from \cref{jcd} is the \emph{Jordan\nobreakdash--Chevalley decomposition}\index{Jordan--Chevalley decomposition!for endomorphisms!additive} of~$g$.
+  The summand~$g_s$ is the \emph{semisimple part}\index{semisimple!part of an endomorphism} of~$g$ and the summand~$g_n$ is the \emph{nilpotent part}\index{nilpotent!part of an endomorphism} of~$g$.
+\end{definition}
+
+
+\begin{lemma}
+  Let~$g \colon V \to V$ be an endomorphism of a \dash{finite}{dimensional}~\dash{$k$}{vector space}~$V$ and let~$U \subseteq V$ be a~\dash{$g$}{invariant} subspace.
+  Then~$U$ is also~\dash{$g_s$}{invariant} and~\dash{$g_n$}{invariant} and
+  \[
+      \left( \restrict*{g}{U} \right)_s
+    = \restrict*{g_s}{U}
+    \quad\text{and}\quad
+      \left( \restrict*{g}{U} \right)_n
+    = \restrict*{g_n}{U} \,.
+  \]
+\end{lemma}
+
+
+\begin{proof}
+  It follows from~$g = g_s + g_n$ that~$\restrict{g}{U} = \restrict{g_s}{U} + \restrict{g_n}{U}$, and the endomorphisms~$\restrict{g_s}{U}$ and~$\restrict{g_n}{U}$ commute with each other because~$g_s$ and~$g_n$ commute.
+  The restriction~$\restrict{g_s}{U}$ is again semisimple because the restriction of diagonalizable endomorphisms is again diagonalizable.% dont let foonote see this line break
+  \footnote{One can also use that submodules of semisimple modules are again semisimple themselves.}
+  The restriction~$\restrict{g_n}{U}$ is again nilpotent.
+  The claimed equalities now follows from the uniqueness of the Jordan\nobreakdash--Chevalley decomposition.
+\end{proof}
+
+
+
+% TODO: Explain connection with Jordan normal form.
+
+
+
+\subsection{Multiplicative Jordan--Chevalley decomposition}
+
+
+\begin{definition}
+  An endomorphism~$g \colon V \to V$ of a~\dash{$k$}{vector space}~$V$ is \emph{unipotent}\index{unipotent!endomorphism} if~$g - \id_V$ is nilpotent.
+\end{definition}
+
+
+\begin{remark}
+  If more generally~$\lambda \in k$ then an endomorphism~$g \colon V \to V$ is~\emph{\dash{$\lambda$}{potent}}\index{lambda-potent@\dash{$\lambda$}{potent}} if~$g - \lambda \id_V$ is nilpotent.
+  Then nilpotent is equivalent to~\dash{$0$}{potent} and unipotent is equivalent to~\dash{$1$}{potent}.
+  Note that if~$V$ is \dash{finite}{dimensional} then~$g$ is nilpotent if and only if~$0$ is the only eigenvalue of~$g$ (because~$k$ is algebraically closed) and thus~$g$ is~\dash{$\lambda$}{potent} if and only if~$\lambda$ is the only eigenvalue of~$g$.
+\end{remark}
+
+
+\begin{lemma}
+  Let~$V$ be a~\dash{$k$}{vector space} and let~$g, h \colon V \to V$ be endomorphisms such that~$g$ is invertible.
+  Then~$g$ commutes with~$h$ if and only if~$g^{-1}$ commutes with~$h$.
+\end{lemma}
+
+
+\begin{proof}
+  The equality~$g h = h g$ can be transformed into the equivalent equation~$h g^{-1} = g^{-1} h$ by multiplying it from both sides with~$g^{-1}$.
+\end{proof}
+
+
+\begin{lemma}
+  \label{unit plus nilpotent again unit}
+  Let~$V$ be a~\dash{$k$}{vector space}, let~$u \colon V \to V$ be invertible and let~$n \colon V \to V$ be nilpotent such that~$u$ and~$n$ commute.
+  Then~$u - n$ is again invertible.
+\end{lemma}
+
+
+\begin{proof}
+  It holds for~$u = \id$ that~$\id - n$ in invertible with
+  \[
+      (\id - n)^{-1}
+    = \sum_{i=0}^\infty n^i \,.
+  \]
+  It follows in the general case that~$u^{-1}$ and~$n$ also commute, from which it then follows that~$u^{-1} n$ is again nilpotent and therefore that
+  \[
+      u - n
+    = u (1 - u^{-1} n)
+  \]
+  is again invertible.
+\end{proof}
+
+
+\begin{corollary}
+  Unipotent endomorphisms are invertible.
+  \qed
+\end{corollary}
+
+
+\begin{corollary}
+  \label{invertible iff semisimple part is}
+  Let~$g \colon V \to V$ be an endomorphism of a \dash{finite}{dimensional}~\dash{$k$}{vector space}~$V$ with Jordan\nobreakdash--Chevalley decomposition~$g = g_s + g_n$.
+  Then~$g$ is invertible if and only if~$g_s$ is invertible.
+\end{corollary}
+
+
+\begin{proof}
+  This follows from \cref{unit plus nilpotent again unit} because~$g_s = g - g_n$ and~$g = g_s - (-g_n)$ and~$\pm g_n$ commutes with both~$g$ and~$g_s$.
+\end{proof}
+
+
+\begin{lemma}
+  Let~$g \in \GL(V)$ for a \dash{finite}{dimensional}~\dash{$k$}{vector space}~$V$.
+  Then~$g^{-1}$ is a polynomial in~$g$, i.e.\ there exists some~$P \in k[t]$ with~$g^{-1} = P(t)$.
+\end{lemma}
+
+
+\begin{proof}
+  It holds for the characteristic polynomial~$\chi_g(t) = \sum_{i=1}^n a_i t^i$ that~$\chi_g(g) = 0$ by the Cayley\nobreakdash--Hamilton theorem.
+  It also holds that~$a_0 = \pm \det(g) \neq 0$.
+  It follows that
+  \[
+      g^{-1}
+    = -\frac{1}{a_0} \sum_{i=1}^n a_i g^{i-1}
+    = P(g)
+  \]
+  for the polynomial~$P(t) \defined -\frac{1}{a_0} \sum_{i=0}^{n-1} a_{i+1} t^i$.
+\end{proof}
+
+
+
+
+
+
+
+\begin{proposition}[Multiplicative Jordan\nobreakdash--Chevalley decomposition]
+  \label{mjcd}
+  Let~$g \in \GL(V)$ where~$V$ is a \dash{finite}{dimensional}~\dash{$k$}{vector space}.
+  \begin{enumerate}
+    \item
+      \label{the mjcd itself}
+      There exist unique~$g_s, g_u \in \GL(V)$ with~$g = g_s g_u$ such that~$g_s$ is semisimple,~$g_u$ is unipotent and~$g_s$ and~$g_u$ commute with each other
+    \item
+      The factor~$g_s$ coincides the semisimple part of~$g$.
+    \item
+      \label{existence of polynomials for mjcd}
+      There exist polynomials~$P, Q \in k[t]$ with~$g_s = P(g)$ and~$g_u = Q(g)$.
+    \item
+      \label{commuting via mjcd}
+      An element~$h \in \GL(V)$ commutes with~$g$ if and only if it commutes with both~$g_s$ and~$g_u$.
+  \end{enumerate}
+\end{proposition}
+
+
+\begin{proof}
+  It follows for the additive Jordan\nobreakdash--Chevalley decomposition~$g = g_s + g_n$ from \cref{invertible iff semisimple part is} that~$g_s$ is invertible.
+  We may therefore write
+  \[
+      g
+    = g_s + g_n
+    = g_s (\id + g_s^{-1} g_n)
+    = g_s g_u
+  \]
+  for~$g_u \defined \id + g_s^{-1} g_n$.
+  The endomorphism~$g_u$ is unipotent because~$g_s^{-1} g_n$ is again nilpotent since~$g_s^{-1}$ and~$g_n$ again commute, and the elements~$g_s$ and~$g_u$ commute because
+  \[
+      g_s g_u
+    = g_s + g_n
+    = (\id + g_n g_s^{-1}) g_s
+    = (\id + g_s^{-1} g_n) g_s
+    = g_u g_s \,.
+  \]
+  This shows the claimed existence for part~\ref*{the mjcd itself}.
+  
+  To show the uniqueness for part~\ref*{the mjcd itself} let~$g = g'_s g'_u$ be another decomposition with $g'_s$ semisimple,~$g'_u$ unipotent and~$g'_s$ and~$g'_u$ commuting.
+  We may write
+  \[
+      g
+    = g'_s g'_u
+    = g'_s + g'_s (g'_u - \id)
+  \]
+  with~$g'_n \defined g'_s (g'_u - \id)$ being nilpotent (because~$g'_u - \id$ is nilpotent and commutes with g') and commuting with~$g'_s$.
+  It then follows from the uniqueness of the additive Jordan\nobreakdash--Chevalley decomposition that~$g'_s = g_s$ and~$g'_n = g_n$ and therefore also that~$g'_u = g_u$.
+  
+  Both~$g_s$ and~$g_n$ are polynomials in~$g$.
+  It then follows that~$g_s^{-1}$ is a polynomial in~$g$ because it is a polynomial in~$g_s$, and it further follows that~$g_u$ is a polynomial in~$g$.
+  This shows part~\ref*{existence of polynomials for mjcd}
+  
+  Part~\ref*{commuting via mjcd} follows from part~\ref*{existence of polynomials for mjcd}.
+\end{proof}
+
+
+\begin{definition}
+  Let~$V$ be a \dash{finite}{dimensional}~\dash{$k$}{vector space} and let~$g \in \GL(V)$.
+  The decomposition~$g = g_s g_u$ from \cref{mjcd} is the \emph{multiplicative Jordan\nobreakdash--Chevalley decomposition}\index{Jordan--Chevalley decomposition!for endomorphisms!multiplicative} of~$g$.
+  The factor~$g_u$ is the \emph{unipotent part}\index{unipotent!part of an endomorphism} of~$g$.
+\end{definition}
+
+
+\begin{lemma}
+  Let~$V$ be a \dash{finite}{dimensional}~\dash{$k$}{vector space} and let~$g \in \GL(V)$.
+  If~$U \subseteq V$ is a~\dash{$g$}{invariant subspace} then the restriction~$\restrict{g}{U}$ is again invertible and
+  \[
+      \left( \restrict*{g}{U} \right)_s
+    = \restrict*{g_s}{U}
+    \quad\text{and}\quad
+      \left( \restrict*{g}{U} \right)_u
+    = \restrict*{g_u}{U} \,.
+  \]
+\end{lemma}
+
+
+% TODO: Add a proof.
+
+
+\begin{lemma}
+  Let~$V$,~$W$ be \dash{finite}{dimensional}~\dash{$k$}{vector spaces} and let~$g \in \GL(V)$,~$h \in \GL(W)$.
+  Then~$g \tensor h \in \GL(V \tensor W)$ and
+  \[
+      (g \tensor h)_s
+    = g_s \tensor h_s
+    \quad\text{and}\quad
+      (g \tensor h)_u
+    = g_u \tensor h_u \,.
+  \]
+\end{lemma}
+
+
+% TODO: Add a proof.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% Continue: define unipotent, remark λ potent, characterization via eigenvalues

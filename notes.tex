@@ -1,4 +1,4 @@
-\documentclass[a4paper, 10pt, oneside, openany,  bibliography=totocnumbered]{scrbook}
+\documentclass[a4paper, 10pt, oneside, openany,  bibliography=totocnumbered, index=totoc]{scrbook}
 % bibliography-totocnumbered: Adds bibliography to toc.
 \usepackage{generalstyle}
 
@@ -34,12 +34,14 @@
 
 \input{sections/affine_varieties}
 \input{sections/affine_algebraic_groups}
+\input{sections/classification_results}
 
 
 \backmatter
 
-\input{sections/bibliography}
+% TODO: Add list of symbols.
 \printindex
+\input{sections/bibliography}
 
 
 \end{document}
