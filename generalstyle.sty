@@ -77,7 +77,7 @@
   drawing code = {
     \pgfpathmoveto{\pgfpoint{48\pgfarrowlength}{7.5\pgfarrowlength}}
     \pgfpathcurveto{\pgfpoint{-33\pgfarrowlength}{40.5\pgfarrowlength}}{\pgfpoint{-114\pgfarrowlength}{136.5\pgfarrowlength}}{\pgfpoint{-114\pgfarrowlength}{137.25\pgfarrowlength}}
-    \pgfpathlineto{\pgfpoint{-144\pgfarrowlength}{137.25\pgfarrowlength}}
+a    \pgfpathlineto{\pgfpoint{-144\pgfarrowlength}{137.25\pgfarrowlength}}
     \pgfpathcurveto{\pgfpoint{-114.75\pgfarrowlength}{74.25\pgfarrowlength}}{\pgfpoint{-84\pgfarrowlength}{39.75\pgfarrowlength}}{\pgfpoint{-59.25\pgfarrowlength}{19.5\pgfarrowlength}}
     \pgfpathlineto{\pgfpoint{-35.25\pgfarrowlength}{0\pgfarrowlength}}
     \pgfpathlineto{\pgfpoint{-59.25\pgfarrowlength}{-19.5\pgfarrowlength}}
@@ -95,6 +95,7 @@
   diagrams={>={libertinetip}},
   arrows={line width=0.8*rule_thickness}
 }
+
 
 % fonts for titlepage
 \setkomafont{publishers}{\normalsize}
@@ -117,7 +118,7 @@
 % colours for hyperref
 \hypersetup{
     colorlinks,
-    linkcolor={green!40!black},
+    linkcolor={green!35!black},
     citecolor={blue!50!black},
     urlcolor={blue!80!black}
 }
@@ -176,6 +177,7 @@
 \newcommand{\Qaffine}{Quasi\nobreakdash-affine}
 \newcommand{\qaffine}{quasi\nobreakdash-affine}
 \newcommand{\qprojective}{quasi\nobreakdash-projective}
+\newcommand{\JCD}{Jordan\nobreakdash--Chevalley decomposition}
 
 
 % relations
@@ -194,7 +196,7 @@
 
 
 % binary operators
-\newcommand{\tensor}{\mathbin{\otimes}}
+\newcommand{\tensor}{\otimes}
 \newcommand{\hd}{\mathbin{:}}
 
 
@@ -286,7 +288,7 @@
 \NewDocumentCommand{\restrict}{smmO{}}{
   \IfBooleanTF{#1}
     {\left. {#2} \,\middle|_{#3}^{#4} \right.}
-    {{#2}|_{#3}^{#4}}
+    {{#2}\,|_{#3}^{#4}}
 }
 
 

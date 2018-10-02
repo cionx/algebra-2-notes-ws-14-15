@@ -1,0 +1,680 @@
+\section{Jordan--Chevalley for (Finite) Endomorphisms}
+
+
+
+
+
+\subsection{Semisimple Endomorphisms}
+
+
+% \section{Semisimple Endomorphisms}
+
+
+% \begin{recall}
+%   Let~$R$ be a ring and let~$M$ be an~\dash{$R$}{module}.
+%   \begin{enumerate}
+%     \item
+%       Recall that~$M$ is \emph{simple}\index{simple!module}\index{module!simple} if it is nonzero and~$0$ and~$M$ are the only submodules of~$M$.
+%     \item
+%       Recall that the following conditions on~$M$ are equivalent:
+%       \begin{enumerate}
+%         \item
+%           The module~$M$ is a sum of simple submodules.
+%         \item
+%           The module~$M$ is a direct sum of simple submodules.
+%         \item
+%           Every submodule~$N \moduleleq M$ is a direct summand.
+%       \end{enumerate}
+%       A proof of the equivalence of these statements can be found in~\cite[Proposition~22.13]{algebra1notes}.
+%       If~$M$ satisfies these equivalent conditions then~$M$ is \emph{semisimple}\index{semisimple!module}\index{module!semisimple}.
+%     \item
+%       The class of semisimple~\dash{$R$}{modules} has the following nice properties:
+%       \begin{enumerate}
+%         \item
+%           If~$M$ is a semisimple~\dash{$R$}{module} then every submodule~$N \moduleleq M$ is again semisimple.
+%         \item
+%           If~$M$ is a semisimple~\dash{$R$}{module} and~$N \moduleleq M$ is a submodule then~$M/N$ is again semisimple.
+%         \item
+%           If~$(M_i)_{i \in I}$ is a familiy of semisimple~\dash{$R$}{modules} then the direct sum~$\bigoplus_{i \in I} M_i$ is again semisimple.
+%         \item
+%           If~$M$ is an~\dash{$R$}{module} and~$(N_i)_{i \in I}$ is a family of submodules~$N_i \moduleleq M$ such that every~$N_i$ is semisimple then the sum~$\sum_{i \in I} N_i$ is again semisimple.
+%       \end{enumerate}
+%       A proof of these statements can be found in~\cite[Lemma~22.18]{algebra1notes}.
+%   \end{enumerate}
+% \end{recall}
+% 
+% 
+% \begin{definition}
+%   Let~$g \colon V \to V$ be an endomorphism of a~\dash{$k$}{vector space}~$V$.
+%   A~\dash{$g$}{invariant} subspace~$W \subseteq V$ is~\emph{simple}\index{simple!invariant subspace} if it is nonzero and~$0$ and~$W$ are the only~\dash{$g$}{invariant} subspaces of~$W$.
+% \end{definition}
+% 
+% 
+% \begin{corollary}
+%   \label{characterizations of semisimple endomorphisms}
+%   Let~$V$ be a~\dash{$k$}{vector space} and let~$g \colon V \to V$ be an endomorphism.
+%   The following conditions are equivalent:
+%   \begin{enumerate}
+%     \item
+%       The vector space~$V$ is semisimple ase a~\dash{$k[x]$}{module}, where~$x$ acts via~$g$.
+%     \item
+%       The vector space~$V$ is a sum of simple~\dash{$g$}{invariant} subspaces.
+%     \item
+%       The vector space~$V$ is a direct sum of simple~\dash{$g$}{invariant} subspaces.
+%     \item
+%       Every~\dash{$g$}{invariant} subspace~$W \subseteq V$ has a direct complement which is again~\dash{$g$}{invariant}.
+%   \end{enumerate}
+% \end{corollary}
+% 
+% 
+% \begin{definition}
+%   An endomorphism~$g \colon V \to V$ of a~\dash{$k$}{vector space}~$V$ is~\emph{semisimple}\index{semisimple!endomorphism} if it satisfies the equivalent conditions from \cref{characterizations of semisimple endomorphisms}.
+% \end{definition}
+
+
+\begin{definition}
+  An endomorphism~$g \colon V \to V$ of a~\dash{$k$}{vector space}~$V$ is \emph{semisimple}\index{semisimple!endomorphism} if it is diagonalizable.% don’t let footnote see this linebreak
+  \footnote{One can more generally define an endomorphism~$g \colon V \to V$ to be semisimple if it makes~$V$ into a semisimple~\dash{$klx]$}{module} when~$x$ acts via~$g$.
+  If~$k$ is algebraically closed then this is equivalent to~$g$ being diagonalizable, so we will work with this definition.}
+\end{definition}
+
+
+\begin{lemma}
+  \label{properties of ss endomorphisms}
+  Let~$g \colon V \to V$ be an endomorphism of a~\dash{$k$}{vector space}~$V$.
+  \begin{enumerate}
+    \item
+      \label{restrictions again semisimple}
+      If~$g$ is semisimple and~$W \subseteq V$ is a~\dash{$g$}{invariant} subspace then the restriction~$\restrict{g}{W}$ is again semisimple.
+    \item
+      If~$g$ is semisimple and~$W \subseteq V$ is a~\dash{$g$}{invariant} subspace then the induced endomorphism~$V/W \to V/W$ is again semisimple.
+    \item
+      \label{semisimple via sum covering}
+        If~$V = \bigcup_{i \in I} W_i$ is a cover by~\dash{$g$}{invariant} subspaces~$W_i \subseteq V$ such that the restriction~$\restrict{g}{W_i}$ is semisimple for every~$i \in I$ then~$g$ is semisimple.
+    \qed
+  \end{enumerate}
+%   Let~$(V_i)_{i \in I}$ be a family of~\dash{$k$}{vector spaces} and for every~$i$ let~$g_i \colon V_i \to V_i$ be an endomorphism.
+%   \begin{enumerate}[resume]
+%     \item
+%       The endomorphism~$\bigoplus_{i \in I} g_i \colon \bigoplus_{i \in I} V_i \to \bigoplus_{i \in I} V_i$ is semisimple if and only if each~$g_i$ is semisimple.
+%   \end{enumerate}
+\end{lemma}
+
+
+% \begin{proof}
+%   \leavevmode
+%   \begin{enumerate}
+%     \item
+%       This holds because submodules of semisimple modules are again semisimple.
+%     \item
+%       This holds because quotient modules of semisimple modules are again semisimple.
+%     \item
+%       If~$g$ is semisimple then each restriction~$\restrict{g}{W_i}$ is semisimple by part~\ref*{restrictions again semisimple}.
+%       The other implication holds because sums of semisimple submodules are again semisimple.
+%     \item
+%       This follows from part~\ref*{semisimple via sum covering} with~$W_i = V_i$ regarded as a subspace of~$\bigoplus_{i \in I} V_i$.
+%     \qedhere
+%   \end{enumerate}
+% \end{proof}
+
+
+% \begin{lemma}
+%   \label{ss iff diagbar for fd}
+%   Let~$g \colon V \to V$ be an endomorphism of a \dash{finite}{dimensional}~\dash{$k$}{vector space}~$V$ (with~$k$ algebraically closed).
+%   Then~$g$ is semisimple if and only if~$g$ is diagonalizable.
+% \end{lemma}
+% 
+% 
+% \begin{proof}
+%   It follows from~$k$ being algebraically closed and~$V$ being \dash{finite}{dimensional} that every nonzero~\dash{$g$}{invariant} subspace~$W \subseteq V$ contains an eigenvector of~$g$, which then spans an \dash{one}{dimensional}~\dash{$g$}{invariant} subspace.
+%   This shows that the simple~\dash{$g$}{invariant} subspaces of~$V$ are the precisely the \dash{one}{dimensional} ones, which are then spanned by an eigenvector of~$g$.
+%   
+%   It follows that~$V$ is a sum of simple~\dash{$g$}{invariant} subspaces if and only if it is spanned by eigenvectors of~$g$ as a~\dash{$k$}{vector space}, which is what is means for~$g$ to be diagonalizable.
+% \end{proof}
+% 
+% 
+% \begin{remark}
+%   The various properties of semisimple endomorphisms from \cref{properties of ss endomorphisms} can for \dash{finite}{dimensional} vector spaces also be shown by using the characterization of semisimple endomorphisms as the diagonalizable ones from \cref{ss iff diagbar for fd}.
+% \end{remark}
+
+
+\begin{lemma}
+  \label{combination of ss endomorphisms}
+  If~$g_1, g_2 \colon V \to V$ are two semisimple endomorphisms of a~\dash{$k$}{vector space}~$V$ which commute with each other then~$g_1 + g_2$ and~$g_1 \circ g_2$ are again semisimple.
+\end{lemma}
+
+
+\begin{proof}
+  This holds because~$g_1$ and~$g_2$ are simultaneously diagonalizable.
+\end{proof}
+
+
+\subsection{Additive Jordan--Chevalley Decomposition}
+
+\begin{proposition}[Additive {\JCD}]
+  \label{jcd}
+  Let~$g \colon V \to V$ be an endomorphism of a \dash{finite}{dimensional}~\dash{$k$}{vector space}~$V$.
+  \begin{enumerate}
+    \item
+      \label{the jcd itself}
+      There exists unique endomorphisms~$g_s, g_n \colon V \to V$ with~$g = g_s + g_n$ such that~$g_s$ is semisimple,~$g_n$ is nilpotent and~$g_s$ and~$g_n$ commute with each other.
+    \item
+      \label{existence of polynomials}
+      There exist polynomials~$P, Q \in k[t]$ without constant part such that~$g_s = P(g)$ and~$g_n = Q(g)$.
+    \item
+      \label{commuting via jcd}
+      An endomorphism~$h \colon V \to V$ commutes with~$g$ if and only if it commutes with both~$g_s$ and~$g_n$.
+  \end{enumerate}
+\end{proposition}
+
+
+\begin{proof}
+  Let~$\chi_g \in k[t]$ be the characteristic polynomials of~$g$ and let
+  \[
+      \chi_g(t)
+    = (t - \lambda_1)^{n_1} \dotsm (t - \lambda_r)^{n_r}
+  \]
+  be the decomposition of~$g$ into linear factors with~$\lambda_1, \dotsc, \lambda_r \in k$  being the pairwise different eigenvalues of~$g$.
+  For every~$i = 1, \dotsc, r$ let~$V_i \defined \ker (g - \lambda_i \id_V)^{n_i}$ be the generalized eigenspace of~$g$ with respect to the eigenvalues~$\lambda_i$.
+  It then holds that
+  \begin{equation}
+    \label{generalized eigenspace decomposition for g}
+      V
+    = V_1 \oplus \dotsb \oplus V_r \,.
+  \end{equation}
+  
+  The polynomials~$(t - \lambda_1)^{n_1}, \dotsc, (t - \lambda_r)^{n_r}$ are pairwise coprime, so it follows from the chinese remainder theorem that there exist some polynomial~$P \in k[t]$ with
+  \begin{align}
+    \label{congruence for crt}
+    P(t) &\equiv \lambda_i \mod (t - \lambda_i)^{n_i}
+  \intertext{
+  for all~$i = 1, \dotsc, r$.
+  We may also assume that}
+    \notag
+    P(t) &\equiv 0 \mod t \,;
+  \end{align}
+  if~$0$ is an eigenvalue of~$g$ then this follows from~\eqref{congruence for crt} and otherwise we may add~$t$ to the list of coprime polynomials~$(t - \lambda_1)^{n_1}, \dotsc, (t - \lambda_r)^{n_r}$.
+  We thus have~$P(0) = 0$.
+  
+  We set~$g_s \defined P(g)$.
+  It follows from~\eqref{congruence for crt} for every~$i$ that
+  \[
+      P(t)
+    = \lambda_i + P'_i(t)(t - \lambda_i)^{n_i}
+  \]
+  for some~$P' \in k[t]$, and therefore that
+  \[
+      g_s
+    = P(g)
+    = \lambda_i \id_V + P'_i(g)(g - \lambda_i \id_V)^{n_i} \,.
+  \]
+  It follows that~$g_s$ acts on~$V_i$ by multiplication with the scalar~$\lambda_i$ because~$V_i$ is annihilated by~$(g - \lambda_i \id_V)^{n_i}$.
+  This shows that~\eqref{generalized eigenspace decomposition for g} is the decomposition of~$V$ into eigenspaces of~$g_s$ and therefore that~$g_s$ is diagonalizable.
+  
+  We also set~$Q(t) \defined t - P(t)$ and~$g_n \defined Q(g) = g - g_s$.
+  It follows from~$P(0) = 0$ that also~$Q(0) = 0$.
+  It holds that~$g = g_s + g_n$ and the endomorphisms~$g_s$ and~$g_n$ commute because they are both polynomials in~$g$.
+  As~$g_s$ acts on~$V_i$ by multiplication with~$\lambda_i$ it follows that~$g_n = g - g_s$ acts on~$V_i$ by~$g - \lambda \id_V$, and thus nilpotent.
+  It does so for every~$i = 1, \dotsc, n$, which shows by~\eqref{generalized eigenspace decomposition for g} that~$g_n$ is nilpotent.
+  
+  Altogether this shows part~\ref*{existence of polynomials} and the existence for part~\ref*{the jcd itself}.
+  Part~\ref*{commuting via jcd} follows from part~\ref*{existence of polynomials}.
+  
+  To show the uniquenes for part~\ref*{the jcd itself} let~$g'_s, g'_n \colon V \to V$ be another pair of endomorphisms satisfying~$g = g'_s + g'_n$ with~$g'_s$ being semisimple,~$g'_n$ being nilpotend and~$g'_s$ and~$g'_n$ commuting.
+  It then follows that~$g'_s$ and~$g'_n$ commute wtih~$g = g'_s + g'_n$ and therefore also with~$g_s$ and~$g_n$ by part~\ref*{commuting via jcd}.
+  It also follows from
+  \begin{gather*}
+    g_s + g_n = g = g'_s + g'_n
+  \shortintertext{that}
+    g_s - g'_s = g'_n - g_n \,.
+  \end{gather*}
+  The left hand side of this equation is again semisimple as both~$g_s$ and~$g'_s$ are semisimple and commute and are therefore simultaneously diagonalizable.
+  The right hand side of the equation is nilpotent as both~$g'_n$ and~$g_n$ and nilpotent and they commute.
+  The only diagonalizable nilpotent endomorphism is the zero endomorphism, so it follows that
+  \[
+      g_s - g'_s
+    = g'_n - g_n
+    = 0
+  \]
+  and thus~$g_s = g'_s$ and~$g_n = g'_n$.
+\end{proof}
+
+
+\begin{definition}
+  Let~$g \colon V \to V$ be an endomorphism of a \dash{finite}{dimensional}~\dash{$k$}{vector space}~$V$.
+  The unique decomposition~$g = g_s + g_n$ from \cref{jcd} is the \emph{{\JCD}}\index{Jordan--Chevalley decomposition!for endomorphisms!additive} of~$g$.
+  The summand~$g_s$ is the \emph{semisimple part}\index{semisimple!part of!an endomorphism} of~$g$ and the summand~$g_n$ is the \emph{nilpotent part}\index{nilpotent!part of!an endomorphism} of~$g$.
+\end{definition}
+
+
+% \begin{lemma}
+%   If~$g_1, g_2 \colon V \to V$ are two endomorphisms of a \dash{finite}{dimensional}~\dash{$k$}{vector space}~$V$ which commute with each other then it holds that
+%   \[
+%     (g_1 + g_2)_s = (g_1)_s + (g_2)_s
+%     \quad\text{and}\quad
+%     (g_1 + g_2)_n = (g_1)_n + (g_2)_n \,.
+%   \]
+% \end{lemma}
+% 
+% 
+% \begin{proof}
+%   It holds that
+%   \[
+%       g_1 + g_2
+%     = (g_1)_s + (g_1)_n + (g_2)_s + (g_2)_n
+%     = \bigl( (g_1)_s + (g_2)_s \bigr) + \bigl( (g_1)_n + (g_2)_n \bigr) \,.
+%   \]
+%   It follows from~$g_1$ and~$g_2$ commuting with each other that~$(g_1)_s$,~$(g_1)_n$,~$(g_2)_s$ and~$(g_2)_n$ all commute with each other.
+%   From this it follows that~$(g_1)_s + (g_2)_s$ and~$(g_1)_n + (g_2)_n$ commute with each other, that~$(g_1)_s + (g_2)_s$ is again semisimple and that~$(g_1)_n + (g_2)_n$ is again nilpotent.
+% \end{proof}
+% TODO: Add this back in.
+
+
+
+\begin{lemma}
+  \label{properties of jcd}
+  Let~$g \colon V \to V$ be an endomorphism of a \dash{finite}{dimensional}~\dash{$k$}{vector space}~$V$ and let~$W \subseteq V$ be a~\dash{$g$}{invariant} subspace.
+  \begin{enumerate}
+    \item
+      The subspace~$W$ is also~\dash{$g_s$}{invariant} and~\dash{$g_n$}{invariant}.
+    \item
+      \label{restriction of jcd}
+      It holds that~$(\restrict*{g}{W})_s = \restrict*{g_s}{W}$ and~$(\restrict*{g}{W})_n = \restrict*{g_n}{W}$.
+    \item
+      \label{induced jcd}
+      It holds for the induced endomorphisms~$\induced{g}, \induced{g_s}, \induced{g_n} \colon V/W \to V/W$ that~$\induced{g} = \induced{g_s} + \induced{g_n}$ is the {\JCD} of~$\induced{g}$.
+    \item
+      Let~$g' \colon V' \to V'$ be another endomorphism of a \dash{finite}{dimensional}~\dash{$k$}{vector space}~$V$ and let~$f \colon V \to V'$ be a~\dash{$k$}{linear map} with~$f \circ g = g' \circ f$, i.e.\ such that the diagram
+      \begin{equation}
+        \label{endomorphism of kx modules}
+        \begin{tikzcd}
+            V
+            \arrow{r}[above]{g}
+            \arrow{d}[left]{f}
+          & V
+            \arrow{d}[right]{f}
+          \\
+            V'
+            \arrow{r}[above]{g'}
+          & V'
+        \end{tikzcd}
+      \end{equation}
+      commutes.
+      It then holds that~$f \circ g_s = g'_s \circ f$ and~$f \circ g_n = g'_n \circ f$, so that the diagram~\eqref{endomorphism of kx modules} splits up in the following two commutative diagrams:
+      \[
+        \begin{tikzcd}
+            V
+            \arrow{r}[above]{g_s}
+            \arrow{d}[left]{f}
+          & V
+            \arrow{d}[right]{f}
+          \\
+            V'
+            \arrow{r}[above]{g'_s}
+          & V'
+        \end{tikzcd}
+        \qquad
+        \begin{tikzcd}
+            V
+            \arrow{r}[above]{g_n}
+            \arrow{d}[left]{f}
+          & V
+            \arrow{d}[right]{f}
+          \\
+            V'
+            \arrow{r}[above]{g'_n}
+          & V'
+        \end{tikzcd}
+      \]
+  \end{enumerate}
+\end{lemma}
+
+
+\begin{proof}
+  \label{properties of jcd proof}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      The subspace~$W$ is~\dash{$g_s$}{invariant} and~\dash{$g_n$}{invariant} because~$g_s$ and~$g_n$ are polynomials in~$g$.
+    \item
+      It follows from~$g = g_s + g_n$ that~$\restrict{g}{W} = \restrict{g_s}{W} + \restrict{g_n}{W}$.
+      The endomorphisms~$\restrict{g_s}{W}$ and~$\restrict{g_n}{W}$ commute with each other because~$g_s$ and~$g_n$ commute, the restriction~$\restrict{g_s}{W}$ is again semisimple by \cref{properties of ss endomorphisms} and the restriction~$\restrict{g_n}{W}$ is again nilpotent.
+    \item
+      It follows from~$g = g_s + g_n$ that~$\induced{g} = \induced{g_s} + \induced{g_n}$.
+      The endomorphisms~$\induced{g_s}$ and~$\induced{g_n}$ commute with each other because~$g_s$ and~$g_n$ commute, the induced endomorphism~$\induced{g_s}$ is again semisimple by \cref{properties of ss endomorphisms} and~$\induced{g_n}$ is again nilpotent.
+    \item
+      It follows from part~\ref*{restriction of jcd} that the claim holds when~$f$ in injective and it follows from part~\ref*{induced jcd} that the claim holds when~$f$ is surjective.
+      For~$V'' \defined \im(f)$ the~\dash{$k$}{linear} map~$f \colon V \to V'$ factorizes as
+      \[
+        V
+        \xrightarrow{\enspace i \enspace}
+        V''
+        \xrightarrow{\enspace p \enspace}
+        V'
+      \]
+      with~$i$ injective and~$p$ surjective.
+      Together with the restriction~$g'' \colon V'' \to V''$ of~$g'$ to~$V'$ this results in the following commutative diagram:
+      \[
+        \begin{tikzcd}
+            V
+            \arrow{r}[above]{g}
+            \arrow{d}[left]{i}
+            \arrow[bend right = 50]{dd}[left]{f}
+          & V
+            \arrow{d}[right]{i}
+            \arrow[bend left = 50]{dd}[right]{f}
+          \\
+            V''
+            \arrow{r}[above]{g''}
+            \arrow{d}[left]{p}
+          & V''
+            \arrow{d}[right]{p}
+          \\
+            V'
+            \arrow{r}[above]{g'}
+          & V'
+        \end{tikzcd}
+      \]
+      Since~$i$ is injective and~$p$ is surjective this gives the following two commutative diagrams:
+      \[
+        \begin{tikzcd}
+            V
+            \arrow{r}[above]{g_s}
+            \arrow{d}[left]{i}
+            \arrow[bend right = 50]{dd}[left]{f}
+          & V
+            \arrow{d}[right]{i}
+            \arrow[bend left = 50]{dd}[right]{f}
+          \\
+            V''
+            \arrow{r}[above]{g''_s}
+            \arrow{d}[left]{p}
+          & V''
+            \arrow{d}[right]{p}
+          \\
+            V'
+            \arrow{r}[above]{g'_s}
+          & V'
+        \end{tikzcd}
+        \qquad
+        \qquad
+        \begin{tikzcd}
+            V
+            \arrow{r}[above]{g_u}
+            \arrow{d}[left]{i}
+            \arrow[bend right = 50]{dd}[left]{f}
+          & V
+            \arrow{d}[right]{i}
+            \arrow[bend left = 50]{dd}[right]{f}
+          \\
+            V''
+            \arrow{r}[above]{g''_u}
+            \arrow{d}[left]{p}
+          & V''
+            \arrow{d}[right]{p}
+          \\
+            V'
+            \arrow{r}[above]{g'_u}
+          & V'
+        \end{tikzcd}
+      \]
+      The commutativity of the outer diagrams shows the claim.
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+
+% TODO: Explain connection with Jordan normal form.
+
+
+% TODO: Hint at generalization to perfect fields.
+
+
+
+
+
+\subsection{Multiplicative Jordan--Chevalley Decomposition}
+
+
+\begin{definition}
+  An endomorphism~$g \colon V \to V$ of a~\dash{$k$}{vector space}~$V$ is \emph{unipotent}\index{unipotent!endomorphism} if~$g - \id_V$ is nilpotent.
+\end{definition}
+
+
+\begin{remark}
+  If more generally~$\lambda \in k$ then an endomorphism~$g \colon V \to V$ is~\emph{\dash{$\lambda$}{potent}}\index{lambda-potent@\dash{$\lambda$}{potent}} if~$g - \lambda \id_V$ is nilpotent.
+  Then nilpotent is equivalent to~\dash{$0$}{potent} and unipotent is equivalent to~\dash{$1$}{potent}.
+  Note that if~$V$ is \dash{finite}{dimensional} then~$g$ is nilpotent if and only if~$0$ is the only eigenvalue of~$g$ (because~$k$ is algebraically closed) and thus~$g$ is~\dash{$\lambda$}{potent} if and only if~$\lambda$ is the only eigenvalue of~$g$.
+\end{remark}
+
+
+\begin{lemma}
+  Let~$V$ be a~\dash{$k$}{vector space} and let~$g, h \colon V \to V$ be endomorphisms such that~$g$ is invertible.
+  Then~$g$ commutes with~$h$ if and only if~$g^{-1}$ commutes with~$h$.
+\end{lemma}
+
+
+\begin{proof}
+  The equality~$g h = h g$ can be transformed into the equivalent equation~$h g^{-1} = g^{-1} h$ by multiplying it from both sides with~$g^{-1}$.
+\end{proof}
+
+
+\begin{lemma}
+  \label{unit plus nilpotent again unit}
+  Let~$V$ be a~\dash{$k$}{vector space}, let~$u \colon V \to V$ be invertible and let~$n \colon V \to V$ be nilpotent such that~$u$ and~$n$ commute.
+  Then~$u - n$ is again invertible.
+\end{lemma}
+
+
+\begin{proof}
+  It holds for~$u = \id_V$ that~$\id_V - n$ in invertible with
+  \[
+      (\id_V - n)^{-1}
+    = \sum_{i=0}^\infty n^i \,.
+  \]
+  It follows in the general case that~$u^{-1}$ and~$n$ also commute, from which it then follows that~$u^{-1} n$ is again nilpotent and therefore that
+  \[
+      u - n
+    = u (\id_V - u^{-1} n)
+  \]
+  is again invertible.
+\end{proof}
+
+
+\begin{corollary}
+  Unipotent endomorphisms are invertible.
+  \qed
+\end{corollary}
+
+
+\begin{corollary}
+  \label{invertible iff ss part fd}
+  Let~$g \colon V \to V$ be an endomorphism of a \dash{finite}{dimensional}~\dash{$k$}{vector space}~$V$ with {\JCD}~$g = g_s + g_n$.
+  Then~$g$ is invertible if and only if~$g_s$ is invertible.
+\end{corollary}
+
+
+\begin{proof}
+  This follows from \cref{unit plus nilpotent again unit} because~$g_s = g - g_n$ and~$g = g_s - (-g_n)$ and~$\pm g_n$ commutes with both~$g$ and~$g_s$.
+\end{proof}
+
+
+\begin{lemma}
+  Let~$g \in \GL(V)$ for a \dash{finite}{dimensional}~\dash{$k$}{vector space}~$V$.
+  Then~$g^{-1}$ is a polynomial in~$g$, i.e.\ there exists some~$P \in k[t]$ with~$g^{-1} = P(g)$.
+\end{lemma}
+
+
+\begin{proof}
+  It holds for the characteristic polynomial~$\chi_g(t) = \sum_{i=1}^n a_i t^i$ that~$\chi_g(g) = 0$ by the Cayley\nobreakdash--Hamilton theorem.
+  It also holds that~$a_0 = \pm \det(g) \neq 0$.
+  It follows that
+  \[
+      g^{-1}
+    = -\frac{1}{a_0} \sum_{i=1}^n a_i g^{i-1}
+    = P(g)
+  \]
+  for the polynomial~$P(t) \defined -\frac{1}{a_0} \sum_{i=0}^{n-1} a_{i+1} t^i$.
+\end{proof}
+
+
+\begin{proposition}[Multiplicative {\JCD}]
+  \label{mjcd}
+  Let~$g \in \GL(V)$ where~$V$ is a \dash{finite}{dimensional}~\dash{$k$}{vector space}.
+  \begin{enumerate}
+    \item
+      \label{the mjcd itself}
+      There exist unique endomorphisms~$g_s, g_u \colon V \to V$ with~$g = g_s g_u$ such that the factor~$g_s$ is semisimple, the factor~$g_u$ is unipotent and the factors~$g_s$ and~$g_u$ commute with each other.
+    \item
+      \label{ss and unipotent part invertible}
+      The factors~$g_s$ and~$g_u$ are again invertible.
+    \item
+      \label{global description of mcjd}
+      The factor~$g_s$ is the semisimple part of~$g$, and the factor~$g_u$ is given by~$g_u = \id_V + g_s^{-1} g_n$.
+    \item
+      \label{existence of polynomials for mjcd}
+      There exist polynomials~$P, Q \in k[t]$ with~$g_s = P(g)$ and~$g_u = Q(g)$.
+    \item
+      \label{commuting via mjcd}
+      An element~$h \in \GL(V)$ commutes with~$g$ if and only if it commutes with both~$g_s$ and~$g_u$.
+  \end{enumerate}
+\end{proposition}
+
+
+\begin{proof}
+  It follows for the additive {\JCD}~$g = g_s + g_n$ from \cref{invertible iff ss part fd} that~$g_s$ is invertible.
+  We may therefore write
+  \[
+      g
+    = g_s + g_n
+    = g_s ae(\id_V + g_s^{-1} g_n)
+    = g_s g_u
+  \]
+  for~$g_u \defined \id_V + g_s^{-1} g_n$.
+  The endomorphism~$g_u$ is unipotent because~$g_s^{-1} g_n$ is again nilpotent since~$g_s^{-1}$ and~$g_n$ again commute, and the elements~$g_s$ and~$g_u$ commute because
+  \[
+      g_s g_u
+    = g_s + g_n
+    = (\id_V + g_n g_s^{-1}) g_s
+    = (\id_V + g_s^{-1} g_n) g_s
+    = g_u g_s \,.
+  \]
+  This shows the claimed existence for part~\ref*{the mjcd itself}, and also shows part~\ref*{ss and unipotent part invertible} and part~\ref*{global description of mcjd}.
+  
+  To show the uniqueness for part~\ref*{the mjcd itself} let~$g = g'_s g'_u$ be another decomposition with~$g'_s$ semisimple,~$g'_u$ unipotent and~$g'_s$ and~$g'_u$ commuting.
+  We may write
+  \[
+      g
+    = g'_s g'_u
+    = g'_s + g'_s (g'_u - \id)
+  \]
+  with~$g'_n \defined g'_s (g'_u - \id)$ being nilpotent (because~$g'_u - \id_V$ is nilpotent and commutes with $g'$) and commuting with~$g'_s$.
+  It then follows from the uniqueness of the additive {\JCD} that~$g'_s = g_s$ and that~$g'_n = g_n$, and therefore also that~$g'_u = g_u$.
+  
+  Both~$g_s$ and~$g_n$ are polynomials in~$g$.
+  It then follows that~$g_s^{-1}$ is a polynomial in~$g$ because it is a polynomial in~$g_s$, and it further follows that~$g_u$ is a polynomial in~$g$.
+  This shows part~\ref*{existence of polynomials for mjcd}
+  
+  Part~\ref*{commuting via mjcd} follows from part~\ref*{existence of polynomials for mjcd}.
+\end{proof}
+
+
+\begin{definition}
+  \label{mjcd definition}
+  Let~$V$ be a \dash{finite}{dimensional}~\dash{$k$}{vector space} and let~$g \in \GL(V)$.
+  The decomposition~$g = g_s g_u$ from \cref{mjcd} is the \emph{multiplicative {\JCD}}\index{Jordan--Chevalley decomposition!for endomorphisms!multiplicative} of~$g$.
+  The factor~$g_u$ is the \emph{unipotent part}\index{unipotent!part of!an endomorphism} of~$g$.
+\end{definition}
+
+
+\begin{lemma}
+  \label{properties of mjcd}
+  Let~$V$ be a \dash{finite}{dimensional}~\dash{$k$}{vector space} and let~$W \subseteq V$ be a~\dash{$g$}{invariant subspace} for~$g \in \GL(V)$.
+  \begin{enumerate}
+    \item
+      The subspace~$W$ is also~\dash{$g_s$}{invariant} and~\dash{$g_u$}{invariant}.
+    \item
+      \label{restriction of mjcd}
+      The restriction~$\restrict{g}{W}$ is again invertible and it holds that~$(\restrict{g}{W})_s = \restrict{g_s}{W}$ and~$(\restrict{g}{W})_u = \restrict{g_u}{W}$.
+    \item
+      \label{induced mjcd}
+      It holds for the induced endomorphisms~$\induced{g}, \induced{g_s}, \induced{g_u} \colon V \to V$ that~$\induced{g}, \induced{g_s}, \induced{g_u} \in \GL(V/W)$ and that the {\JCD} decompositon of~$\induced{g}$ is given by~$\induced{g} = \induced{g_s} \circ \induced{g_u}$.
+    \item
+      Let~$g' \in \GL(V')$ for another \dash{finite}{dimensional}~\dash{$k$}{vector space}~$V'$ and let~$f \colon V \to V'$ be a~\dash{$k$}{linear} map with~$f \circ g = g' \circ f$, i.e.\ such that the diagram
+      \begin{equation}
+        \label{another endomorphism of kx modules}
+        \begin{tikzcd}
+            V
+            \arrow{r}[above]{g}
+            \arrow{d}[left]{f}
+          & V
+            \arrow{d}[right]{f}
+          \\
+            V'
+            \arrow{r}[above]{g'}
+          & V'
+        \end{tikzcd}
+      \end{equation}
+      commutes.
+      Then it holds that~$f \circ g_s = g_s \circ f'$ and~$f \circ g_u = g'_u \circ f$, so that the diagram~\eqref{another endomorphism of kx modules} factorizes as follows:
+      \[
+        \begin{tikzcd}
+            {}
+          & {}
+          & {}
+          \\
+            V
+            \arrow[rounded corners,
+              to path = { -- ([yshift=1em] \tikztostart.north)
+                          -- ([yshift=1em] \tikztotarget.north) \tikztonodes
+                          -- (\tikztotarget)
+                        }
+            ]{rr}[above]{g}
+            \arrow{r}[above]{g_u}
+            \arrow{d}[left]{f}
+          & V
+            \arrow{r}[above]{g_s}
+            \arrow{d}[right]{f}
+          & V
+            \arrow{d}[right]{f}
+          \\
+            V'
+            \arrow{r}[above]{g'_u}
+            \arrow[rounded corners,
+              to path = { -- ([yshift=-1em] \tikztostart.south)
+                          -- ([yshift=-1em] \tikztotarget.south) \tikztonodes
+                          -- (\tikztotarget)
+                        }
+            ]{rr}[below]{g}
+          & V'
+            \arrow{r}[above]{g'_s}
+          & V'
+        \end{tikzcd}
+      \]
+  \end{enumerate}
+\end{lemma}
+
+
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      That~$W$ is also~\dash{$g_s$}{invariant} and~\dash{$g_n$}{invariant} holds because~$g_s$ and~$g_u$ are polynomials in~$g$.
+    \item
+      The restriction~$\restrict{g}{W}$ is again injective and thus an isomorphism by the \dash{finite}{dimensionality} of~$W$.
+      It follows from~$g = g_s g_u$ that~$\restrict{g}{W} = \restrict{g_s}{W} \restrict{g_u}{W}$, and the restrictions~$\restrict{g_s}{W}$ and~$\restrict{g_u}{W}$ commute because~$g_s$ and~$g_u$ commute.
+      The restriction~$\restrict{g}{s}$ is again semisimple by \cref{properties of ss endomorphisms} and the restriction~$g_u$ is again unipotent.
+      The claimed equalities now follow from the uniqueness of the multiplicative {\JCD}.
+    \item
+      The induced endomorphisms~$\induced{g}, \induced{g_s}, \induced{g_u} \colon V/W \to V/W$ are again surjective and therefore isomorphisms by the \dash{finite}{dimensionality} of~$V/W$.
+      It follows from~$g = g_s g_u$ that~$\induced{g} = \induced{g_s} \circ \induced{g_u}$, the endomorphisms~$\induced{g_s}$ and~$\induced{g_u}$ commute with each other because~$g_s$ and~$g_u$ commute, the endomorphism~$\induced{g_s}$ is again semisimple by \cref{properties of ss endomorphisms} and the endomorphism~$\induced{g_u}$ is again unipotent.
+    \item
+      The claim holds when~$f$ is injective by part~\ref*{restriction of mjcd} and when~$f$ is surjective by part~\ref*{induced mjcd}.
+      We can therefore proceed as in the \hyperref[properties of jcd proof]{proof of \cref{properties of jcd}}.
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+
+
+

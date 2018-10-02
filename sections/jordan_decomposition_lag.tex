@@ -1,0 +1,357 @@
+\section{Jordan--Chevalley for Linear Algebraic Groups}
+
+
+\begin{lemma}
+  \label{properties of tensor product of local endomorphisms}
+  Let~$g \colon V \to V$ and~$h \colon W \to W$ be endomorphism of~\dash{$k$}{vector spaces}~$V$ and~$W$.
+  \begin{enumerate}
+    \item
+      If both~$g$ and~$h$ are semisimple then the endomorphism~$g \tensor h$ is again semisimple.
+    \item 
+      If~$g$ or~$h$ is locally nilpotent then~$g \tensor h$ is again locally nilpotent.
+    \item
+      If~$g$ and~$h$ are locally unipotent then~$g \tensor h$ is again locally unipotent.
+  \end{enumerate}
+\end{lemma}
+
+
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      If~$V$ and~$W$ have eigenspace decomposition~$V = \bigoplus V_\lambda(g)$ and~$W = \bigoplus_\mu W_\mu(h)$ then
+      \[
+          V \tensor W
+        =         \left( \bigoplus_\lambda V_\lambda(g) \right)
+          \tensor \left( \bigoplus_\mu W_\mu(h) \right)
+        = \bigoplus_{\kappa}
+          \underbrace{
+          \left( \bigoplus_{\lambda + \mu = \kappa} V_\lambda(g) \tensor W_\mu(h) \right)
+          }_{= (V \tensor W)_\kappa(g \tensor h)}
+      \]
+      is the decomposition of~$V \tensor W$ into eigenspaces of~$g \tensor h$.
+    \item
+      We consider only the case that~$g$ is locally nilpotent.
+      For every simple tensor~$v \tensor w \in V \tensor W$ there then exists some power~$n$ for which~$f^n(v) = 0$, and for which it then follows that
+      \[
+          (g \tensor h)^n(v \tensor h)
+        = g^n(v) \tensor h^n(v)
+        = 0 \,.
+      \]
+      An arbitrary element~$x \in V \tensor W$ can be written as a sum of simple tensors~$x = \sum_{i=1}^r v_i \tensor w_i$.
+      There then exists some power~$n$ with~$g^n(v_i) = 0$ for all~$i = 1, \dotsc, r$, and it follows from the above that~$(g \tensor h)^n(x) = 0$.
+    \item
+      It holds that
+      \begin{align*}
+           &  g \tensor h - \id_{V \tensor W} \\
+        ={}&  g \tensor h - {\id_V} \tensor {\id_W} \\
+        ={}&  g \tensor h - {\id_V} \tensor h + {\id_V} \tensor h - {\id_V} \tensor {\id_W} \\
+        ={}&  (g - \id_V) \tensor h + {\id_V} \tensor (h - \id_W) \,.
+      \end{align*}
+      The endomorphism~$g - \id_V$ and~$h - \id_W$ are locally nilpotent, and it follows from the above that the summand~$(g - \id_V) \tensor h$ is again locally nilpotent.
+      The summands~$(g - \id_V) \tensor h$ and~${\id_V} \tensor (h - \id_W)$ commute factorwise and therefore commute with each other.
+      It follows from \cref{combination of locally potent endomorphisms} that~$g \tensor h - \id_{V \tensor W}$ is locally nilpotent.
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+
+\begin{lemma}
+  Let~$V$,~$W$ be~\dash{$k$}{vector spaces} and let~$g \in \GL(V)$,~$h \in \GL(W)$ be locally finite.
+  Then~$g \tensor h \in \GL(V \tensor W)$ is locally finite with
+  \[
+      (g \tensor h)_s
+    = g_s \tensor h_s
+    \quad\text{and}\quad
+      (g \tensor h)_u
+    = g_u \tensor h_u \,.
+  \]
+\end{lemma}
+
+
+\begin{proof}
+  It holds that
+  \[
+      g \tensor h
+    = (g_s g_u) \tensor (h_s h_u)
+    = (g_s \tensor h_s) (g_u \tensor h_u)
+  \]
+  and the factors~$g_s \tensor h_s$ and~$g_u \tensor h_u$ commute with each other because they do so factorwise.
+  It follows from \cref{properties of tensor product of local endomorphisms} that the factor~$g_s \tensor h_s$ is again semisimple and that the factor~$g_u \tensor h_s$ is again locally unipotent.
+\end{proof}
+
+
+\begin{lemma}
+  \label{homomorphisms of Gsets}
+  Let~$G$ be a group and let~$\varphi \colon G \to G$ be a homomorphism of left~\dash{$G$}{sets}, i.e.\ it holds for all~$g, x \in G$ that~$\varphi(g x) = g \varphi(x)$.
+  Then there exists a unique element~$h \in G$ such that~$\varphi$ is given by right multiplication with~$h$, and~$h$ is given by~$h = \varphi(1)$.
+\end{lemma}
+
+
+\begin{proof}
+  The uniqueness of~$h$ follows from~$\varphi(1) = 1 \cdot h = h$ and the existence follows from
+  \[
+      \varphi(g)
+    = \varphi(g \cdot 1)
+    = g \cdot \varphi(1)
+    = g \cdot h \,,
+  \]
+  as claimed.
+\end{proof}
+
+
+\begin{theorem}
+  \label{abstract jcd}
+  Let~$G$ be a linear algebraic group.
+  \begin{enumerate}
+    \item
+      There exists for every~$g \in G$ unique elements~$g_s, g_u \in G$ with~$(\rho_g)_s = \rho_{g_s}$ and~$(\rho_g)_u = \rho_{g_u}$.
+    \item
+      It holds that~$g = g_s g_u$ and the elements~$g_s$ and~$g_u$ commute.
+  \end{enumerate}
+\end{theorem}
+
+
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      Let~$\mu \colon \coord(G) \tensor \coord(G) \to \coord(G)$ be the multiplication map.
+      The map~$\rho_g$ is an algebra automorphism so that
+      \[
+          \mu \circ ( \rho_g \tensor \rho_g )
+        = \rho_g \circ \mu \,.
+      \]
+      It follows from \cref{properties of local mjcd} that also
+      \[
+          \mu \circ ( \rho_g \tensor \rho_g )_s
+        = ( \rho_g )_s \circ \mu
+      \]
+      and by \cref{properties of tensor product of local endomorphisms} therefore that
+      \[
+          \mu \circ \left( (\rho_g)_s \tensor (\rho_g)_s \right)
+        = ( \rho_g )_s \circ \mu \,.
+      \]
+      This shows that~$(\rho_g)_s$ is again an algebra automorphism.% don’t let footnote see this line break
+      \footnote{That~$(\rho_g)_s$ preserves the unit~$1$ follows from~$(\rho_g)_s$ being additive, multiplicative and bijective, and thus an isomorphism of not\nobreakdash-necessarily\nobreakdash-commutative rings.}
+      It follows that there exists a unique homomorphism of affine varieties~$\varphi \colon G \to G$ with~$(\rho_g)_s = \varphi^*$.
+      
+      The map~$\varphi$ is already a homomorphism of left~\dash{$G$}{sets}:
+      For every~$h \in G$ let~$l_h \colon G \to G$ denote the left multiplication with~$h$.
+      Then~$l_h$ commutes with~$r_g$ for every~$h \in G$, from which it follows that $\lambda_h = l_h^*$ commutes with~$\rho_g = r_g^*$ for every~$h \in G$.
+      It then follows that~$\lambda_h$ also commutes with the semisimple part~$(\rho_g)_s$ for every~$h \in G$, from which it then follows that~$\varphi$ commutes with~$l_h$ for every~$h \in G$.
+      
+      It follows from \cref{homomorphisms of Gsets} that there exists a unique element~$g_s \in G$ with~$\varphi = r_{g_s}$, which is equivalent to~$(\rho_g)_s = \varphi^* = r_{g_s}^* = \rho_{g_s}$.
+      
+      It follows in the same way that there exists a unique element~$g_u \in G$ with~$(\rho_g)_u = \rho_{g_u}$.
+    \item
+      It holds that
+      \[
+          \rho_{g_s g_u}
+        = r_{g_s g_u}^*
+        = (r_{g_u} r_{g_s})^*
+        = r_{g_s}^* r_{g_u}^*
+        = \rho_{g_s} \, \rho_{g_u}
+        = (\rho_g)_s (\rho_g)_u
+        = \rho_{g} \,,
+      \]
+      therefore~$r_{g_s g_u} = r_g$ and thus~$g = g_s g_u$.
+      It also follows in the same way that~$g = g_u g_s$.
+  \end{enumerate}
+\end{proof}
+
+
+\begin{definition}
+  \label{abstract jcd definition}
+  Let~$G$ be a linear algebraic group and let~$g \in G$
+  The decomposition~$g = g_s g_u$ from \cref{abstract jcd} is the \emph{{\JCD}}\index{Jordan--Chevalley decomposition!for elements of a lin.\ alg.\ group} of~$g$.
+  The factor~$g_s$ is the \emph{semisimple part}\index{semisimple!part of!an element of a lin.\ alg.\ group} of~$g$ and the factor~$g_u$ is the \emph{unipotent part}\index{unipotent!part of!an element of a lin.\ alg.\ group} of~$g$.
+\end{definition}
+
+
+\begin{proposition}
+  For~$g \in \GL(V)$ the \enquote{abstract} {\JCD} of \cref{abstract jcd definition} coincides with the \enquote{concrete} one from \cref{mjcd definition}.
+\end{proposition}
+
+
+\begin{proof}
+  Let~$G \defined \GL(V)$.
+  
+  We start by embedding~$V$ into~$\coord(G)$.
+  Let~$f \in V^*$ be nonzero and consider the~\dash{$k$}{linear} map
+  \[
+            \varphi
+    \colon  V
+    \to     \coord(G) \,,
+    \quad   v
+    \mapsto [g \mapsto f(gv)] \,.
+  \]
+  
+  This map is injective:
+  There exists some~$v' \in V$ with~$f(v') \neq 0$.
+  Because~$G = \GL(V)$ acts transitively on~$V \setminus \{0\}$ it follows that there exists for every~$v \in V$ with~$v \neq 0$ some~$g \in \GL(V)$ with~$gv = v'$;
+  it then holds that
+  \[
+          \varphi(v)(g)
+    =     f(gv)
+    =     f(v')
+    \neq  0
+  \]
+  and therefore that~$\varphi(v) \neq 0$.
+
+  The map~$\varphi$ is also~\dash{$G$}{equivariant} because it holds for all~$g,h \in G$, and~$v \in V$ that
+  \[
+      \varphi(gv)(h)
+    = f(hgv)
+    = \varphi(v)(hg)
+    =\rho_g(\varphi(v))(h)
+  \]
+  and therefore that~$\varphi(gv) = \rho_g(\varphi(v))$.      
+  Together this shows that~$\varphi$ is an embedding of representations of~$G$.
+  Let~$W \defined \varphi(V)$.
+    
+  Let~$g = g_s g_u$ be the \enquote{abstract} {\JCD} of~$g \in G$.
+  Then~$\rho_g = \rho_{g_s} \, \rho_{g_u}$ is the {\JCD} of~$\rho_g$.
+  It follows that~$\restrict{\rho_g}{W} = (\restrict{\rho_{g_s}}{W}) (\restrict{\rho_{g_u}}{W})$ is the {\JCD} of~$\restrict{\rho_g}{W}$, so that~$g_s$ acts semisimple on~$W$ and~$g_u$ acts unipotent on~$W$.
+  It follows from~$\varphi$ being an isomorphism~$V \to W$ of representations of~$G$ that~$g_s$ also acts semisimple on~$V$ and that~$g_u$ acts unipotent on~$V$.
+  But this means that~$g_s$ is semisimple as an endomorphism~$V \to V$ and that~$g_u$ is unipotent as an endomorphism~$V \to V$.
+  The decomposition~$g = g_s g_u$ is therefore also the \enquote{concrete} {\JCD} of~$g$.
+\end{proof}
+
+
+\begin{lemma}[Functoriality of the {\JCD}]
+  Let~$G$ and~$H$ be linear algebraic groups and let~$f \colon G \to H$ be a homomorphism of linear algebraic groups.
+  Then
+  \[
+      f(g)_s
+    = f(g_s)
+    \quad\text{and}\quad
+      f(g)_u
+    = f(g_u)
+  \]
+  for every~$g \in G$.
+\end{lemma}
+
+
+\begin{proof}
+  For every~$g \in G$ the diagram
+  \[
+    \begin{tikzcd}
+        H
+        \arrow{r}[above]{r_{f(g)}}
+      & H
+      \\
+        G
+        \arrow{r}[above]{r_g}
+        \arrow{u}[left]{f}
+      & G
+        \arrow{u}[right]{f}
+    \end{tikzcd}
+  \]
+  commutes, which by dualizing results in the following commutative diagram:
+  \[
+    \begin{tikzcd}
+        \coord(H)
+        \arrow{d}[left]{f^*}
+      & \coord(H)
+        \arrow{l}[above]{\rho_{f(g)}}
+        \arrow{d}[right]{f^*}
+      \\
+        \coord(G)
+      & \coord(G)
+        \arrow{l}[above]{\rho_g}
+    \end{tikzcd}
+  \]
+  It follows from \cref{properties of local mjcd} that the diagram
+  \[
+    \begin{tikzcd}[column sep = large]
+        \coord(H)
+        \arrow{d}[left]{f^*}
+      & \coord(H)
+        \arrow{l}[above]{ (\rho_{f(g)})_s }
+        \arrow{d}[right]{f^*}
+      \\
+        \coord(G)
+      & \coord(G)
+        \arrow{l}[above]{ (\rho_g)_s }
+    \end{tikzcd}
+  \]
+  also commutes, which is by construction of the semisimple parts~$f(g)_s$ and~$g_s$ the same as the following diagram:
+  \begin{equation}
+    \label{comm diagram for coordinate rings}
+    \begin{tikzcd}[column sep = large]
+        \coord(H)
+        \arrow{d}[left]{f^*}
+      & \coord(H)
+        \arrow{l}[above]{ \rho_{f(g)_s} }
+        \arrow{d}[right]{f^*}
+      \\
+        \coord(G)
+      & \coord(G)
+        \arrow{l}[above]{ \rho_{g_s} }
+    \end{tikzcd}
+  \end{equation}
+  This is the dual of the following diagram:
+  \begin{equation}
+    \label{comm diagram for groups}
+    \begin{tikzcd}
+        H
+        \arrow{r}[above]{r_{f(g)_s}}
+      & H
+      \\
+        G
+        \arrow{u}[left]{f}
+        \arrow{r}[above]{r_{g_s}}
+      & G
+        \arrow{u}[right]{f}
+    \end{tikzcd}
+  \end{equation}
+  It follows from the commutativity of the diagram~\eqref{comm diagram for coordinate rings} that the diagram~\eqref{comm diagram for groups} commutes (because the functor~$\coord(-)$ is faithful).
+  By evaluting the identity~$f \circ r_{g_s} = r_{f(g)_s} \circ f$ at the identity~$1 \in G$ it follows that
+  \[
+      f(g_s)
+    = f(1 \cdot g_s)
+    = \left( f \circ r_{g_s} \right)(1)
+    = \left( r_{f(g)_s} \circ f \right)(1)
+    = f(1) \cdot f(g)_s
+    = 1 \cdot f(g)_s
+    = f(g)_s \,.
+  \]
+  The equality~$f(g_u) = f(g)_u$ can be shown in the same way.
+\end{proof}
+
+
+\begin{corollary}
+  \label{jcd independent of embedding}
+  Let~$V$ be a \dash{finite}{dimensional}~\dash{$k$}{vector space}.
+  \begin{enumerate}
+    \item
+      If~$G \colon G \inclusion \GL(V)$ is an embedding of linear algebraic groups then the {\JCD} in~$G$ coincides with the \enquote{concrete} {\JCD} (from \cref{mjcd definition}) in~$\GL(V)$.
+    \item
+      If~$G \subseteq \GL(V)$ is a closed subgroup then the {\JCD} in~$G$ coincides with the \enquote{concrete} {\JCD} in~$\GL(V)$.
+    \qedhere
+  \end{enumerate}
+\end{corollary}
+
+
+\begin{lemma}
+  Let~$G$ be a linear algebraic group and let~$g_1, g_2 \in G$ be two group elements which commute with each other.
+  Then
+  \[
+      (g_1 g_2)_s
+    = (g_1)_s (g_2)_s
+    \quad\text{and}\quad
+      (g_1 g_2)_u
+    = (g_1)_u (g_2)_u \,.
+  \]
+\end{lemma}
+
+
+\begin{proof}
+  We may assume that~$G$ is a closed subgroup~$\GL(V)$ for some \dash{finite}{dimensional}~\dash{$k$}{vector space}~$V$.
+  The claim then follows from \cref{local mjcd for commuting endomorphisms} thanks to \cref{jcd independent of embedding}.
+\end{proof}
+
+
+
+
