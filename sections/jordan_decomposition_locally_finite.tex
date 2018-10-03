@@ -9,23 +9,23 @@
 
 \begin{lemma}
   \label{characterization of locally finite endomorphisms}
-  For an endomorphism~$g \colon V \to V$ of a~\dash{$k$}{vector space}~$V$ the following conditions are equivalent:
+  For an endomorphism~$g \colon V \to V$ of a~{\kvs}~$V$ the following conditions are equivalent:
   \begin{enumerate}
     \item
       \label{every v in a fd subspace}
-      Every~$v \in V$ is contained in some \dash{finite}{dimensional}~\dash{$g$}{invariant} subspace.
+      Every~$v \in V$ is contained in some {\fd}~\dash{$g$}{invariant} subspace.
     \item
       \label{union of fd subspaces}
-      $V$ is the union of some of its \dash{finite}{dimensional}~\dash{$g$}{invariant} subspaces.
+      $V$ is the union of some of its {\fd}~\dash{$g$}{invariant} subspaces.
     \item
       \label{sum of fd subspaces}
-      $V$ is the sum of some of its \dash{finite}{dimensional}~\dash{$g$}{invariant} subspaces.
+      $V$ is the sum of some of its {\fd}~\dash{$g$}{invariant} subspaces.
     \item
       \label{union of all fd subspaces}
-      $V$ is the union of all of its \dash{finite}{dimensional}~\dash{$g$}{invariant} subspaces.
+      $V$ is the union of all of its {\fd}~\dash{$g$}{invariant} subspaces.
     \item
       \label{sum of all fd subspaces}
-      $V$ is the sum of all of its \dash{finite}{dimensional}~\dash{$g$}{invariant} subspaces.
+      $V$ is the sum of all of its {\fd}~\dash{$g$}{invariant} subspaces.
   \end{enumerate}
 \end{lemma}
 
@@ -38,7 +38,7 @@
     \item[\ref*{union of fd subspaces}~$\iff$~\ref*{union of all fd subspaces}, and \ref*{sum of fd subspaces}~$\iff$~\ref*{sum of all fd subspaces}:]
       These is clear.
     \item[\ref*{sum of all fd subspaces}~$\iff$~\ref*{union of all fd subspaces}]
-      The set~$S$ of all~\dash{finite}{dimensional}~\dash{$g$}{invariant} subspaces of~$V$ is directed with respect to the inclusion~$\subseteq$, meaning that for any two~$W_1, W_2 \in S$ there exists some~$W \in S$ with~$W_1, W_2 \subseteq W$ (for example~$W = W_1 + W_2$).
+      The set~$S$ of all~{\fd}~\dash{$g$}{invariant} subspaces of~$V$ is directed with respect to the inclusion~$\subseteq$, meaning that for any two~$W_1, W_2 \in S$ there exists some~$W \in S$ with~$W_1, W_2 \subseteq W$ (for example~$W = W_1 + W_2$).
       It follows that~$\sum_{W \in S} W = \bigcup_{W \in S} W$.
     \qedhere
   \end{description}
@@ -46,20 +46,20 @@
 
 
 \begin{definition}
-  An endomorphism~$g \colon V \to V$ of a~\dash{$k$}{vector space}~$V$ which satisfies the equivalent conditions from \cref{characterization of locally finite endomorphisms} is \emph{locally finite}\index{locally!finite}.
+  An endomorphism~$g \colon V \to V$ of a~{\kvs}~$V$ which satisfies the equivalent conditions from \cref{characterization of locally finite endomorphisms} is \emph{locally finite}\index{locally!finite}.
 \end{definition}
 
 
 % \begin{lemma}
 %   \label{ss iff diagbar for locally finite}
-%   An endomorphism~$g \colon V \to V$ of a~\dash{$k$}{vector space}~$V$ is locally finite and semisimple if and only if it is diagonalizable.
+%   An endomorphism~$g \colon V \to V$ of a~{\kvs}~$V$ is locally finite and semisimple if and only if it is diagonalizable.
 % \end{lemma}
 % 
 % 
 % \begin{proof}
 %   If~$g$ is diagonalizable then~$V$ is the sum of \dash{one}{dimensional}~\dash{$g$}{invariant} subspaces (each of which is spanned by an eigenvector for~$g$) which shows that~$g$ is both locally finite and semisimple.
 %   
-%   If~$g$ is locally finite then there exists a cover~$V = \bigcup_{i \in I} W_i$ by~\dash{$g$}{invariant} \dash{finite}{dimensional} subspaces~$W_i \subseteq V$.
+%   If~$g$ is locally finite then there exists a cover~$V = \bigcup_{i \in I} W_i$ by~\dash{$g$}{invariant} {\fd} subspaces~$W_i \subseteq V$.
 %   If~$g$ is also semisimple then it follows from \cref{properties of ss endomorphisms} that the restriction~$\restrict{g}{W_i}$ is semisimple for every~$i \in I$, and thus diagonalizable by \cref{ss iff diagbar for fd}.
 %   This then shows that every~$W_i$, and therefore also~$V$, is spanned by eigenvectors for~$g$.
 % \end{proof}
@@ -87,28 +87,28 @@
 
 
 \begin{definition}
-  An endomorphism~$g \colon V \to V$ of a~\dash{$k$}{vector space}~$V$ is \emph{locally nilpotent}\index{locally!nilpotent} (resp.\ \emph{locally unipotent}\index{locally!unipotent}) if it acts nilpotent (resp.\ unipotent) on every~$v \in V$, i.e.\ if there exists for every~$v \in V$ some power~$n$ such that~$g^n(v) = 0$ (resp.~$(g - \id_V)^n(v) = 0$).
+  An endomorphism~$g \colon V \to V$ of a~{\kvs}~$V$ is \emph{locally nilpotent}\index{locally!nilpotent} (resp.\ \emph{locally unipotent}\index{locally!unipotent}) if it acts nilpotent (resp.\ unipotent) on every~$v \in V$, i.e.\ if there exists for every~$v \in V$ some power~$n$ such that~$g^n(v) = 0$ (resp.~$(g - \id_V)^n(v) = 0$).
 \end{definition}
 
 
 \begin{remark}
-  An endomorphism~$g \colon V \to V$ of a~\dash{$k$}{vector space}~$V$ is locally unipotent if and only if~$g - \id_V$ is locally nilpotent.
+  An endomorphism~$g \colon V \to V$ of a~{\kvs}~$V$ is locally unipotent if and only if~$g - \id_V$ is locally nilpotent.
 \end{remark}
 
 
 \begin{lemma}
   \label{characterization of locally potent}
-  For an endomorphism~$g \colon V \to V$ of a \dash{$k$}{vector space}~$V$ the following conditions are equivalent:
+  For an endomorphism~$g \colon V \to V$ of a {\kvs}~$V$ the following conditions are equivalent:
   \begin{enumerate}
     \item
       \label{locally potent}
       The endomorphism~$g$ is locally nilpotent (resp.\ locally unipotent).
     \item
       \label{locally finite and all fd subspaces}
-      The endomorphism~$g$ is locally finite and the restriction~$\restrict{g}{W}$ is nilpotent (resp.\ unipotent) for every \dash{finite}{dimensional}~\dash{$g$}{invariant} subspace~$W \subseteq V$.
+      The endomorphism~$g$ is locally finite and the restriction~$\restrict{g}{W}$ is nilpotent (resp.\ unipotent) for every {\fd}~\dash{$g$}{invariant} subspace~$W \subseteq V$.
     \item
       \label{a covering by fd subspaces}
-      There exists a covering~$V = \bigcup_{i \in I} W_i$ by~\dash{finite}{dimensional}~\dash{$g$}{invariant} subspaces~$W_i \subseteq V$ such that the restriction~$\restrict{g}{W_i}$ is nilpotent (resp.\ unipotent) for every~$i \in I$.
+      There exists a covering~$V = \bigcup_{i \in I} W_i$ by~{\fd}~\dash{$g$}{invariant} subspaces~$W_i \subseteq V$ such that the restriction~$\restrict{g}{W_i}$ is nilpotent (resp.\ unipotent) for every~$i \in I$.
   \end{enumerate}
 \end{lemma}
 
@@ -119,12 +119,12 @@
   \begin{description}
     \item[\ref*{locally potent}~$\implies$~\ref*{locally finite and all fd subspaces}]
       Suppose that~$g$ is locally nilpotent.
-      Then for every~$v \in V$ there exists some~$n \geq 1$ with~$g^n(v) = 0$ and it follows that~$\gen{ v, g(v), \dotsc, g^{n-1}(v) }_k$ is a \dash{finite}{dimensional}~\dash{$g$}{invariant} subspace of~$V$ which contains~$v$.
+      Then for every~$v \in V$ there exists some~$n \geq 1$ with~$g^n(v) = 0$ and it follows that~$\gen{ v, g(v), \dotsc, g^{n-1}(v) }_k$ is a {\fd}~\dash{$g$}{invariant} subspace of~$V$ which contains~$v$.
       This shows that~$g$ is locally finite.
       
-      If~$W \subseteq V$ is \dash{finite}{dimensional}~\dash{$g$}{invariant} subspace with finite generating set~$w_1, \dotsc, w_r \in W$ then there exist~$n_1, \dotsc, n_r \geq 1$ with~$g^{n_i}(w_i) = 0$ for all~$i$. It follows for~$n \defined \max(n_1, \dotsc, n_r)$ that~$(\restrict{g}{W})^n = 0$, which shows that~$\restrict{g}{W}$ is nilpotent.
+      If~$W \subseteq V$ is {\fd}~\dash{$g$}{invariant} subspace with finite generating set~$w_1, \dotsc, w_r \in W$ then there exist~$n_1, \dotsc, n_r \geq 1$ with~$g^{n_i}(w_i) = 0$ for all~$i$. It follows for~$n \defined \max(n_1, \dotsc, n_r)$ that~$(\restrict{g}{W})^n = 0$, which shows that~$\restrict{g}{W}$ is nilpotent.
     \item[\ref*{locally finite and all fd subspaces}~$\implies$~\ref*{a covering by fd subspaces}]
-      One can choose the covering by all \dash{finite}{dimensional}~\dash{$g$}{invariant} subspaces.
+      One can choose the covering by all {\fd}~\dash{$g$}{invariant} subspaces.
     \item[\ref*{a covering by fd subspaces}~$\implies$~\ref*{locally potent}]
       There exists for every~$v \in V$ some~$i \in I$ with~$v \in W_i$, and it follows from~$\restrict{g}{W_i}$ being nilpotent that~$g$ acts nilpotent on~$v$.
   \end{description}
@@ -133,21 +133,21 @@
 
 
 \begin{corollary}
-  Let~$g \colon V \to V$ is a locally nilpotent (resp.\ locally unipotent) endomorphism of a \dash{finite}{dimensional}~\dash{$k$}{vector space}~$V$ then~$g$ is nilpotent (resp.\ unipotent).
+  Let~$g \colon V \to V$ is a locally nilpotent (resp.\ locally unipotent) endomorphism of a {\fd}~{\kvs}~$V$ then~$g$ is nilpotent (resp.\ unipotent).
   \qed
 \end{corollary}
 
 
 \begin{lemma}
   \label{restriction of ss and locally potent endomorphisms }
-  Let~$g \colon V \to V$ be an endomorphism of a~\dash{$k$}{vector space}~$V$ and let~$W \subseteq V$ be a~\dash{$g$}{invariant} subspace.
+  Let~$g \colon V \to V$ be an endomorphism of a~{\kvs}~$V$ and let~$W \subseteq V$ be a~\dash{$g$}{invariant} subspace.
   If~$g$ is locally finite, locally nilpotent or locally unipotent then the restriction~$\restrict{g}{W}$ has the same property.
 \end{lemma}
 
 
 \begin{proof}
-  If~$g$ is locally finite then there exists for every~$w \in W$ a \dash{finite}{dimensional}~\dash{$g$}{invariant} subspace~$W' \subseteq V$ with~$w \in W'$.
-  Then~$W \cap W'$ is a \dash{finite}{dimensional}~\dash{$(\restrict{g}{W})$}{invariant} subspace of~$W$ which contains~$w$.
+  If~$g$ is locally finite then there exists for every~$w \in W$ a {\fd}~\dash{$g$}{invariant} subspace~$W' \subseteq V$ with~$w \in W'$.
+  Then~$W \cap W'$ is a {\fd}~\dash{$(\restrict{g}{W})$}{invariant} subspace of~$W$ which contains~$w$.
   f 
   If~$g$ is locally nilpotent (resp.\ locally unipotent) then~$g$ acts nilpotent (resp.\ unipotent) on every~$v \in V$ and therefore also on every~$v \in W$.
 \end{proof}
@@ -155,7 +155,7 @@
 
 \begin{lemma}
   \label{combination of locally potent endomorphisms}
-  Let~$g_1, g_2 \colon V \to V$ be two endomorphisms of a~\dash{$k$}{vector space}~$V$ which commute with each other.
+  Let~$g_1, g_2 \colon V \to V$ be two endomorphisms of a~{\kvs}~$V$ which commute with each other.
   \begin{enumerate}
     \item
       \label{sum of locally nilpotent}
@@ -211,30 +211,30 @@
 % 
 % \begin{lemma}
 %   \label{characterization of locally nilpotent endomorphisms}
-%   For an endomorphism~$g \colon V \to V$ of a~\dash{$k$}{vector space}~$V$ the following conditions are equivalent:
+%   For an endomorphism~$g \colon V \to V$ of a~{\kvs}~$V$ the following conditions are equivalent:
 %   \begin{enumerate}
 %     \item
 %       The endomorphism~$g$ acts nilpotent on every~$v \in V$, i.e.\ there exists for every~$v \in V$ some~$n$ with~$g^n(v) = 0$.
 %     \item
-%       Every~$v \in V$ is contained in a \dash{finite}{dimensional}~\dash{$g$}{invariant} subspace~$W \subseteq V$ such that~$\restrict{g}{W}$ is nilpotent, i.e.\ the vector space~$V$ is a union~$V = \bigcup_{i \in I} W_i$ of \dash{finite}{dimensional}~\dash{$g$}{invariant} subspaces~$W_i \subseteq V$ such that~$\restrict{g}{W_i}$ is nilpotent for every~$i \in I$.
+%       Every~$v \in V$ is contained in a {\fd}~\dash{$g$}{invariant} subspace~$W \subseteq V$ such that~$\restrict{g}{W}$ is nilpotent, i.e.\ the vector space~$V$ is a union~$V = \bigcup_{i \in I} W_i$ of {\fd}~\dash{$g$}{invariant} subspaces~$W_i \subseteq V$ such that~$\restrict{g}{W_i}$ is nilpotent for every~$i \in I$.
 %     \item
-%       The vector space~$V$ is a sum~$V = \sum_{i \in I} W_i$ of \dash{finite}{dimensional}~\dash{$g$}{invariant} subspaces~$W_i \subseteq V$ such that~$\restrict{g}{W_i}$ is nilpotent for every~$i \in I$.
+%       The vector space~$V$ is a sum~$V = \sum_{i \in I} W_i$ of {\fd}~\dash{$g$}{invariant} subspaces~$W_i \subseteq V$ such that~$\restrict{g}{W_i}$ is nilpotent for every~$i \in I$.
 %   \end{enumerate}
 % \end{lemma}
 % 
 % 
 % \begin{definition}
-%   An endomorphim~$g \colon V \to V$ of a~\dash{$k$}{vector space} which satisfies the equivalent conditions from \cref{characterization of locally nilpotent endomorphisms} is \emph{locally nilpotent}\index{locally!nilpotent}.
+%   An endomorphim~$g \colon V \to V$ of a~{\kvs} which satisfies the equivalent conditions from \cref{characterization of locally nilpotent endomorphisms} is \emph{locally nilpotent}\index{locally!nilpotent}.
 % \end{definition}
 % 
 % 
 % \begin{lemma}
-%   Let~$g \colon V \to V$ be an endomorphism of a~\dash{$k$}{vector space}~$V$.
+%   Let~$g \colon V \to V$ be an endomorphism of a~{\kvs}~$V$.
 %   \begin{enumerate}
 %     \item
-%       If~$g$ is locally nilpotent then~$\restrict{g}{W}$ is nilpotent for every \dash{finite}{dimensional}~\dash{$g$}{invariant} subspace~$W \subseteq V$.
+%       If~$g$ is locally nilpotent then~$\restrict{g}{W}$ is nilpotent for every {\fd}~\dash{$g$}{invariant} subspace~$W \subseteq V$.
 %     \item
-%       If~$g$ is locally finite and the restriction~$\restrict{g}{W}$ is nilpotent for every \dash{finite}{dimensional}~\dash{$g$}{invariant} subspace~$W \subseteq V$ then~$g$ is locally nilpotent.
+%       If~$g$ is locally finite and the restriction~$\restrict{g}{W}$ is nilpotent for every {\fd}~\dash{$g$}{invariant} subspace~$W \subseteq V$ then~$g$ is locally nilpotent.
 %   \end{enumerate}
 % \end{lemma}
 % 
@@ -245,32 +245,32 @@
 % 
 % \begin{lemma}
 %   \label{characterization of locally unipotent endomorphisms}
-%   For an endomorphism~$g \colon V \to V$ of a~\dash{$k$}{vector space}~$V$ the following conditions are equivalent:
+%   For an endomorphism~$g \colon V \to V$ of a~{\kvs}~$V$ the following conditions are equivalent:
 %   \begin{enumerate}
 %     \item
 %       The endomorphism~$g - \id_V$ is locally nilpotent.
 %     \item
 %       The endomorphism~$g$ acts unipotent on every~$v \in V$, i.e.\ there exists for every~$v \in V$ some~$n$ with~$(g - \id_V)^n(v) = 0$.
 %     \item
-%       Every~$v \in V$ is contained in a \dash{finite}{dimensional}~\dash{$g$}{invariant} subspace~$W \subseteq V$ such that~$\restrict{g}{W}$ is unipotent, i.e.\ the vector space~$V$ is a union~$V = \bigcup_{i \in I} W_i$ of \dash{finite}{dimensional}~\dash{$g$}{invariant} subspaces~$W_i \subseteq V$ such that~$\restrict{g}{W_i}$ is unipotent for every~$i \in I$.
+%       Every~$v \in V$ is contained in a {\fd}~\dash{$g$}{invariant} subspace~$W \subseteq V$ such that~$\restrict{g}{W}$ is unipotent, i.e.\ the vector space~$V$ is a union~$V = \bigcup_{i \in I} W_i$ of {\fd}~\dash{$g$}{invariant} subspaces~$W_i \subseteq V$ such that~$\restrict{g}{W_i}$ is unipotent for every~$i \in I$.
 %     \item
-%       The vector space~$V$ is a sum~$V = \sum_{i \in I} W_i$ of \dash{finite}{dimensional}~\dash{$g$}{invariant} subspaces~$W_i \subseteq V$ such that~$\restrict{g}{W_i}$ is unipotent for every~$i \in I$.
+%       The vector space~$V$ is a sum~$V = \sum_{i \in I} W_i$ of {\fd}~\dash{$g$}{invariant} subspaces~$W_i \subseteq V$ such that~$\restrict{g}{W_i}$ is unipotent for every~$i \in I$.
 %   \end{enumerate}
 % \end{lemma}
 % 
 % 
 % \begin{definition}
-%   An endomorphim~$g \colon V \to V$ of a~\dash{$k$}{vector space} which satisfies the equivalent conditions from \cref{characterization of locally unipotent endomorphisms} is \emph{locally unipotent}\index{locally!unipotent}.
+%   An endomorphim~$g \colon V \to V$ of a~{\kvs} which satisfies the equivalent conditions from \cref{characterization of locally unipotent endomorphisms} is \emph{locally unipotent}\index{locally!unipotent}.
 % \end{definition}
 % 
 % 
 % \begin{lemma}
-%   Let~$g \colon V \to V$ be an endomorphism of a~\dash{$k$}{vector space}~$V$.
+%   Let~$g \colon V \to V$ be an endomorphism of a~{\kvs}~$V$.
 %   \begin{enumerate}
 %     \item
-%       If~$g$ is locally unipotent then~$\restrict{g}{W}$ is unipotent for every \dash{finite}{dimensional}~\dash{$g$}{invariant} subspace~$W \subseteq V$.
+%       If~$g$ is locally unipotent then~$\restrict{g}{W}$ is unipotent for every {\fd}~\dash{$g$}{invariant} subspace~$W \subseteq V$.
 %     \item
-%       If~$g$ is locally finite and the restriction~$\restrict{g}{W}$ is unipotent for every \dash{finite}{dimensional}~\dash{$g$}{invariant} subspace~$W \subseteq V$ then~$g$ is locally unipotent.
+%       If~$g$ is locally finite and the restriction~$\restrict{g}{W}$ is unipotent for every {\fd}~\dash{$g$}{invariant} subspace~$W \subseteq V$ then~$g$ is locally unipotent.
 %   \end{enumerate}
 % \end{lemma}
 
@@ -294,7 +294,7 @@
 
 \begin{proposition}[Additive {\JCD}]
   \label{local jcd}
-  Let~$g \colon V \to V$ be a locally finite endomorphism of a~\dash{$k$}{vector space}~$V$.
+  Let~$g \colon V \to V$ be a locally finite endomorphism of a~{\kvs}~$V$.
   \begin{enumerate}
     \item
       \label{the local jcd itself}
@@ -304,7 +304,7 @@
       An endomorphism~$h \colon V \to V$ commutes with~$g$ if and only if it already commutes with both~$g_s$ and~$g_n$.
     \item
       \label{local jcd via cover}
-      If~$V = \bigcup_{i \in I} W_i$ is any covering by \dash{finite}{dimensional}~\dash{$g$}{invariant} subspaces then the endomorphisms~$g_s$ and~$g_n$ are uniquely determined by the property that every~$W_i$ is also~\dash{$g_s$}{invariant} and~\dash{$g_n$}{invariant} and that~$\restrict{g}{W_i} = \restrict{g_s}{W_i} + \restrict{g_n}{W_i}$ is the {\JCD} of~$\restrict{g}{W_i}$ for every~$i \in I$.
+      If~$V = \bigcup_{i \in I} W_i$ is any covering by {\fd}~\dash{$g$}{invariant} subspaces then the endomorphisms~$g_s$ and~$g_n$ are uniquely determined by the property that every~$W_i$ is also~\dash{$g_s$}{invariant} and~\dash{$g_n$}{invariant} and that~$\restrict{g}{W_i} = \restrict{g_s}{W_i} + \restrict{g_n}{W_i}$ is the {\JCD} of~$\restrict{g}{W_i}$ for every~$i \in I$.
   \end{enumerate}
 \end{proposition}
 
@@ -317,7 +317,7 @@
     \defined  \left\{
                 W \subseteq V
               \suchthat*
-                \text{$W$ is a \dash{finite}{dimensional}~\dash{$g$}{invariant} subspace of~$V$}\ 
+                \text{$W$ is a {\fd}~\dash{$g$}{invariant} subspace of~$V$}\ 
               \right\}
   \]
   that~$V = \bigcup_{W \in \mathcal{F}} W$ because~$g$ is locally finite.
@@ -339,7 +339,7 @@
   
   To show part~\ref*{commuting via local jcd} suppose that~$h$ commutes with~$g$.
   We show that the claimed equalities hold at every point~$v \in V$.
-  There exists a \dash{finite}{dimensional}~\dash{$g$}{invariant} subspace~$W \subseteq V$ with~$v \in W$ because~$g$ is locally finite, and the subspace~$h(W)$ is again~\dash{$g$}{invariant} because~$g$ and~$h$ commmute.
+  There exists a {\fd}~\dash{$g$}{invariant} subspace~$W \subseteq V$ with~$v \in W$ because~$g$ is locally finite, and the subspace~$h(W)$ is again~\dash{$g$}{invariant} because~$g$ and~$h$ commmute.
   The subspaces~$W$,~$h(W)$ together with the actions of~$g$ and~$h$ on them fit into the following commutative diagram:
   \[
     \begin{tikzcd}[sep = large]
@@ -390,7 +390,7 @@
   \]
   and therefore that~$g_s = g'_s$ and~$g_n = g'_n$.
   
-  To show part~\ref*{local jcd via cover} let~$V = \bigcup_{i \in I} W_i$ be a cover of~$V$ by \dash{finite}{dimensional}~\dash{$g$}{invariant} subspaces.
+  To show part~\ref*{local jcd via cover} let~$V = \bigcup_{i \in I} W_i$ be a cover of~$V$ by {\fd}~\dash{$g$}{invariant} subspaces.
   Then for every~$i \in I$ the restriction~$\restrict{g_s}{W_i} = g_{s,W_i}$ is semisimple and the restriction~$\restrict{g_n}{W_i} = g_{n,W_i}$ is nilpotent.
   It follows for every~$i \in I$ from~$g = g_s + g_n$ that~$\restrict{g}{W_i} = \restrict{g_s}{W_i} + \restrict{g_n}{W_i}$, and it follows that~$\restrict{g_s}{W_i}$ and~$\restrict{g_n}{W_i}$ commute because~$g_s$ and~$g_n$ commute.
   Together this shows that~$\restrict{g}{W_i} = \restrict{g_s}{W_i} + \restrict{g_n}{W_i}$ is the {\JCD} of~$\restrict{g}{W_i}$ for every~$i \in I$.
@@ -400,14 +400,14 @@
 
 \begin{definition}
   \label{def local jcd}
-  If~$g \colon V \to V$ is a locally finite endomorphism of a~\dash{$k$}{vector space}~$V$ then the decomposition~$g = g_s + g_n$ from \cref{local jcd} is the \emph{\textup(additive\textup) Jordan--Chevalley decomposition}\index{Jordan--Chevalley decomposition!for locally finite endomorphisms!additive} of~$g$.
+  If~$g \colon V \to V$ is a locally finite endomorphism of a~{\kvs}~$V$ then the decomposition~$g = g_s + g_n$ from \cref{local jcd} is the \emph{\textup(additive\textup) Jordan--Chevalley decomposition}\index{Jordan--Chevalley decomposition!for locally finite endomorphisms!additive} of~$g$.
   The summand~$g_s$ is the \emph{semisimple part}\index{semisimple!part of!a locally finite endomorphism} of~$g$ and the summand~$g_n$ is the \emph{nilpotent part}\index{nilpotent!part of!a locally finite endomorphism} of~$g$.
 \end{definition}
 
 
 \begin{lemma}
   \label{properties of local jcd}
-  Let~$g \colon V \to V$ be a locally finite endomorphism of a~\dash{$k$}{vector space}~$V$ and let~$W \subseteq V$ be a~\dash{$g$}{invariant} subspace.
+  Let~$g \colon V \to V$ be a locally finite endomorphism of a~{\kvs}~$V$ and let~$W \subseteq V$ be a~\dash{$g$}{invariant} subspace.
   \begin{enumerate}
     \item
       The subspace~$W$ is also~\dash{$g_s$}{invariant} and~\dash{$g_n$}{invariant}
@@ -418,7 +418,7 @@
       \label{induced local jcd}
       The {\JCD} of the induced endomorphism~$\induced{g} \colon V/W \to V/W$ is given by~$\induced{g} = \induced{g_s} + \induced{g_n}$.
     \item
-      Let~$g' \colon V' \to V'$ be an endomorphism of another~\dash{$k$}{vector space}~$V'$ and let~$f \colon V \to V'$ be a~\dash{$k$}{linear} map with~$f \circ g = g' \circ f$, i.e.\ such that the diagram
+      Let~$g' \colon V' \to V'$ be an endomorphism of another~{\kvs}~$V'$ and let~$f \colon V \to V'$ be a~\dash{$k$}{linear} map with~$f \circ g = g' \circ f$, i.e.\ such that the diagram
       \[
         \begin{tikzcd}
             V
@@ -467,8 +467,8 @@
   \leavevmode
   \begin{enumerate}
     \item
-      Let~$V = \bigcup_{i \in I} V_i$ be a cover by \dash{finite}{dimensional}~\dash{$g$}{invariant} subspaces, and for every~$i \in I$ let~$W_i \defined V \cap W_i$.
-      Then~$W = \bigcup_{i \in I} W_i$ is a cover of~$W$ by \dash{finite}{dimensional}~\dash{$g$}{invariant} subspaces because
+      Let~$V = \bigcup_{i \in I} V_i$ be a cover by {\fd}~\dash{$g$}{invariant} subspaces, and for every~$i \in I$ let~$W_i \defined V \cap W_i$.
+      Then~$W = \bigcup_{i \in I} W_i$ is a cover of~$W$ by {\fd}~\dash{$g$}{invariant} subspaces because
       \[
           W 
         = W \cap V
@@ -492,7 +492,7 @@
 
 
 \begin{lemma}
-  If~$g_1, g_2 \colon V \to V$ are two locally finite endomorphisms of a~\dash{$k$}{vector space}~$V$ which commute with each other then
+  If~$g_1, g_2 \colon V \to V$ are two locally finite endomorphisms of a~{\kvs}~$V$ which commute with each other then
   \[
       (g_1 + g_2)_s
     = (g_1)_s + (g_2)_s
@@ -522,11 +522,11 @@
 
 \begin{lemma}
   \label{invertibility via fd}
-  Let~$g$ be an endomorphism of a~\dash{$k$}{vector space}~$V$.
+  Let~$g$ be an endomorphism of a~{\kvs}~$V$.
   \begin{enumerate}
     \item
       \label{restriction of invertible}
-      If~$g$ is invertible then for every \dash{finite}{dimensional}~\dash{$g$}{invariant} subspace~$W \subseteq V$ the restriction~$\restrict{g}{W}$ is again invertible.
+      If~$g$ is invertible then for every {\fd}~\dash{$g$}{invariant} subspace~$W \subseteq V$ the restriction~$\restrict{g}{W}$ is again invertible.
       It then holds that~$(\restrict{g}{W})^{-1} = \restrict{g^{-1}}{W}$.
     \item
       If $V = \bigcup_{i \in I} W_i$ is a cover by~\dash{$g$}{invariant} subspaces then~$g$ is invertible if and only if the restriction~$\restrict{g}{W_i}$ is invertible for every~$i \in I$.
@@ -558,7 +558,7 @@
 
 
 \begin{corollary}
-  Let~$g \colon V \to V$ be endomorphism of a~\dash{$k$}{vector space}~$V$.
+  Let~$g \colon V \to V$ be endomorphism of a~{\kvs}~$V$.
   \begin{enumerate}
     \item
       If~$g$ is locally unipotent then~$g$ is invertible.
@@ -569,7 +569,7 @@
 
 
 \begin{proof}
-  Let~$V = \bigcup_{i \in I} W_i$ be a cover of~$V$ by \dash{finite}{dimensional}~\dash{$g$}{invariant} subspaces.
+  Let~$V = \bigcup_{i \in I} W_i$ be a cover of~$V$ by {\fd}~\dash{$g$}{invariant} subspaces.
   \begin{enumerate}
     \item
       The restriction~$\restrict{g}{W_i}$ is unipotent and thus invertible for every~$i \in I$, so the invertibility of~$g$ follows from \cref{invertibility via fd}.
@@ -591,7 +591,7 @@
 
 \begin{proposition}[Multiplicative {\JCD}]
   \label{local mjcd}
-  Let~$V$ be a~\dash{$k$}{vector space} and let~$g \in \GL(V)$ be locally finite.
+  Let~$V$ be a~{\kvs} and let~$g \in \GL(V)$ be locally finite.
   \begin{enumerate}
     \item
       \label{the local mjcd itself}
@@ -607,16 +607,16 @@
       An endomorphism~$h \colon V \to V$ commutes with~$g$ if and only if it already commutes with both~$g_s$ and~$g_u$.
     \item
       \label{local mjcd via cover}
-      If~$V = \bigcup_{i \in I} W_i$ is any covering by \dash{finite}{dimensional}~\dash{$g$}{invariant} subspaces then the factors~$g_s$ and~$g_u$ are uniquely determined by the property that every~$W_i$ is also~\dash{$g_s$}{invariant} and~\dash{$g_u$}{invariant} and that~$\restrict{g}{W_i} = \restrict{g_s}{W_i} \, \restrict{g_u}{W_i}$ is the multiplicative {\JCD} of~$\restrict{g}{W_i}$ for every~$i \in I$.
+      If~$V = \bigcup_{i \in I} W_i$ is any covering by {\fd}~\dash{$g$}{invariant} subspaces then the factors~$g_s$ and~$g_u$ are uniquely determined by the property that every~$W_i$ is also~\dash{$g_s$}{invariant} and~\dash{$g_u$}{invariant} and that~$\restrict{g}{W_i} = \restrict{g_s}{W_i} \, \restrict{g_u}{W_i}$ is the multiplicative {\JCD} of~$\restrict{g}{W_i}$ for every~$i \in I$.
   \end{enumerate}
 \end{proposition}
 
 
 \begin{proof}
-  Part~\ref*{the local mjcd itself}, part~\ref*{invertibility of local factors} and part~\ref*{global description of local mjcd} can be shown in same way as in the \hyperref[mjcd]{\dash{finite}{dimensional} case} by using that~$g_s$ in invertible.
+  Part~\ref*{the local mjcd itself}, part~\ref*{invertibility of local factors} and part~\ref*{global description of local mjcd} can be shown in same way as in the \hyperref[mjcd]{{\fd} case} by using that~$g_s$ in invertible.
   Part~\ref*{commutativity via local mjcd} follows from part~\ref*{global description of local mjcd}.
   
-  To show part~\ref*{local mjcd via cover} let~$V = \bigcup_{i \in I} W_i$ be a cover by \dash{finite}{dimensional}~\dash{$g$}{invariant} subspaces.
+  To show part~\ref*{local mjcd via cover} let~$V = \bigcup_{i \in I} W_i$ be a cover by {\fd}~\dash{$g$}{invariant} subspaces.
   Then it holds for every~$i \in I$ that the additive {\JCD} of~$\restrict{g}{W_i}$ is given by~$\restrict{g}{W_i} = \restrict{g_s}{W_i} + \restrict{g_n}{W_i}$.
   It follows that the unipotent part of~$\restrict{g}{W_i}$ is given by
   \[
@@ -641,7 +641,7 @@
 %     \defined  \left\{
 %                 W \subseteq V
 %               \suchthat*
-%                 \text{$W$ is a \dash{finite}{dimensional}~\dash{$g$}{invariant} subspace of~$V$}\ 
+%                 \text{$W$ is a {\fd}~\dash{$g$}{invariant} subspace of~$V$}\ 
 %               \right\}
 %   \]
 %   that~$V = \bigcup_{W \in \mc{F}} W$ because~$g$ is locally finite.
@@ -661,19 +661,19 @@
 %   It holds that~$g = g_s g_u$ and that~$g_s$ and~$g_u$ commute with each other because this holds on every subspace~$W \in \mc{F}$ and~$V$ is covered by them.
 %   This shows the existence for part~\ref*{the local mjcd itself}.
 %   
-%   To show part~\ref*{local mjcd via cover} let~$V = \bigcup_{i \in I} W_i$ be a cover by \dash{finite}{dimensional}~\dash{$g$}{invariant} subspaces.
+%   To show part~\ref*{local mjcd via cover} let~$V = \bigcup_{i \in I} W_i$ be a cover by {\fd}~\dash{$g$}{invariant} subspaces.
 %   It then follows for every~$i \in I$ that~$\restrict{g_s}{W_i} = g_{s,W_i}$ is semisimple and~$\restrict{g_u}{W_i} = g_{u,W_i}$ is unipotent.
 % \end{proof}
 
 
 \begin{definition}
-  If~$V$ is a~\dash{$k$}{vector space} and~$g \in \GL(V)$ is locally finite then the decomposition~$g = g_s g_u$ from \cref{local mjcd} is the \emph{\textup(multiplicative\textup) {\JCD} decompositon}\index{Jordan--Chevalley decomposition!for locally finite endomorphsims!multiplicative} of~$g$.
+  If~$V$ is a~{\kvs} and~$g \in \GL(V)$ is locally finite then the decomposition~$g = g_s g_u$ from \cref{local mjcd} is the \emph{\textup(multiplicative\textup) {\JCD} decompositon}\index{Jordan--Chevalley decomposition!for locally finite endomorphsims!multiplicative} of~$g$.
   The factor~$g_u$ is the \emph{unipotent part}\index{unipotent!part of!a locally finite endomorphism} of~$g$.
 \end{definition}
 
 
 % \begin{lemma}
-%   Let~$V$ be a~\dash{$k$}{vector space} an let~$g \in \GL(V)$ be locally finite.
+%   Let~$V$ be a~{\kvs} an let~$g \in \GL(V)$ be locally finite.
 %   If~$W \subseteq V$ is a~\dash{$g$}{invariant} subspace then~$W$ is also~\dash{$g_s$}{invariant} and~\dash{$g_u$}{invariant}, and the restriction~$\restrict{g}{W}$ is again invertible with
 %   \[
 %     \left( \restrict*{g}{W} \right)_s = \restrict*{g_s}{W}
@@ -699,7 +699,7 @@
 
 \begin{lemma}
   \label{properties of local mjcd}
-  Let~$V$ be a~\dash{$k$}{vector space} and let~$g \in \GL(V)$ be locally finite.
+  Let~$V$ be a~{\kvs} and let~$g \in \GL(V)$ be locally finite.
   Let~$W \subseteq V$ be a~\dash{$g$}{invariant subspace}.
   \begin{enumerate}
     \item
@@ -711,7 +711,7 @@
       \label{induced local mjcd}
       It holds for the induced endomorphisms~$\induced{g}, \induced{g_s}, \induced{g_u} \colon V \to V$ that~$\induced{g}$,~$\induced{g_s}$, and~$\induced{g_u}$ are invertible and locally finite, and the {\JCD} decompositon of~$\induced{g}$ is given by~$\induced{g} = \induced{g_s} \circ \induced{g_u}$.
     \item
-      Let~$V'$ be another~\dash{$k$}{vector space}, let~$g' \in \GL(V')$ be locally finite and let~$f \colon V \to V'$ be a~\dash{$k$}{linear} map with~$f \circ g = g' \circ f$, i.e.\ such that the diagram
+      Let~$V'$ be another~{\kvs}, let~$g' \in \GL(V')$ be locally finite and let~$f \colon V \to V'$ be a~\dash{$k$}{linear} map with~$f \circ g = g' \circ f$, i.e.\ such that the diagram
       \begin{equation}
         \label{another endomorphism of local finite kx modules}
         \begin{tikzcd}
@@ -770,7 +770,7 @@
   \leavevmode
   \begin{enumerate}[start=2]
     \item
-      The restriction~$\restrict{g}{W}$ is again locally finite and so there exists a cover~$W = \bigcup_{i \in I} W_i$ by \dash{finite}{dimensional}~\dash{$g$}{invariant} subspaces~$W_i \subseteq V$.
+      The restriction~$\restrict{g}{W}$ is again locally finite and so there exists a cover~$W = \bigcup_{i \in I} W_i$ by {\fd}~\dash{$g$}{invariant} subspaces~$W_i \subseteq V$.
       The restriction~$\restrict{g}{W_i}$ is invertible with~$(\restrict{g}{W_i})^{-1} = \restrict{g^{-1}}{W_i}$ for every~$i \in I$, which shows that very~$W_i$ is~\dash{$(g^{-1})$}{invariant}.
       It follows that~$W$ is~\dash{$(g^{-1}) $}{invariant}, and therefore that~$\restrict{g}{W}$ is invertible with~$(\restrict{g}{W})^{-1} = \restrict{g^{-1}}{W}$.
       
@@ -801,7 +801,7 @@
 
 \begin{lemma}
   \label{local mjcd for commuting endomorphisms}
-  Let~$V$ be a~\dash{$k$}{vector space} and let~$g_1, g_2 \in \GL(V)$ be locally finite and commuting with each other.
+  Let~$V$ be a~{\kvs} and let~$g_1, g_2 \in \GL(V)$ be locally finite and commuting with each other.
   Then
   \[
       ( g_1 g_2 )_s

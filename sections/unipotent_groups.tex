@@ -1,0 +1,285 @@
+\section{Unipotent Groups}
+
+
+\begin{definition}
+  A linear algebraic group~$G$ is \emph{unipotent}\index{unipotent!linear algebraic group} if~$G = G_u$.
+\end{definition}
+
+
+\begin{warning}
+  There also exists the notion of a \emph{semisimple} algebraic group~$G$, which does \emph{not} mean that~$G = G_s$.
+\end{warning}
+
+
+\begin{recall}
+  Let~$V$ be a~{\kvs}.
+  For every~\dash{$k$}{linear} subspace~$W \subseteq V$ its \emph{annihilator}\index{annihilator} or \emph{orthogonal complement}\index{orthogonal complement} is given by
+  \[
+      W^\perp
+    = \{
+        f \in V^*
+      \suchthat
+        \restrict{f}{W} = 0
+      \}
+    = \{
+        f \in V^*
+      \suchthat
+        \text{$f(w) = 0$ for every~$w \in W$}\ 
+      \} \,,
+  \]
+  and for every~\dash{$k$}{linear} subspace~$U \subseteq V^*$ let
+  \[
+      U^\perp
+    = \{
+        v \in V
+      \suchthat
+        \text{$f(v) = 0$ for every~$f \in U$}\ 
+      \}
+    = \bigcap_{f \in U} \ker(f) \,.
+  \]
+  If~$V$ is {\fd} then these constructions result in mutually inverse, \dash{order}{reversing} bijections
+  \[
+    \begin{tikzcd}[column sep = large]
+        \{ \text{\dash{$k$}{linear} suspaces~$W \subseteq V$}\  \}
+        \arrow[shift left]{r}[above]{(-)^\perp}
+      & \{ \text{\dash{$k$}{linear} suspaces~$U \subseteq V^*$} \}
+        \arrow[shift left]{l}[below]{(-)^\perp}
+    \end{tikzcd}
+  \]
+  It follows in particular for every~\dash{$k$}{linear} subspace~$U \subseteq V^*$ that~$U = V^*$ if and only if~$U^\perp = 0$.
+\end{recall}
+
+
+\begin{lemma}[Burnside]
+  \label{burnside theorem}
+  Let~$V$ be a {\fd}~{\kvs} and let~$A \subseteq \End_k(A)$ be a subalgebra such that the only~\dash{$A$}{invariant} subspaces of~$V$ are~$0$ and~$V$.
+  Then~$A = \End_k(V)$.
+\end{lemma}
+
+
+\begin{proof}
+  We first show that~$A$ contains an endomorphism of rank~$1$ and then show that~$A$ contains every endomorphism of rank~$1$.
+  It then follows that~$A = \End_k(V)$ as every endomorphism of~$V$ is a linear combination of rank~$1$ endomorphisms.
+  
+  To show that~$A$ contains an endomorphism of rank~$1$ let~$\alpha \in A$ be a nonzero endomorphism of minimal rank~$r > 1$.
+  We show that already~$r = 1$.
+  
+  Suppose that~$r \geq 2$.
+  Then there exist vectors~$v_1, v_2 \in V$ such that the images~$\alpha(v_1)$ and~$\alpha(v_2)$ are linearly independent.
+  There exists some~$\beta \in A$ with~$\beta \alpha(v_1) = v_2$ for which it then follows that~$\alpha \beta \alpha(v_1) = \alpha(v_2)$ and~$\alpha(v_1)$ are linearly independent.
+  This shows that~$\alpha$ and~$\alpha \beta \alpha$ are linearly independent.
+  It therefore holds that
+  \[
+    \alpha \beta \alpha - \lambda \alpha \neq 0
+  \]
+  for every~$\lambda \in k$.
+  We show that this linear combination has a strictly smaller rank than~$\alpha$ for some suitable~$\lambda$, which then contradicts the choice of~$\alpha$.
+  
+  It holds that~$\im(\alpha \beta \alpha - \lambda \alpha) \subseteq \im(\alpha)$ and therefore~$\rank(\alpha \beta \alpha - \lambda \alpha) \leq \rank(\alpha) = r$ for every~$\lambda \in k$.
+  To find a suitable~$\lambda$ we note that~$U \defined \im(\alpha)$ is~\dash{$\alpha \beta$}{invariant} because
+  \[
+              \alpha \beta(U)
+    =         \alpha \beta \alpha(V)
+    =         \alpha( \beta \alpha(V) )
+    \subseteq \alpha(V)
+    =         U \,.
+  \]
+  It follows from~$U$ being nonzero that~$\alpha \beta$ has an eigenvector~$u \in U$ with eigenvalue~$\lambda \in k$.
+  The eigenvector~$u$ is of the form~$u = \alpha(v)$ for some~$v \in V$ with~$v \notin \ker(\alpha)$, for which it then follows that
+  \[
+        v
+    \in \ker(\alpha \beta \alpha - \lambda \alpha) \,.
+  \]
+  The existence of~$v$ shows that~$\ker(\alpha)$ is a proper subspace of~$\ker(\alpha \beta \alpha - \lambda \alpha)$, which shows that the inequality~$\rank(\alpha \beta \alpha - \lambda \alpha) \leq \rank(\alpha)$ is strict.
+  
+  We have shown~$\alpha$ has rank~$1$, and therefore that~$A$ contains an endomorphism of rank~$1$.
+  
+  We now show that~$A$ contains every endomorphism of rank~$1$.
+  Let~$\varphi_0 \in A$ be of rank~$1$ and let~$\varphi \in \End_k(V)$ be any other endomorphism of rank~$1$.
+  We show that there exists~$\alpha, \beta \in A$ with~$\varphi = \beta \varphi_0 \alpha$;
+  we will (roughly speaking) use~$\alpha$ to adjusted the kernel of~$\varphi_0$ to the one of~$\varphi$, and then use~$\beta$ to adjust the image of~$\varphi_0$ to the one of~$\varphi$.
+  
+  It follows from~$\varphi_0$ and~$\varphi$ having rank~$1$ that there exist nonzero functionals~$f_0, f \in V^*$ and nonzero vectors~$v_0, v \in V$ with~$\varphi_0 = f_0(-) v_0$ and~$\varphi = f(-) v$.
+  
+  We start by showing that there exists some~$\alpha \in A$ with~$f = f_0 \alpha$.
+  We do so by showing that~$f A = V^*$, where~$f A = \{f \alpha \suchthat \alpha \in A\}$.
+  For this we show that~$(f A)^\perp = 0$.
+  This holds because
+  \[
+      (fA)^\perp
+    = \{
+        v \in V
+      \suchthat
+        \text{$f(\alpha(v)) = 0$ for every~$\alpha \in A$}\ 
+      \}
+    = \bigcap_{\alpha \in A} \ker(f \alpha)
+  \]
+  is an~\dash{$A$}{invariant} subspace of~$V$, which is contained in~$\ker(f_0)$ and is thus a proper~\dash{$A$}{invariant} subspace of~$V$.
+  That~$(fA)^\perp = 0$ thus follows from~$0$ and~$V$ being the only~\dash{$A$}{invariant} subspaces of~$V$.
+  
+  It follows from~$f = f_0 \alpha$ that
+  \[
+      \varphi_0 \alpha
+    = (f_0\alpha)(-) v_0
+    = f(-) v_0 \,.
+  \]
+  It holds that~$A v_0 = V$ because~$A v_0$ is a nonzero~\dash{$A$}{invariant} subspace of~$V$, so there exists some~$\beta \in A$ with~$\beta v_0 = v$.
+  It then follows that
+  \[
+      \beta \varphi_0 \alpha
+    = \beta( f(-) v_0 )
+    = f(-) \beta(v_0)
+    = f(-) v
+    = \varphi \,,
+  \]
+  which shows that~$\varphi$ is contained in~$A$.
+\end{proof}
+
+
+\begin{theorem}[Kolchin]
+  \label{kolchin fixed vector}
+  Let~$V$ be a {\fd}~{\kvs} of positive dimension and let~$G \groupleq \GL(V)$ be a subgroup which consists of unipotent elements.
+  Then there exists a fixed vector for~$G$, i.e.\ there exists some~$v \in V$ with~$gv = v$ for every~$g \in G$.
+\end{theorem}
+
+
+\begin{proof}
+  We show the \lcnamecref{kolchin fixed vector} by induction overy~$n \defined \dim(V)$.
+  For~$n = 1$ every nonzero vector~$v \in V$ does the job.
+  
+  Suppose now that~$n \geq 2$ and that the claim holds for all strictly smaller dimensions.
+  If~$V$ has a proper nonzero~\dash{$G$}{invariant} subspace~$W$ then it follows from the induction hypothesis that there exists a nonzero fixed vector~$w \in W$ for~$G$ because the restriction~$\restrict{g}{W}$ is for every~$g \in G$ again unipotent.
+  
+  In the following we therefore only consider the case that no such subspace~$W$ exists.
+  It then follows from \cref{burnside theorem} that~$G$ generates~$\End_k(V)$ as a~\dash{$k$}{algebra}.
+  The group~$G$ is closed under products and contains the identity~$\id_V$, so the subalgebra generated by~$G$ coincides with the~\dash{$k$}{linear} subspace of~$\End_k(V)$ spanned by~$G$.
+  It therefore follows that~$\End_k(V)$ is spanned by~$G$ as a~{\kvs}.
+  
+  It holds for every~$g \in G$ that~$\tr(g) = n$ because~$1$ is the only eigenvalue of~$g$.
+  It follows for all~$g, g' \in G$ that
+  \[
+      \tr((g - \id_V) g')
+    = \tr(g g' - g')
+    = \tr(g g') - \tr(g')
+    = n - n
+    = 0 \,,
+  \]
+  and therefore that
+  \[
+    \tr((g - \id_V) f) = 0
+  \]
+  for all~$f \in \End_k(V)$ because~$\End_k(V)$ is spanned by~$G$ as a~{\kvs}.
+  It follows that~$g - \id_V = 0$ because the trace form in nongenerate.% dont let footnote see this line break
+  \footnote{This means that for every~$h \in \End_k(V)$ with~$h \neq 0$ there exists some~$h' \in \End_k(V)$ with~$\tr(hh') \neq 0$.}
+  This shows that~$g = \id_V$ for every~$g \in G$ and thus~$G = 1$.
+  But this contradicts~$V$ having no nonzero proper~\dash{$G$}{invariant} subspace.
+\end{proof}
+
+
+
+\begin{definition}
+  Let~$V$ be a~{\kvs}.
+  \begin{enumerate}
+    \item
+      A \emph{flag}\index{flag} of~$V$ is a strictly increasing chain of \dash{$k$}{linear} subspaces
+      \[
+                    0
+        =           V_0
+        \subsetneq  V_1
+        \subsetneq  V_2
+        \subsetneq  \dotsb 
+        \subsetneq  V_n
+        =           V \,.
+      \]
+    \item
+      A flag~$(V_i)_{i=0}^n$ of~$V$ is \emph{complete}\index{flag!complete} if it has no proper refinement, i.e.\ if~$\dim V_i = i$ for every~$i$.
+    \item
+      If a group~$G$ acts on~$V$ then a flag~$(V_i)_{i=0}^n$ is~\emph{\dash{$G$}{invariant}}\index{flag!G-invariant@$G$-invariant} if every~$V_i$ is~\dash{$G$}{invariant}.
+  \end{enumerate}
+\end{definition}
+
+
+\begin{lemma}
+  Let~$V$ be a {\fd}~{\kvs} and let~$G \subseteq \End_k(A)$ be a set of endomorphisms. 
+  Then the following two conditions are equivalent:
+  \begin{enumerate}
+    \item 
+      There exists a basis of~$V$ with respect to which every~$g \in G$ is represented by an upper triangular matrix 
+    \item
+      There exists a~\dash{$G$}{invariant} complete flag of~$V$.
+  \end{enumerate} 
+\end{lemma}
+
+
+\begin{proof}
+  Suppose there exists a~\dash{$G$}{invariant} complete flag~$(V_i)_{i=0}^n$ of~$V$.
+  Then let~$B = (b_1, \dotsc, b_n)$ be a basis of~$V$ for which~$(b_1, \dotsc, b_i)$ is a basis of~$V_i$ for every~$i$.
+  Then with respect to the basis~$B$ every group element~$g \in G$ is represented by an upper triangular matrix.
+  Since~$1$ is the only eigenvalue of~$g$ it follows that this upper triangular matrix is already unitriangular.
+  
+  Suppose on the other hand that there exists a basis~$B = (b_1, \dotsc, b_n)$ of~$V$ with respect to which~$G$ is represented by unitriangular matrices.
+  Then~$V_i \defined \gen{b_1, \dotsc, b_i}$ is a~\dash{$G$}{invariant} subspace of~$V$ for every~$i$, which result in a~\dash{$G$}{invariant} complete flag~$(V_i)_{i=0}^n$ of~$V$.
+\end{proof}
+
+
+\begin{corollary}[Kolchin]
+  \label{kolchin triang}
+  Let~$V$ be a {\fd}~{\kvs} and let~$G \groupleq \GL(V)$ be a subgroup which consists of unipotent elements.
+  Then there exists a basis of~$V$ with respect to which~$G$ is given by unitriangular matrices.
+\end{corollary}
+
+
+\begin{proof}
+  We show the claim by induction over~$n \defined \dim(V)$.
+  If~$n = 1$ then~$G = 1$ and the claim holds.
+  
+  Let~$n \geq 2$.
+  There exists by \hyperref[kolchin fixed vector]{Kolchin’s theorem} a nonzero common fixed vector~$v \in V$ for~$G$.
+  Every~$g \in G$ then induces an endomorphism~$\induced{g} \colon V/\gen{v} \to V/\gen{v}$ which is again unipotent.
+  It follows from the induction hypothesis that there exists~$b_2, \dotsc, b_n \in V$ such that~$\class{b_1}$,~$\dotsc$,~$\class{b_n}$ is a basis of~$V/\gen{v}$ with respect to which~$\induced{g}$ is for every~$g \in G$ given by an unitriangular matrix~$A(g)$.
+  
+  It follows with~$b_1 \defined v$ that~$b_1$,~$\dotsc$,~$b_n$ is a basis for~$V$ with respect to which every~$g \in G$ is given by a matrix of the form
+  \[
+    \begin{bmatrix}
+      1 & *     \\
+      0 & A(g)
+    \end{bmatrix} \,,
+  \]
+  which is then again unitriangular.
+\end{proof}
+
+
+\begin{corollary}
+  A subgroup~$G \subseteq \GL_n(k)$ consists of unipotent matrices if and only if there exists some~$\alpha \in \GL_n(k)$ such that~$\alpha G \alpha^{-1} \groupleq \Uni_n(k)$.
+  \qed
+\end{corollary}
+
+
+\begin{corollary}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      \label{unipotent is nilpotent for endo groups}
+      If~$V$ is a {\fd}~{\kvs} then every subgroup~$G \subseteq \GL(V)$ whose elements are unipotent is nilpotent.
+    \item
+      Every unipotent linear algebraic group is nilpotent.
+  \end{enumerate}
+\end{corollary}
+
+
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      It follows from \cref{kolchin triang} that~$G$ is for~$n \defined \dim(V)$ isomorphic to a subgroup of~$\Uni_n(k)$.
+      It therefore follows from~$\Uni_n(k)$ being nilpotent that~$G$ is also nilpotent.
+    \item
+      We may assume that~$G$ is a (closed) subgroup of~$\GL(V)$ for a {\fd}~{\kvs}~$V$.
+      The group~$G$ then consists of unipotent endomorphisms and the claim follows from part~\ref*{unipotent is nilpotent for endo groups}.
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+
+
+

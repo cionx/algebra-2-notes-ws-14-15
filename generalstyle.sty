@@ -177,6 +177,8 @@ a    \pgfpathlineto{\pgfpoint{-144\pgfarrowlength}{137.25\pgfarrowlength}}
 \newcommand{\Qaffine}{Quasi\nobreakdash-affine}
 \newcommand{\qaffine}{quasi\nobreakdash-affine}
 \newcommand{\qprojective}{quasi\nobreakdash-projective}
+\newcommand{\fd}{finite\nobreakdash-dimensional}
+\newcommand{\kvs}{$k$\nobreakdash-vector space}
 \newcommand{\JCD}{Jordan\nobreakdash--Chevalley decomposition}
 
 
@@ -184,8 +186,10 @@ a    \pgfpathlineto{\pgfpoint{-144\pgfarrowlength}{137.25\pgfarrowlength}}
 \newcommand{\defined}{\coloneqq}
 \newcommand{\defines}{\eqqcolon}
 \newcommand{\groupleq}{\leq}
+\newcommand{\groupgeq}{\geq}
 \newcommand{\grouplneq}{\lneq}
 \newcommand{\ngroupleq}{\trianglelefteq}
+\newcommand{\ngroupgeq}{\trianglerighteq}
 \newcommand{\ngrouplneq}{\mathrel{\ooalign{$\lneq$\cr\raise.22ex\hbox{$\lhd$}\cr}}}
 \newcommand{\moduleleq}{\subseteq}
 \newcommand{\idealleq}{\trianglelefteq}
@@ -239,6 +243,7 @@ a    \pgfpathlineto{\pgfpoint{-144\pgfarrowlength}{137.25\pgfarrowlength}}
 \newcommand{\Gadd}{\mathbb{G}_{\text{a}}}
 \newcommand{\Gmult}{\mathbb{G}_{\text{m}}}
 \newcommand{\symm}{\operatorname{S}}
+\newcommand{\alt}{\operatorname{A}}
 
 
 % Lie algebras
@@ -256,8 +261,11 @@ a    \pgfpathlineto{\pgfpoint{-144\pgfarrowlength}{137.25\pgfarrowlength}}
 \DeclareMathOperator{\Mor}{Mor}
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\groupcenter}{Z}
 \DeclareMathOperator{\ringcenter}{Z}
 \DeclareMathOperator{\Stab}{Stab}
+\DeclareMathOperator{\Derived}{D}
+\DeclareMathOperator{\Central}{C}
 \DeclareMathOperator{\im}{im}
 \newcommand{\exterior}{\bigwedge}
 \DeclarePairedDelimiter{\gen}{\langle}{\rangle}
@@ -267,8 +275,12 @@ a    \pgfpathlineto{\pgfpoint{-144\pgfarrowlength}{137.25\pgfarrowlength}}
 % functions
 \newcommand{\id}{\operatorname{id}}
 \newcommand{\pr}{\operatorname{pr}}
+\DeclareMathOperator{\rank}{rank}
 \DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\tr}{tr}
 \DeclarePairedDelimiter{\card}{\lvert}{\rvert}
+\DeclarePairedDelimiterX{\comm}[2]{[}{]}{#1, #2}
+
 \let\det\relax % "Undefine" \det
 \DeclareMathOperator{\det}{det} % dont want \det to have limits
 

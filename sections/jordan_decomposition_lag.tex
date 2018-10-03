@@ -311,8 +311,8 @@
   \[
       f(g_s)
     = f(1 \cdot g_s)
-    = \left( f \circ r_{g_s} \right)(1)
-    = \left( r_{f(g)_s} \circ f \right)(1)
+    = ( f \circ r_{g_s} )(1)
+    = ( r_{f(g)_s} \circ f )(1)
     = f(1) \cdot f(g)_s
     = 1 \cdot f(g)_s
     = f(g)_s \,.
@@ -323,7 +323,7 @@
 
 \begin{corollary}
   \label{jcd independent of embedding}
-  Let~$V$ be a \dash{finite}{dimensional}~\dash{$k$}{vector space}.
+  Let~$V$ be a {\fd}~{\kvs}.
   \begin{enumerate}
     \item
       If~$G \colon G \inclusion \GL(V)$ is an embedding of linear algebraic groups then the {\JCD} in~$G$ coincides with the \enquote{concrete} {\JCD} (from \cref{mjcd definition}) in~$\GL(V)$.
@@ -348,9 +348,39 @@
 
 
 \begin{proof}
-  We may assume that~$G$ is a closed subgroup~$\GL(V)$ for some \dash{finite}{dimensional}~\dash{$k$}{vector space}~$V$.
+  We may assume that~$G$ is a closed subgroup~$\GL(V)$ for some {\fd}~{\kvs}~$V$.
   The claim then follows from \cref{local mjcd for commuting endomorphisms} thanks to \cref{jcd independent of embedding}.
 \end{proof}
+
+
+\begin{definition}
+  For a linear algebraic group~$G$ let
+  \[
+              G_s
+    \defined  \{ g_s \suchthat g \in G \}
+    \quad\text{and}\quad
+              G_u
+    \defined  \{ g_u \suchthat g \in G \} \,.
+  \]
+\end{definition}
+
+
+\begin{lemma}
+  For every linear algebraic group~$G$ the set~$G_u$ is closed in~$G$.
+\end{lemma}
+
+
+\begin{proof}
+  We may assume that~$G$ is a closed subgroup of some~$\GL_n(k)$.
+  It then holds that
+  \[
+      G_u
+    = \{ g \in G \suchthat (g - I)^n = 0 \} \,,
+  \]
+  which shows that~$G_u$ is cut out by a polynomial condition.
+\end{proof}
+
+
 
 
 

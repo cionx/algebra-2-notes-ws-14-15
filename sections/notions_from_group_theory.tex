@@ -1,0 +1,321 @@
+\section{Some Notions From Group Theory}
+
+
+\begin{fluff}
+  We review some notions from group theory.
+\end{fluff}
+
+
+\begin{definition}
+  The \emph{center} of a group~$G$ is
+  \[
+      \groupcenter(G)
+    = \{
+        g \in G
+      \suchthat
+        \text{$gh = hg$ for every~$h \in G$}\ 
+      \} \,.
+  \]
+\end{definition}
+
+
+\begin{lemma}
+  For every group~$G$ its center~$\groupcenter(G)$ is a normal subgroup.
+  \qed
+\end{lemma}
+
+
+\begin{example}
+  It holds that~$\groupcenter(\GL_n(k)) = k^\times \cdot I \cong k^\times = \Gmult$.
+\end{example}
+
+
+\begin{definition}
+  Let~$G$ be a group.
+  \begin{enumerate}
+    \item
+      The \emph{commutator}\index{commutator!of group elements} of two elements~$g, h \in G$ is given by
+      \[
+                  \comm{g}{h}
+        \defined  g h g^{-1} h^{-1} \,.
+      \]
+    \item
+      For any two subgroups~$H, K \subseteq G$ their \emph{commutator}\index{commutator!of subgroups}~$\comm{H}{K}$ of~$G$ is given by
+      \[
+                  \comm{H}{K}
+        \defined  \gen{ \comm{h}{k} \suchthat h \in H, k \in K } \,.
+      \]
+    \item
+      The~\emph{commutator subgroup}\index{commutator!subgroup}\index{subgroup!commutator} or \emph{derived \textup(sub\textup)group}\index{derived!subgroup@(sub)group}\index{group!derived}\index{subgroup!derived} is given by
+      \[
+                  \Derived(G)
+        \defined  \comm{G}{G} \,.
+      \]
+  \end{enumerate}
+\end{definition}
+
+
+\begin{fluff}
+  Both the center~$\groupcenter(G)$ and the commutator subgroup~$\Derived(G)$ measure how \dash{non}{commutative} the group~$G$ is:
+  It holds that
+  \[
+          \groupcenter(G) = G
+    \iff  \text{$G$ is abelian}
+    \iff  \Derived(G) = 1 \,.
+  \]
+\end{fluff}
+
+
+\begin{lemma}
+  If~$H, K \groupleq G$ are subgroups of a group~$G$ then~$\comm{H}{K}$ is again a subgroup of~$G$.
+  If both~$H$ and~$K$ are normal in~$G$ then~$\comm{H}{K}$ is again normal in~$G$.
+\end{lemma}
+
+
+\begin{proof}
+  It holds for all~$h \in H$,~$k \in K$ and every~$g \in G$ that
+  \[
+        g \comm{h}{k} g^{-1}
+    =   \comm{ g h g^{-1} }{ g k g^{-1} }
+    \in \comm{H}{K}
+  \]
+  and therefore~$g \comm{H}{K} g^{-1} \subseteq \comm{H}{K}$ because conjugation by~$g$ is a group homomorphisms.
+\end{proof}
+
+
+\begin{corollary}
+  For every group~$G$ its commutator subgroup~$\Derived(G)$ is a normal.
+  \qed
+\end{corollary}
+
+
+\begin{lemma}
+  Let~$G$ be a group.
+  \begin{enumerate}
+    \item
+      For a normal subgroup~$N \ngroupleq G$ the quotient~$G/N$ is abelian if and only if~$N$ contains the commutator subgroup~$\Derived(G)$.
+    \item
+      Every subgroup~$H$ of~$G$ which contains the commutator subgroup~$\Derived(G)$ is normal.
+  \end{enumerate}
+\end{lemma}
+
+
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      For~$g \in G$ we denote the corresponding residue class by~$\class{g} \in G/N$.
+      It then holds that
+      \begin{align*}
+              & \text{$G/N$ is abelian} \\
+        \iff{}& \text{every two elements~$g_1, g_2 \in G$ commute}  \\
+        \iff{}& \text{$\comm{\class{g_1}}{\class{g_2}} = 1$ for all~$\class{g_1}, \class{g_2} \in G/N$} \\
+        \iff{}& \text{$\class{ \comm{g_1}{g_2} } = 1$ for all~$g_1, g_2 \in G$} \\
+        \iff{}& \text{$\comm{g_1}{g_2} \in N$ for all~$g_1, g_2 \in G$} \\
+        \iff{}& \Derived(G) \subseteq N \,.
+      \end{align*}
+    \item
+      The subgroup~$H/{\Derived(G)}$ of~$G/{\Derived(G)}$ is normal because~$G/{\Derived(G)}$ is abelian.
+      This is equivalent to~$H$ being normal in~$G$.
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+
+\begin{definition}
+  The \emph{derived series}\index{derived!series} of a group~$G$ is inductively defined by $\Derived^0(G) \defined G$ and
+  \[
+              \Derived^{n+1}(G)
+    \defined  \Derived\left( \Derived^n(G) \right)
+    =         \comm{ \Derived^n(G) }{ \Derived^n(G) }
+  \]
+  for all~$n \geq 0$.
+  The group~$G$ is \emph{solvable}\index{solvable group}\index{group!solvable} if~$\Derived^n(G) = 1$ for~$n$ sufficiently large.
+\end{definition}
+
+
+\begin{lemma}
+  A group~$G$ is solvable if and only if there exists a decreasing chain of subgroups
+  \[
+                G
+    =           G_0
+    \ngroupgeq  G_1
+    \ngroupgeq  \dotsb
+    \ngroupgeq  G_n
+    =           1
+  \]
+  such that every~$G_{i+1}$ is normal in~$G_i$ with abelian quotient~$G_i/G_{i+1}$.
+\end{lemma}
+
+
+\begin{proof}
+  If~$G$ is solvable then one can choose~$G_i = \Derived^i(G)$ for every~$i$.
+  
+  If such a descreasing chain exists then it follows from~$G_i/G_{i+1}$ being abelian that~$G_{i+1}$ contains~$\Derived(G_i)$.
+  It then follows inductively that~$G_i$ contains~$\Derived^i(G)$ for every~$i$, and therefore that~$\Derived^n(G) = 1$.
+\end{proof}
+
+
+\begin{example}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      The alternating group~$A_n$ is not solvable for~$n \geq 5$.
+    \item
+      The group of upper triangular matrices~$\Triag_n(k)$ is solvable.
+%     TODO: Prove this.
+  \end{enumerate}
+\end{example}
+
+
+\begin{lemma}
+  Let~$G$ be a group.
+  \begin{enumerate}
+    \item
+      If~$G$ is solvable then every subgroup~$H$ of~$G$ is again solvable.
+    \item
+      If~$N$ is a normal subgroup of~$G$ then~$G$ is solvable if and only if both~$G$ and~$G/N$ are solvable.
+    \item
+      If~$H$ and~$K$ are normal solvable subgroups of~$G$ then~$HK$ is again solvable.
+  \end{enumerate}
+\end{lemma}
+
+
+\begin{proof}
+  \begin{enumerate}
+    \item
+      It holds inductively that~$\Derived^n(H) \groupleq \Derived(G)$ for all~$n$.
+      It therefore follows for sufficiently large~$n$ from~$\Derived^n(G) = 1$ that also~$\Derived^n(H) = 1$.
+    \item
+      Suppose that~$G$ is solvable.
+      It has already been shown that~$N$ is solvable.
+      If~$\pi \colon G \to G/N$ denotes the canonical projection then it holds that~$\Derived^n(G/N) = \Derived^n(\pi(G)) = \pi(\Derived^n(G))$ for all~$n$.
+      It therefore follows for~$n$ sufficiently large from~$\Derived^n(G) = 1$ that also~$\Derived^n(G/N) = 1$.
+      
+      Suppose on the other hand that both~$N$ and~$G/N$ are solvable.
+      It follows for~$n$ sufficiently large that
+      \[
+          \pi( \Derived^n(G) )
+        = \Derived^n( \pi(G) )
+        = \Derived^n( G/N )
+        = 1 \,,
+      \]
+      and it then holds that~$\Derived^n(G) \subseteq N$.
+      It follows from~$N$ being solvable that~$\Derived^n(G)$ is solvable, and therefore also that~$G$ is solvable.
+    \item
+      We consider the short exact sequence
+      \[
+            1
+        \to K
+        \to HK
+        \to HK/K
+        \to 1 \,.
+      \]
+      The group~$K$ is solvable by assumption, and the quotient~$HK/K \cong H/(H \cap K)$ is solvable because~$H$ is solvable.
+      It follows that~$HK$ is solvable.
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+
+\begin{definition}
+  The \emph{central series}\index{central series} of a group~$G$ is inductively defined by~$\Central^0(G) \defined G$ and~$\Central^{n+1}(G) \defined [G, \Central^i(G)]$ for all~$i \geq 0$.
+  The group~$G$ is \emph{nilpotent}\index{nilpotent!group}\index{group!nilpotent} if~$\Central^n(G) = 1$ for~$n$ sufficiently large.
+\end{definition}
+
+
+\begin{lemma}
+  If~$G$ is a group then it holds that~$\Derived^n(G) \groupleq \Central^n(G)$ for all~$n$.
+  \qed
+\end{lemma}
+
+
+\begin{corollary}
+  Every nilpotent group is solvable.
+  \qed
+\end{corollary}
+
+
+\begin{example}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      Every abelian group is nilpotent.
+    \item
+      The group of unitriangular matrices~$\Uni_n(k)$ is nilpotent.
+    \item
+      The group~$\Triag_n(k)$ of upper triangular~$(n \times n)$\nobreakdash-matrices is not nilpotent (even though it is solvable).
+  \end{enumerate}
+\end{example}
+
+
+% TODO: Prove these examples.
+
+
+\begin{lemma}
+  Let~$G$ be a group.
+  \begin{enumerate}
+    \item
+      If~$G$ is nilpotent then every subgroup~$H \groupleq G$ is again nilpotent.
+    \item
+      If~$G$ is nilpotent and~$N$ is a normal subgroup of~$G$ then~$G/N$ is again nilpotent.
+    \item
+      The group~$G$ is nilpotent if and only if both~$\groupcenter(G)$ and~$G/{\groupcenter(G)}$ are nilpotent.
+    \item
+      If~$G$ is nilpotent and nontrivial then the center~$\groupcenter(G)$ is again nontrivial.
+  \end{enumerate}
+\end{lemma}
+
+
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      It holds inductively that~$\Central^n(H) \groupleq \Central^n(G)$ for every~$n$.
+      It therefore follows for~$n$ sufficiently large from~$\Central^n(G) = 1$ that also~$\Central^n(H) = 1$.
+    \item
+      If~$\pi \colon G \to G/N$ denotes the canonical projection then it holds inductively that
+      \[
+          \pi(\Central^n(G))
+        = \Central^n(G/N)
+      \]
+      for all~$n$.
+      It therefore follows for~$n$ sufficiently large from~$\Central^n(G) = 1$ that also~$\Central^n(G/N) = 1$.
+    \item
+      It follows from~$G/{\groupcenter(G)}$ being nilpotent that $\Central^n(G) \groupleq \ker(\pi) = \groupcenter(G)$ for~$n$ sufficiently large.
+      It then follows that
+      \[
+                  \Central^{n+1}(G)
+        =         [G, \Central^n(G)]
+        \groupleq [G, \groupcenter(G)]
+        =         1 \,.
+      \]
+    \item
+      Let~$n$ be the power for which~$\Central^n(G) \neq 1$ but~$\Central^{n+1}(G) = 1$.
+      It follows from
+      \[
+          1
+        = \Central^{n+1}(G)
+        = [G, \Central^n(G)]
+      \]
+      that~$\Central^n(G) \groupleq \groupcenter(G)$, and from~$\Central^n(G) \neq 1$ therefore~$\groupcenter(G) \neq 1$.
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+
+
+% \begin{remark}
+%   A subgroup~$H$ of a group~$G$ is a \emph{characteristic subgroup}\index{characteristic subgroup}\index{subgroup!characteristic} if it holds for every automorphism~$\varphi \colon G \to G$ that~$\varphi(G) = G$.
+%   Every characteristic subgroup is normal because it is invariant under all inner automorphisms.
+%   The commutator subgroup~$\Derived(G)$ is such a characteristic subgroup of~$G$ because it holds for every group automorphism~$\varphi \colon G \to G$ that
+%   \[
+%       \varphi( \Derived(G) )
+%     = \varphi( \comm{G}{G} )
+%     = \comm{\varphi(G)}{\varphi(G)}
+%     = \comm{G}{G}
+%     = \Derived(G) \,.
+%   \]
+% \end{remark}
+
+
