@@ -1,0 +1,215 @@
+\section{Commutative Linear Algebraic Groups}
+
+
+
+
+
+\subsection{Some Linear Algebra}
+
+
+\begin{lemma}
+  Let~$g, h \colon V \to V$ be two endomorphisms of a~{\kvs}~$V$ which commute with each other.
+  Then the eigenspaces of~$g$ are~\dash{$h$}{invariant}.
+\end{lemma}
+
+
+\begin{proof}
+  If~$v \in V$ is an eigenvector of~$g$ for the eigenvalue~$\lambda \in k$ then it follows that
+  \[
+      g(h(v))
+    = h(g(v))
+    = h(\lambda v)
+    = \lambda h(v) \,.
+  \]
+  This shows that~$h(v)$ is again contained in the~\dash{$\lambda$}{eigenspace} of~$g$.
+\end{proof}
+
+
+\begin{corollary}
+  \label{existence of common eigenvector}
+  If~$V$ is a {\fd} nonzero~{\kvs} and~$\mc{G} \subseteq \End_k(V)$ is a set of pairwise commuting endomorphisms then there exists a common eigenvector vor~$\mc{G}$, i.e.\ a nonzero vector~$v \in V$ such that~$v$ is an eigenvector for every~$g \in \mc{G}$.
+\end{corollary}
+
+
+\begin{proof}
+  We may assume that~$\mc{G}$ is finite:
+  If~$v$ is a common eigenvector for~$g_1, \dotsc, g_n \in \mc{G}$ then~$v$ is a common eigenvector for all~$g \in \gen{ g_1, \dotsc, g_n }_k$.
+  We may choose~$g_1, \dotsc, g_n \in \mc{G}$ with~$\gen{g_1, \dotsc, g_n}_k = \gen{\mc{G}}_k$ because~$\End_k(V)$ is {\fd}, for which it then follows that~$v$ is a common eigenvector for all~$g \in \mc{G}$.
+  
+  We now show the claim for~$\mc{G} = \{g_1, \dotsc, g_n\}$ by induction over~$n$.
+  It holds for~$n = 1$ (because~$k$ is algebraically closed).
+  
+
+  For~$n \geq 2$ let~$\lambda$ be an eigenvalue for~$g_n$ (which exists because because~$k$ is algebraically closed).
+  The eigenspace~$V_\lambda(g_n)$ is then a subspace of~$V$ which is invariant under~$g_1, \dotsc, g_{n-1}$ and it follows from the induction hypothesis that there exists a common eigenvector~$v \in V_\lambda(g_n)$ for~$g_1, \dotsc, g_{n-1}$.
+  This is then also an eigenvector for~$g_n$.
+\end{proof}
+
+
+\begin{corollary}
+  \label{simultaneously triagbar}
+  Let~$V$ be a {\fd}~{\kvs} and let~$\mc{G} \subseteq \End_k(V)$ be a set of pairwise commuting endomorphisms.
+  Then there exists a basis~$V$ which respect to which~$\mc{G}$ is given by upper triangular matrices.
+\end{corollary}
+
+
+\begin{proof}
+  We show the claim by induction over~$n \defined \dim(V)$.
+  It holds for~$n = 0$ so let~$n \geq 1$.
+  
+  It follows from \cref{existence of common eigenvector} that there exists a common eigenvector~$v \in V$ for~$\mc{G}$.
+  Every~$g \in \mc{G}$ induces an endomorphism~$\induced{g} \colon V/\gen{v} \to V/\gen{v}$, and these endomorphism commute pairwise with eath other.
+  It follows from the induction hypothesis that there exists~$b_2, \dotsc, b_n \in V$ such that the residue classes~$\class{b_2}, \dotsc, \class{b_n}$ form a basis of~$V/\gen{v}$ with respect to which~$\induced{g}$ is represented by a upper triangular matrix~$A(g)$ for every~$g \in \mc{G}$.
+  
+  It follows with~$b_1 \defined v$ that~$b_1, \dotsc, b_n$ is a basis of~$V$ with respect to which every~$g \in G$ is given by a matrix of the form
+  \[
+    \begin{bmatrix}
+      \lambda(g)  & *     \\
+      0           & A(g)
+    \end{bmatrix}
+  \]
+  where~$\lambda(g)$ is the eigenvalue of~$v$ with respect to~$g$.
+\end{proof}
+
+
+\begin{lemma}
+  \label{simultaneous diagbar}
+  Let~$V$ be a~{\kvs}.
+  \begin{enumerate}
+    \item
+      \label{simultaneous diagbar for finitely many}
+      If~$g_1, \dotsc, g_n \colon V \to V$ are diagonalizable endomorphisms which pairwise commute with each other then they are simultaneously diagonalizable.
+    \item
+      Let~$V$ be {\fd} and let $\mc{G} \subseteq \End_k(V)$ be a set of commuting diagonalizable endomorphisms.
+      Then~$\mc{G}$ is simultaneously diagonalizable, i.e.\ there exists a basis of~$V$ with respect to which~$\mc{G}$ is represented by diagonal matrices.
+  \end{enumerate}
+\end{lemma}
+
+
+\begin{proof}
+  \leavevmode
+  \begin{enumerate}
+    \item
+      We show the claim by induction over~$n$.
+      It holds for~$n = 0$ and~$n = 1$.
+      
+      Let~$n \geq 2$.
+      It follows from the induction hypothesis that~$g_1, \dotsc, g_{n-1}$ are simultaneously diagonalizable, so we may write
+      \[
+          V
+        = \bigoplus_{\lambda_1, \dotsc, \lambda_{n-1}}
+          \left(
+            V_{\lambda_1}(g_1) \cap \dotsb \cap V_{\lambda_{n-1}}(g_{n-1})
+          \right) \,.
+      \]
+      The summand
+      \[
+                  V_{\lambda_1}(g_1) \cap \dotsb \cap V_{\lambda_{n-1}}(g_{n-1})
+        \defines  V(\lambda_1, \dotsc, \lambda_{n-1})
+      \]
+      is the simultaneous eigenspace of~$g_1, \dotsc, g_{n-1}$ with respect to the eigenvalues~$\lambda_1, \dotsc, \lambda_{n-1}$.
+      The eigenspaces~$V_{\lambda_i}(g_i)$ are~\dash{$g_n$}{invariant} because~$g_n$ commutes with~$g_1, \dotsc, g_{n-1}$.
+      The common eigenspace~$V(\lambda_1, \dotsc, \lambda_{n-1})$ is therefore also~\dash{$g_n$}{invariant} because it is the intersection of~\dash{$g_n$}{invariant} subspaces.
+      The restriction~$\restrict{g_n}{V(\lambda_1, \dotsc, \lambda_{n-1})}$ is again diagonalizable and so there exists a decomposition
+      \[
+          V(\lambda_1, \dotsc, \lambda_{n-1})
+        = \bigoplus_{\lambda_n} V(\lambda_1, \dotsc, \lambda_{n-1})_{\lambda_n}(g_n)
+      \]
+      into~\dash{$g_n$}{eigenspaces}.
+      This then results overall in a decomposition of common eigenspaces
+      \[
+          V
+        = \bigoplus_{\lambda_1, \dotsc, \lambda_{n-1}}
+          \bigoplus_{\lambda_n}
+          V(\lambda_1, \dotsc, \lambda_{n-1})_{\lambda_n}(g_n)
+        = \bigoplus_{\lambda_1, \dotsc, \lambda_n}
+          V_{\lambda_1, \dotsc, \lambda_n}(g_1, \dotsc, g_n) \,.
+      \]
+      This shows that~$g_1, \dotsc, g_n$ are again simultaneously diagonalizable.
+    \item
+      The subspace~$\gen{ \mc{G} }_k \subseteq \End_k(V)$ is finite because~$\End_k(V)$ is finite.
+      It follows that there exist~$g_1, \dotsc, g_n \in \mc{G}$ with~$\gen{ \mc{G} }_k = \gen{g_1, \dotsc, g_n}_k$.
+      The endomorphisms~$g_1, \dotsc, g_n$ are simultaneously diagonalizable by part~\ref*{simultaneous diagbar for finitely many} and so there exists a basis~$B$ of~$V$ with respect to which every~$g_i$ is represented by a diagonal matrix.
+      It then follows that every endomorphism~$g \in \gen{ \mc{G} }_k$ is given by a diagonal matrix with respect to~$B$, and this holds in particular every endomorphism~$g \in \mc{G}$.
+    \qedhere
+  \end{enumerate}
+\end{proof}
+
+
+
+
+
+\subsection{Decomposition of Commutative Linear Algebraic Groups}
+
+
+\begin{corollary}
+  \label{embedding for comm lag}
+  If~$G$ is a commutative linear algebraic group then there exists for suitable~$n$ a closed embedding~$G \inclusion \Triag_n(k)$ of linear algebraic groups for which~$G_s$ is given by diagonal matrices, and~$G_s$ is therefore given by~\enquote{$G \cap \Diag_n(k)$}.
+\end{corollary}
+
+
+% TODO: Properly define (closed) embeddings.
+
+
+\begin{proof}
+  We may assume that~$G$ is a subgroup of some~$\GL(V)$ for a {\fd}~{\kvs}~$V$.
+  
+  The set~$G_s$ is simultaneously diagonalizable by \cref{simultaneous diagbar} so there exists a decomposition~$V = \bigoplus_i V_i$ into common eigenspaces for~$G_s$.
+  Every common eigenspace~$V_i$ is~\dash{$G$}{invariant} because it is of the form~$V_i = \bigcap_{g \in G_s} V_{\lambda_{i,g}}(g)$ for scalars~$\lambda_{i,g} \in k$, with each eigenspace~$V_{\lambda_{i,g}}(g)$ being~\dash{$G$}{invariant} since~$G$ is commutative.
+  
+  It follows from \cref{simultaneously triagbar} that for every~$V_i$ there exists a basis~$B_i$ with respect to which every restriction~$\restrict{g}{V_i}$ is given by an upper triangular matrix.
+  For the semisimple elements~$g \in G_s$ the restrictions~$\restrict{g}{V_i}$ are by construction given by scalar matrices with respect to~$B_i$ (and more generally with respect to any basis of~$V_i$).
+  By combining the bases~$B_i$ we arrive at a basis~$B$ for~$V$ with respect to which every~$g \in G$ is given by an upper triangular matrix and every~$g \in G_s$ is already given by a diagonmal matrix.
+  
+  That~$G_s$ is given by~\enquote{$G \cap \Diag_n(k)$} follows from every element of~$G_s$ being given by a diagonal matrix, and every element of~\enquote{$G \cap \Diag_n(k)$} being semisimple.
+\end{proof}
+
+
+\begin{theorem}
+  Let~$G$ be a commutative linear algebraic group.
+  Then~$G_s$ and~$G_u$ are closed subgroups of~$G$ and the map
+  \[
+            G_s \times G_u
+    \to     G \,,
+    \quad   (g_s, g_u)
+    \mapsto g_s g_u
+  \]
+  is an isomorphism of linear algebraic groups.
+\end{theorem}
+
+
+\begin{proof}
+  By \cref{embedding for comm lag} we may assume that~$G$ is a closed subgroup of~$\Triag_n(k)$ for some~$n$ such that~$G_s$ is given by~$G_s = G \cap \Diag_n(k)$.
+  
+  This description of~$G_s$ shows that~$G_s$ is closed in~$G$, and~$G_u$ is closed in~$G$ by \cref{Gu is closed}.
+  
+  The maps~$(-)_s, (-)_u \colon G \to G$ are group homomorphisms by \cref{multiplicativity of abstract jcd} because~$G$ is commutative.
+  It follows that~$G_s$ and~$G_u$ are subgroups of~$G$ and that the map
+  \[
+            \psi
+    \colon  G
+    \to     G_s \times G_u \,,
+    \quad   g
+    \mapsto (g_s, g_u)
+  \]
+  is a group homomorphism.
+  That the given map~$\varphi \colon G_s \times G_u \to G$ is a group homomorphism follows from~$G$ being commutative.
+  
+  It holds that~$\varphi \psi = \id_G$ because~$g = g_s g_u$ for every~$g \in g$, and it holds that~$\psi \varphi = \id_{G_s \times G_u}$ because for every~$g \in G$ the decomposition~$g = g_s g_u$ is the {\JCD} of~$g$ because~$g_s$ and~$g_u$ commute with each other by the commutativity of~$G$.
+  
+  The map~$\varphi$ is a morphism of affine varieties because it is given by matrix multiplication, and the map~$\psi$ is a morphism of affine varieties because both~$g_s$ and~$g_u$ are polynomials in~$g$ by \cref{mjcd}.
+\end{proof}
+
+
+\begin{corollary}
+  If a commutative linear algebraic group~$G$ is connected then the subgroups~$G_s$ and~$G_u$ are again connected.
+\end{corollary}
+
+
+\begin{proof}
+  Both~$G_s$ and~$G_u$ are images of~$G$ under the continuous maps~$(-)_s$ and~$(-)_u$.
+\end{proof}
+
+
+
+
