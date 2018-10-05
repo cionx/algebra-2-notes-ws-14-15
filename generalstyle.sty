@@ -172,7 +172,6 @@ a    \pgfpathlineto{\pgfpoint{-144\pgfarrowlength}{137.25\pgfarrowlength}}
 % tyopograhy shortcuts
 \newcommand{\dash}[2]{#1\nobreakdash-#2}
 
-
 % text shortuts
 \newcommand{\Qaffine}{Quasi\nobreakdash-affine}
 \newcommand{\qaffine}{quasi\nobreakdash-affine}
@@ -185,6 +184,8 @@ a    \pgfpathlineto{\pgfpoint{-144\pgfarrowlength}{137.25\pgfarrowlength}}
 % relations
 \newcommand{\defined}{\coloneqq}
 \newcommand{\defines}{\eqqcolon}
+\newcommand{\divides}{\mathrel{\mid}}
+\newcommand{\ndivides}{\mathrel{\nmid}}
 \newcommand{\groupleq}{\leq}
 \newcommand{\groupgeq}{\geq}
 \newcommand{\grouplneq}{\lneq}
@@ -228,6 +229,7 @@ a    \pgfpathlineto{\pgfpoint{-144\pgfarrowlength}{137.25\pgfarrowlength}}
 
 % categories
 \newcommand{\catname}[1]{\mathbf{#1}}
+\newcommand{\Ab}{\catname{Ab}}
 \newcommand{\cAlg}[1]{#1\text{-}\catname{Alg}}
 
 
@@ -258,6 +260,7 @@ a    \pgfpathlineto{\pgfpoint{-144\pgfarrowlength}{137.25\pgfarrowlength}}
 \DeclareMathOperator{\coord}{A}
 \newcommand{\rational}{\mathcal{O}}
 \DeclareMathOperator{\Dopen}{D}
+\DeclareMathOperator{\Maps}{Maps}
 \DeclareMathOperator{\Mor}{Mor}
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\End}{End}
@@ -266,6 +269,7 @@ a    \pgfpathlineto{\pgfpoint{-144\pgfarrowlength}{137.25\pgfarrowlength}}
 \DeclareMathOperator{\Stab}{Stab}
 \DeclareMathOperator{\Derived}{D}
 \DeclareMathOperator{\Central}{C}
+\newcommand{\chargroup}{\operatorname{X}^{\,*}}
 \DeclareMathOperator{\im}{im}
 \newcommand{\exterior}{\bigwedge}
 \DeclarePairedDelimiter{\gen}{\langle}{\rangle}
@@ -274,6 +278,7 @@ a    \pgfpathlineto{\pgfpoint{-144\pgfarrowlength}{137.25\pgfarrowlength}}
 
 % functions
 \newcommand{\id}{\operatorname{id}}
+\DeclareMathOperator{\ringchar}{char}
 \newcommand{\pr}{\operatorname{pr}}
 \DeclareMathOperator{\rank}{rank}
 \DeclareMathOperator{\sgn}{sgn}
@@ -286,6 +291,7 @@ a    \pgfpathlineto{\pgfpoint{-144\pgfarrowlength}{137.25\pgfarrowlength}}
 
 
 % operations
+\newcommand{\mindex}[1]{\mathbf{#1}}
 \newcommand{\class}[1]{\overline{#1}}
 \newcommand{\induced}[1]{\overline{#1}}
 \newcommand{\rad}[1]{\sqrt{#1}}
