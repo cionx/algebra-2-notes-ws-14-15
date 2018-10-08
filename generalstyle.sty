@@ -15,6 +15,7 @@
 \usepackage{csquotes}   % for proper quotation marks
 \usepackage{microtype}  % for typography
 \usepackage{mathdots}
+\usepackage{bm}
 \usepackage[original]{imakeidx} % for the index, load before hyperref
 \usepackage{hyperref}   % for internal (and external) links
 \usepackage[capitalise,noabbrev]{cleveref}  % for smarter referencing, load after hyperref
@@ -291,7 +292,7 @@ a    \pgfpathlineto{\pgfpoint{-144\pgfarrowlength}{137.25\pgfarrowlength}}
 
 
 % operations
-\newcommand{\mindex}[1]{\mathbf{#1}}
+\newcommand{\mindex}[1]{#1}
 \newcommand{\class}[1]{\overline{#1}}
 \newcommand{\induced}[1]{\overline{#1}}
 \newcommand{\rad}[1]{\sqrt{#1}}
